@@ -155,64 +155,78 @@ Function Main()
     QOUT(" ultilizar . e nao , ")
     QOUT("")
 
-    Exercicio20()
-    Exercicio21()
+    // Exercicio20()
+    // Exercicio21()
     Exercicio22()
     Exercicio23()
-    Exercicio24()
-    Exercicio25()
-    Exercicio26()
-    Exercicio27()
-    Exercicio28()
-    Exercicio29()
-    Exercicio30()
-    Exercicio31()
-    Exercicio32()
-    Exercicio33()
-    Exercicio34()
-    Exercicio35()
-    Exercicio36()
-    Exercicio37()
-    Exercicio38()
-    Exercicio39()
-    Exercicio40()
-    Exercicio41()
-    Exercicio42()
-    Exercicio43()
-    Exercicio44()
-    Exercicio45()
-    Exercicio46()
-    Exercicio47()
-    Exercicio48()
-    Exercicio49()
+    // Exercicio24()
+    // Exercicio25()
+    // Exercicio26()
+    // Exercicio27()
+    // Exercicio28()
+    // Exercicio29()
+    // Exercicio30()
+    // Exercicio31()
+    // Exercicio32()
+    // Exercicio33()
+    // Exercicio34()
+    // Exercicio35()
+    // Exercicio36()
+    // Exercicio37()
+    // Exercicio38()
+    // Exercicio39()
+    // Exercicio40()
+    // Exercicio41()
+    // Exercicio42()
+    // Exercicio43()
+    // Exercicio44()
+    // Exercicio45()
+    // Exercicio46()
+    // Exercicio47()
+    // Exercicio48()
+    // Exercicio49()
 return NIL
 
 Function Exercicio20()
-    //
+    local nValor
     QOUT("***************")
     QOUT("* Exercicio20 *")
-    QOUT("")
-    QOUT("")
+    ACCEPT "Informe um numero: " TO nValor
+    nValor := val(nValor)
+    if nValor < 3 
+        QOUT("OK " + allTrim(str(nValor)) + " e menor que 3 ")
+    endif
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio21()
-    //
+    local nValor
     QOUT("***************")
     QOUT("* Exercicio21 *")
-    QOUT("")
-    QOUT("")
+    ACCEPT "Informe um numero: " TO nValor
+    nValor := val(nValor)
+    if nValor > 0
+        nValor := nValor * -1
+    endif
+    QOUT("valor negativo = " + allTrim(str(nValor)))
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio22()
-    //
+    local nValor1, nValor2, nDif
     QOUT("***************")
     QOUT("* Exercicio22 *")
-    QOUT("")
-    QOUT("")
+    ACCEPT "Informe um numero: " TO nValor1
+    ACCEPT "Informe outro numero: " TO nValor2
+    nValor1 := val(nValor1)
+    nValor2 := val(nValor2)
+    nDif := nValor1 - nValor2
+    if nDif < 0
+        nDif := nDif * -1
+    endif
+    QOUT("Diferenca do maior pelo menor = " + allTrim(str(nDif)))
     QOUT("***************")
     QOUT("")
 Return nil
