@@ -67,25 +67,30 @@ também.
 
 Function Main()
 
-    //Exercicio01()
-    //Exercicio02()
-    //Exercicio03()
-    // Exercicio04()
-    // Exercicio05()
-    // Exercicio06()
+    QOUT(" !!! aviso !!! ")
+    QOUT(" todos exercicios em que o valor apresentar casas decimais")
+    QOUT(" o mesmo deve ser representado no padrao ammericano ")
+    QOUT(" ultilizar . e nao , ")
+
+    Exercicio01()
+    Exercicio02()
+    Exercicio03()
+    Exercicio04()
+    Exercicio05()
+    Exercicio06()
     Exercicio07()
     Exercicio08()
     Exercicio09()
-    // Exercicio10()
-    // Exercicio11()
-    // Exercicio12()
-    // Exercicio13()
-    // Exercicio14()
-    // Exercicio15()
-    // Exercicio16()
-    // Exercicio17()
-    // Exercicio18()
-    // Exercicio19()
+    Exercicio10()
+    Exercicio11()
+    Exercicio12()
+    Exercicio13()
+    Exercicio14()
+    Exercicio15()
+    Exercicio16()
+    Exercicio17()
+    Exercicio18()
+    Exercicio19()
 
 Return nil
 
@@ -181,105 +186,196 @@ Function Exercicio06()
 Return nil
 
 Function Exercicio07()
-    // PRESTAÇÃO = VALOR + (VALOR x (TAXA / 100) x TEMPO).
+    local nPrestacao, nValor, nTaxa, nTempo
     QOUT("*****")
-    QOUT("* Exercicio01 *")
+    QOUT("* Exercicio07 *")
+    ACCEPT "Valor base (R$) " TO nValor
+    nValor := val(nValor)
+    ACCEPT "Taxa de juros ( x.xx %/Dia) " TO nTaxa 
+    nTaxa := val(nTaxa)
+    ACCEPT "Dias de atraso " TO nTempo 
+    nTempo := val(nTempo)
+    nPrestacao := nValor + ( nValor * ( nTaxa / 100 ) * nTempo )
+    QOUT("Prestacao em atraso")
+    QOUT("Valor atualizado ... R$ " + allTrim(str(round(nPrestacao,2))))
     QOUT("*****")
     QOUT("")
 Return nil
 
 Function Exercicio08()
-    //
+    local nValor, nDesc, nValDesc
     QOUT("*****")
-    QOUT("* Exercicio01 *")
+    QOUT("* Exercicio08 *")
+    ACCEPT "Valor original (R$) " TO nValor
+    nValor := val(nValor)
+    ACCEPT "Desconto ( x.xx %) " TO nDesc 
+    nDesc := val(nDesc)
+    nValDesc := nValor - ( nValor * ( nDesc / 100 ) )
+    QOUT("Desconto")
+    QOUT("Valor atualizado ... R$ " + allTrim(str(round(nValDesc,2))))
     QOUT("*****")
     QOUT("")
 Return nil
 
 Function Exercicio09()
-    //
+    local nA, nB , nTemp // não necessariamente serão variaveis numericas , pode ser de qualquer tipo
     QOUT("*****")
-    QOUT("* Exercicio01 *")
+    QOUT("* Exercicio09 *")
+    ACCEPT "Valor de A = " TO nA 
+    ACCEPT "Valor de B = " TO nB
+    nTemp := nA 
+    nA := nB
+    nB := nTemp
+    QOUT("Novo valor de A = " + nA)
+    QOUT("Novo valor de B = " + nB)
     QOUT("*****")
     QOUT("")
 Return nil
 
 Function Exercicio10()
-    //
+    local nEntrada , nResultado
     QOUT("*****")
-    QOUT("* Exercicio01 *")
+    QOUT("* Exercicio10 *")
+    ACCEPT "Digite um numero inteiro " TO nEntrada
+    nEntrada := val(nEntrada)
+    nResultado := nEntrada ^ 2
+    QOUT("Novo valor de " + allTrim(str(nEntrada)) + " ao quadrado e = " + allTrim(str(nResultado)))
     QOUT("*****")
     QOUT("")
 Return nil
 
 Function Exercicio11()
-    //
+    // (a – b)² ? quadrado da diferença de dois termos
+    local nA, nB, nCalc
     QOUT("*****")
-    QOUT("* Exercicio01 *")
+    QOUT("* Exercicio11 *")
+    ACCEPT "Valor de A = " TO nA 
+    ACCEPT "Valor de B = " TO nB
+    nA := val(nA)
+    nB := val(nB)
+    nCalc := ( nA - nB ) ^ 2
+    QOUT("(a - b)² = " + allTrim(str(nCalc)))
     QOUT("*****")
     QOUT("")
 Return nil
 
 Function Exercicio12()
-    //
+    local nBRL, nUSD, nCambio
     QOUT("*****")
-    QOUT("* Exercicio01 *")
+    QOUT("* Exercicio12 *")
+    ACCEPT "Valor em USD = " TO nUSD 
+    ACCEPT "Cambio USD/BRL = " TO nCambio
+    nUSD := val(nUSD)
+    nCambio := val(nCambio)
+    nBRL := nUSD * nCambio 
+    QOUT("Valor atualizado ... R$ " + allTrim(str(round(nBRL,2))))
     QOUT("*****")
     QOUT("")
 Return nil
 
 Function Exercicio13()
-    //
+    local nBRL, nUSD, nCambio
     QOUT("*****")
-    QOUT("* Exercicio01 *")
+    QOUT("* Exercicio13 *")
+    ACCEPT "Valor em BRL = " TO nBRL 
+    // manter a leitura de dollar para real para efetuar a operação inversa no calculo
+    ACCEPT "Cambio USD/BRL = " TO nCambio
+    nBRL := val(nBRL)
+    nCambio := val(nCambio)
+    nBRL := nBRL / nCambio 
+    QOUT("Valor atualizado ... US$ " + allTrim(str(round(nBRL,2))))
     QOUT("*****")
     QOUT("")
 Return nil
 
 Function Exercicio14()
-    //
+    // soma dos quadrados dos três valores
+    local nA, nB, nC, nCalc
     QOUT("*****")
-    QOUT("* Exercicio01 *")
+    QOUT("* Exercicio14 *")
+    ACCEPT "Valor de A = " TO nA 
+    ACCEPT "Valor de B = " TO nB
+    ACCEPT "Valor de C = " TO nC
+    nA := val(nA)
+    nB := val(nB)
+    nC := val(nC)
+    nCalc := nA ^ 2 + nB ^ 2 + nC ^ 2
+    QOUT("soma dos quadrados dos tres valores = " + allTrim(str(nCalc)))
     QOUT("*****")
     QOUT("")
 Return nil
 
 Function Exercicio15()
-    //
+    // quadrado da soma dos três valores
+    local nA, nB, nC, nCalc
     QOUT("*****")
-    QOUT("* Exercicio01 *")
+    QOUT("* Exercicio15 *")
+    ACCEPT "Valor de A = " TO nA 
+    ACCEPT "Valor de B = " TO nB
+    ACCEPT "Valor de C = " TO nC
+    nA := val(nA)
+    nB := val(nB)
+    nC := val(nC)
+    nCalc := (nA + nB + nC) ^ 2
+    QOUT("quadrado da soma dos tres valores = " + allTrim(str(nCalc)))
     QOUT("*****")
     QOUT("")
 Return nil
 
 Function Exercicio16()
-    //
+    // “O produto da soma pela diferença de dois termos é igual ao quadrado do primeiro termo menos o quadrado do segundo termo”
+    // (a + b)(a – b) == a*a – a*b + b*a – b*b == a² – b²
+    local nA, nB, nC, nCalc
     QOUT("*****")
-    QOUT("* Exercicio01 *")
+    QOUT("* Exercicio16 *")
+    ACCEPT "Valor de A = " TO nA 
+    ACCEPT "Valor de B = " TO nB
+    nA := val(nA)
+    nB := val(nB)
+    nCalc := nA ^ 2 - nB ^ 2 
+    QOUT("O produto da soma pela diferença de dois termos = " + allTrim(str(nCalc)))
     QOUT("*****")
     QOUT("")
 Return nil
 
 Function Exercicio17()
-    //
     QOUT("*****")
-    QOUT("* Exercicio01 *")
+    QOUT("* Exercicio17 *")
+    QOUT("")
+    QOUT("Indique os erros no pseudocodigo")
+    QOUT("o calculo da media esta errado,")
+    QOUT("por causa da prioridade dos operadores na matematica")
+    QOUT("o calculo deveria ser")
+    QOUT("MED = ( X + Y ) / 2 ")
+    QOUT("")
     QOUT("*****")
     QOUT("")
 Return nil
 
 Function Exercicio18()
-    //
     QOUT("*****")
-    QOUT("* Exercicio01 *")
+    QOUT("* Exercicio18 *")
+    QOUT("")
+    QOUT("Indique a finalidade do algoritmo")
+    QOUT("")
+    QOUT("O programa demonstra que a ordem dos fatores não altera o resultado da multiplicacao")
+    QOUT("")
     QOUT("*****")
     QOUT("")
 Return nil
 
 Function Exercicio19()
-    //
+    //apresente o módulo de um valore informado
+    // | 5 | = 5 e | -5 | = 5 (módulo de 5 igual a cinco e módulo de -5 igual a cinco também.
+    local nValor
     QOUT("*****")
-    QOUT("* Exercicio01 *")
+    QOUT("* Exercicio19 *")
+    ACCEPT "Informe um valor: " TO nValor
+    nValor := val(nValor)
+    if( nValor < 0)
+        nValor := nValor * -1
+    endif
+    QOUT("Modulo = " + allTrim(str(nValor)))
     QOUT("*****")
     QOUT("")
 Return nil
