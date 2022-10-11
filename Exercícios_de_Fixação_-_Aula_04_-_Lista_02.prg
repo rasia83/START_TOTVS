@@ -148,6 +148,13 @@ valores dispostos em ordem crescente.
 
 
 Function Main()
+
+    QOUT(" !!! aviso !!! ")
+    QOUT(" todos exercicios em que o valor apresentar casas decimais")
+    QOUT(" o mesmo deve ser representado no padrao ammericano ")
+    QOUT(" ultilizar . e nao , ")
+    QOUT("")
+
     Exercicio20()
     Exercicio21()
     Exercicio22()
@@ -182,121 +189,301 @@ return NIL
 
 Function Exercicio20()
     //
+    QOUT("***************")
+    QOUT("* Exercicio20 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio21()
     //
+    QOUT("***************")
+    QOUT("* Exercicio21 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio22()
     //
+    QOUT("***************")
+    QOUT("* Exercicio22 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio23()
     //
+    QOUT("***************")
+    QOUT("* Exercicio23 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio24()
     //
+    QOUT("***************")
+    QOUT("* Exercicio24 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio25()
     //
+    QOUT("***************")
+    QOUT("* Exercicio25 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio26()
     //
+    QOUT("***************")
+    QOUT("* Exercicio26 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio27()
     //
+    QOUT("***************")
+    QOUT("* Exercicio27 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio28()
     //
+    QOUT("***************")
+    QOUT("* Exercicio28 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio29()
     //
+    QOUT("***************")
+    QOUT("* Exercicio29 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio30()
     //
+    QOUT("***************")
+    QOUT("* Exercicio30 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio31()
     //
+    QOUT("***************")
+    QOUT("* Exercicio31 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio32()
     //
+    QOUT("***************")
+    QOUT("* Exercicio32 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio33()
     //
+    QOUT("***************")
+    QOUT("* Exercicio33 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio34()
     //
+    QOUT("***************")
+    QOUT("* Exercicio34 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio35()
     //
+    QOUT("***************")
+    QOUT("* Exercicio35 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio36()
     //
+    QOUT("***************")
+    QOUT("* Exercicio36 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio37()
     //
+    QOUT("***************")
+    QOUT("* Exercicio37 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio38()
     //
+    QOUT("***************")
+    QOUT("* Exercicio38 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio39()
     //
+    QOUT("***************")
+    QOUT("* Exercicio39 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio40()
     //
+    QOUT("***************")
+    QOUT("* Exercicio40 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio41()
     //
+    QOUT("***************")
+    QOUT("* Exercicio41 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio42()
     //
+    QOUT("***************")
+    QOUT("* Exercicio42 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio43()
     //
+    QOUT("***************")
+    QOUT("* Exercicio43 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio44()
     //
+    QOUT("***************")
+    QOUT("* Exercicio44 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio45()
     //
+    QOUT("***************")
+    QOUT("* Exercicio45 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio46()
     //
+    QOUT("***************")
+    QOUT("* Exercicio46 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio47()
     //
+    QOUT("***************")
+    QOUT("* Exercicio47 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio48()
     //
+    QOUT("***************")
+    QOUT("* Exercicio48 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
 Function Exercicio49()
     //
+    QOUT("***************")
+    QOUT("* Exercicio49 *")
+    QOUT("")
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
 Return nil
 
