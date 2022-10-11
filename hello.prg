@@ -1,4 +1,5 @@
-#include "const.ch"
+// #include "const.ch"
+#define meu_nome "Tiago Rasia"
 
 Function Main()
 local nVal1 := 0
