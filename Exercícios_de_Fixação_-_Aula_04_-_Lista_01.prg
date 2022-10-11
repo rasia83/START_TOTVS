@@ -63,3 +63,223 @@ pelo usuário. O módulo é o número sempre positivo. Exemplo | 5 | = 5 e
 | -5 | = 5 (módulo de 5 igual a cinco e módulo de -5 igual a cinco
 também.
 */
+
+
+Function Main()
+
+    //Exercicio01()
+    //Exercicio02()
+    //Exercicio03()
+    // Exercicio04()
+    // Exercicio05()
+    // Exercicio06()
+    Exercicio07()
+    Exercicio08()
+    Exercicio09()
+    // Exercicio10()
+    // Exercicio11()
+    // Exercicio12()
+    // Exercicio13()
+    // Exercicio14()
+    // Exercicio15()
+    // Exercicio16()
+    // Exercicio17()
+    // Exercicio18()
+    // Exercicio19()
+
+Return nil
+
+Function Exercicio01()
+    local n1 , n2
+    QOUT("*****")
+    QOUT("* Exercicio01 *")
+    ACCEPT "Digite o primeiro numero: " TO n1
+    ACCEPT "Digite o segundo numero: " TO n2
+    n1 := val(n1)
+    n2 := val(n2)
+    QOUT("soma.........." + allTrim(str( n1 + n2)))
+    QOUT("diferenca....." + allTrim(str( n1 - n2)))
+    QOUT("prouto........" + allTrim(str( n1 * n2)))
+    QOUT("quociente....." + allTrim(str( n1 / n2)))
+    QOUT("*****")
+    QOUT("")
+Return nil
+
+Function Exercicio02()
+    local nTempC
+    QOUT("*****")
+    QOUT("* Exercicio02 *")
+    ACCEPT "Digite a temperatura em graus Celsius: " TO nTempC
+    nTempC := val(nTempC)
+    QOUT("convertida em graus Fahrenheit: " + allTrim(str((((9 * nTempC) / 5)) + 32)))
+    QOUT("*****")
+    QOUT("")
+Return nil
+
+Function Exercicio03()  
+    local nTempF
+    QOUT("*****")
+    QOUT("* Exercicio03 *")
+    ACCEPT "Digite a temperatura em graus Fahrenheit: " TO nTempF
+    nTempF := val(nTempF)
+    QOUT("convertida em graus Celsius: " + allTrim(str((( nTempF - 32) * ( 5 / 9 ) ))))    
+    QOUT("*****")
+    QOUT("")
+Return nil
+
+Function Exercicio04()
+    local nAltura, nRaio
+    QOUT("*****")
+    QOUT("* Exercicio04 *")
+    ACCEPT "Digite a altura (cm): " TO nAltura
+    ACCEPT "Digite o raio (cm): " TO nRaio
+    nAltura := val(nAltura)
+    nRaio := val(nRaio)
+    QOUT("Volume....." + allTrim(str( round(3.14159 * ( nRaio ^ 2 ) * nAltura , 2))) + " cm3")
+    QOUT("*****")
+    QOUT("")
+Return nil
+
+Function Exercicio05()
+    local nDistancia, nTempo, nVelocidade, nLitros
+    QOUT("*****")
+    QOUT("* Exercicio05 *")
+    ACCEPT "Digite o tempo da viagem (horas): " TO nTempo
+    ACCEPT "Digite a velocidade (KM/h): " TO nVelocidade
+    nTempo := val(nTempo)
+    nVelocidade := val(nVelocidade)
+    nDistancia := nTempo * nVelocidade
+    nLitros := nDistancia / 12
+
+    QOUT("velocidade media............... " + allTrim(str(nVelocidade)) + " KM/h")
+    QOUT("tempo gasto.................... " + allTrim(str(nTempo)) + " Horas")
+    QOUT("distancia percorrida........... " + allTrim(str(nDistancia)) + " KM")
+    QOUT("quantidade de litros utilizada. " + allTrim(str(round(nLitros,1))) + " L")
+    QOUT("*****")
+    QOUT("")
+Return nil
+
+Function Exercicio06()
+    local nDistancia, nTempo, nVelocidade, nLitros, nKmL
+    QOUT("*****")
+    QOUT("* Exercicio06 *")
+    ACCEPT "Digite o tempo da viagem (horas): " TO nTempo
+    ACCEPT "Digite a velocidade (KM/h): " TO nVelocidade
+    ACCEPT "Km por litro: " TO nKmL
+    nTempo := val(nTempo)
+    nVelocidade := val(nVelocidade)
+    nKmL := val(nKmL)
+    nDistancia := nTempo * nVelocidade
+    nLitros := nDistancia / nKmL
+
+    QOUT("velocidade media............... " + allTrim(str(nVelocidade)) + " KM/h")
+    QOUT("tempo gasto.................... " + allTrim(str(nTempo)) + " Horas")
+    QOUT("distancia percorrida........... " + allTrim(str(nDistancia)) + " KM")
+    QOUT("quantidade de litros utilizada. " + allTrim(str(round(nLitros,1))) + " L")
+    QOUT("*****")
+    QOUT("")
+Return nil
+
+Function Exercicio07()
+    // PRESTAÇÃO = VALOR + (VALOR x (TAXA / 100) x TEMPO).
+    QOUT("*****")
+    QOUT("* Exercicio01 *")
+    QOUT("*****")
+    QOUT("")
+Return nil
+
+Function Exercicio08()
+    //
+    QOUT("*****")
+    QOUT("* Exercicio01 *")
+    QOUT("*****")
+    QOUT("")
+Return nil
+
+Function Exercicio09()
+    //
+    QOUT("*****")
+    QOUT("* Exercicio01 *")
+    QOUT("*****")
+    QOUT("")
+Return nil
+
+Function Exercicio10()
+    //
+    QOUT("*****")
+    QOUT("* Exercicio01 *")
+    QOUT("*****")
+    QOUT("")
+Return nil
+
+Function Exercicio11()
+    //
+    QOUT("*****")
+    QOUT("* Exercicio01 *")
+    QOUT("*****")
+    QOUT("")
+Return nil
+
+Function Exercicio12()
+    //
+    QOUT("*****")
+    QOUT("* Exercicio01 *")
+    QOUT("*****")
+    QOUT("")
+Return nil
+
+Function Exercicio13()
+    //
+    QOUT("*****")
+    QOUT("* Exercicio01 *")
+    QOUT("*****")
+    QOUT("")
+Return nil
+
+Function Exercicio14()
+    //
+    QOUT("*****")
+    QOUT("* Exercicio01 *")
+    QOUT("*****")
+    QOUT("")
+Return nil
+
+Function Exercicio15()
+    //
+    QOUT("*****")
+    QOUT("* Exercicio01 *")
+    QOUT("*****")
+    QOUT("")
+Return nil
+
+Function Exercicio16()
+    //
+    QOUT("*****")
+    QOUT("* Exercicio01 *")
+    QOUT("*****")
+    QOUT("")
+Return nil
+
+Function Exercicio17()
+    //
+    QOUT("*****")
+    QOUT("* Exercicio01 *")
+    QOUT("*****")
+    QOUT("")
+Return nil
+
+Function Exercicio18()
+    //
+    QOUT("*****")
+    QOUT("* Exercicio01 *")
+    QOUT("*****")
+    QOUT("")
+Return nil
+
+Function Exercicio19()
+    //
+    QOUT("*****")
+    QOUT("* Exercicio01 *")
+    QOUT("*****")
+    QOUT("")
+Return nil

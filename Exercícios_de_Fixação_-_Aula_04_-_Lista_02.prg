@@ -144,3 +144,159 @@ valores dispostos em ordem crescente.
 49.Efetuar a leitura de 4 valores (variáveis A, B, C e D) e apresentar os
 valores dispostos em ordem crescente.
 */
+
+
+
+Function Main()
+    Exercicio20()
+    Exercicio21()
+    Exercicio22()
+    Exercicio23()
+    Exercicio24()
+    Exercicio25()
+    Exercicio26()
+    Exercicio27()
+    Exercicio28()
+    Exercicio29()
+    Exercicio30()
+    Exercicio31()
+    Exercicio32()
+    Exercicio33()
+    Exercicio34()
+    Exercicio35()
+    Exercicio36()
+    Exercicio37()
+    Exercicio38()
+    Exercicio39()
+    Exercicio40()
+    Exercicio41()
+    Exercicio42()
+    Exercicio43()
+    Exercicio44()
+    Exercicio45()
+    Exercicio46()
+    Exercicio47()
+    Exercicio48()
+    Exercicio49()
+return NIL
+
+Function Exercicio20()
+    //
+Return nil
+
+Function Exercicio21()
+    //
+Return nil
+
+Function Exercicio22()
+    //
+Return nil
+
+Function Exercicio23()
+    //
+Return nil
+
+Function Exercicio24()
+    //
+Return nil
+
+Function Exercicio25()
+    //
+Return nil
+
+Function Exercicio26()
+    //
+Return nil
+
+Function Exercicio27()
+    //
+Return nil
+
+Function Exercicio28()
+    //
+Return nil
+
+Function Exercicio29()
+    //
+Return nil
+
+Function Exercicio30()
+    //
+Return nil
+
+Function Exercicio31()
+    //
+Return nil
+
+Function Exercicio32()
+    //
+Return nil
+
+Function Exercicio33()
+    //
+Return nil
+
+Function Exercicio34()
+    //
+Return nil
+
+Function Exercicio35()
+    //
+Return nil
+
+Function Exercicio36()
+    //
+Return nil
+
+Function Exercicio37()
+    //
+Return nil
+
+Function Exercicio38()
+    //
+Return nil
+
+Function Exercicio39()
+    //
+Return nil
+
+Function Exercicio40()
+    //
+Return nil
+
+Function Exercicio41()
+    //
+Return nil
+
+Function Exercicio42()
+    //
+Return nil
+
+Function Exercicio43()
+    //
+Return nil
+
+Function Exercicio44()
+    //
+Return nil
+
+Function Exercicio45()
+    //
+Return nil
+
+Function Exercicio46()
+    //
+Return nil
+
+Function Exercicio47()
+    //
+Return nil
+
+Function Exercicio48()
+    //
+Return nil
+
+Function Exercicio49()
+    //
+Return nil
+
