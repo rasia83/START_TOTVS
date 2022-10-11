@@ -1,5 +1,8 @@
 
 Function Main()
+REQUEST HB_LANG_PT
+hb_langSelect( "pt" )       // Default language is now Portuguese
+//? CDoW( Date() )            // --> Segunda-feira
 
     //Exercicio1()
     //Exercicio2()
