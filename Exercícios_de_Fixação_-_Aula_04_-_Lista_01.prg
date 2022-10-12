@@ -374,11 +374,13 @@ Function Exercicio19()
     QOUT("***************")
     QOUT("* Exercicio19 *")
     ACCEPT "Informe um valor: " TO nValor
+    /*
     nValor := val(nValor)
     if( nValor < 0)
         nValor := nValor * -1
     endif
-    QOUT("Modulo = " + allTrim(str(nValor)))
+    */
+    QOUT("Modulo = " + allTrim(str(abs(val(nValor)))))
     QOUT("***************")
     QOUT("")
 Return nil

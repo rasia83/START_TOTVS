@@ -157,16 +157,16 @@ Function Main()
 
     // Exercicio20()
     // Exercicio21()
-    Exercicio22()
-    Exercicio23()
+    // Exercicio22()
+    // Exercicio23()
     // Exercicio24()
     // Exercicio25()
-    // Exercicio26()
-    // Exercicio27()
-    // Exercicio28()
-    // Exercicio29()
-    // Exercicio30()
-    // Exercicio31()
+    // Exercicio26() // revisar o teste
+    // Exercicio27() // revisar o teste
+    Exercicio28()
+    Exercicio29()
+    Exercicio30()
+    Exercicio31()
     // Exercicio32()
     // Exercicio33()
     // Exercicio34()
@@ -232,74 +232,178 @@ Function Exercicio22()
 Return nil
 
 Function Exercicio23()
-    //
+    local nN1, nN2, nN3, nN4, nMed
+    local cSituacao := "reprovado"
     QOUT("***************")
     QOUT("* Exercicio23 *")
-    QOUT("")
-    QOUT("")
+    ACCEPT "Informe a primeira nota: " TO nN1
+    ACCEPT "Informe a segunda nota: " TO nN2
+    ACCEPT "Informe a terceira nota: " TO nN3
+    ACCEPT "Informe a quarta nota: " TO nN4
+    nN1 := val(nN1)
+    nN2 := val(nN2)
+    nN3 := val(nN3)
+    nN4 := val(nN4)
+    nMed := ( nN1 + nN2 + nN3 + nN4 ) / 4
+    if nMed >= 5
+        cSituacao := "aprovado"
+    endif
+    QOUT("Aluno " + cSituacao + " com media " + allTrim(str(round(nMed,2))) )
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio24()
-    //
+    local nN1, nN2, nN3, nN4, nMed, nExame
+    local cSituacao := "reprovado"
     QOUT("***************")
     QOUT("* Exercicio24 *")
-    QOUT("")
-    QOUT("")
+    ACCEPT "Informe a primeira nota: " TO nN1
+    ACCEPT "Informe a segunda nota: " TO nN2
+    ACCEPT "Informe a terceira nota: " TO nN3
+    ACCEPT "Informe a quarta nota: " TO nN4
+    nN1 := val(nN1)
+    nN2 := val(nN2)
+    nN3 := val(nN3)
+    nN4 := val(nN4)
+    nMed := ( nN1 + nN2 + nN3 + nN4 ) / 4
+    if nMed >= 7
+        cSituacao := "aprovado"
+    else
+        ACCEPT "Informe a nota do exame: " TO nExame
+        nExame := val(nExame)
+        nMed := ( nMed + nExame ) / 2
+        if nMed >= 5
+            cSituacao := "aprovado em exame"
+        endif
+    endif
+    QOUT("Aluno " + cSituacao + " com media " + allTrim(str(round(nMed,2))) )
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio25()
-    //
+    local nValor
+    local cResultado := "impar"
     QOUT("***************")
     QOUT("* Exercicio25 *")
-    QOUT("")
-    QOUT("")
+    ACCEPT "Informe um numero: " TO nValor
+    nValor := val(nValor)
+    if (nValor % 2) == 0
+        cResultado := "par"
+    endif
+    QOUT(allTrim(str(nValor)) + " e " + cResultado)
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio26()
-    //
+    local nA, nB, nX
     QOUT("***************")
     QOUT("* Exercicio26 *")
-    QOUT("")
-    QOUT("")
+    ACCEPT "Digite o valor de a: " to nA
+    ACCEPT "Digite o valor de b: " to nB
+    nX = -Val(nB) / Val(nA)
+    QOUT("o resultado da equacao e de: " + ALLtrim(STR(nX)))
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio27()
-    //
+    Local nA, nB, nC, nDelta, nX1, nX2
     QOUT("***************")
     QOUT("* Exercicio27 *")
-    QOUT("")
-    QOUT("")
+    ACCEPT "Digite o valor de a: " to nA
+    ACCEPT "Digite o valor de b: " to nB
+    ACCEPT "Digite o valor de c: " to nC
+
+    nDelta = (Val(nB) ** 2) - 4 * Val(nA)  * Val(nC) 
+    if (nDelta <0)
+        QOUT("nao possui raizes reais")
+
+    else
+        if (nDelta == 0)
+            nX1 = -Val(nB) /(2 * Val(nA))
+                QOUT("resultado: delta: " + ALLtrim(STR(nDelta)) + "n': " + ALLtrim(STR(nX1)))
+
+        else
+            nX1 = (-Val(nB) - sqrt(nDelta))/(2 * Val(nA))
+            nX2 = (-Val(nB) + sqrt(nDelta))/(2 * Val(nA))
+            QOUT("Resultado: delta" + ALLtrim(STR(nDelta)) + " n': "+ ALLtrim(STR(nX1)) + " n'': " + ALLtrim(STR(nX2)))
+
+        endif
+    endif
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio28()
-    //
+    local nN1, nN2, nN3, nN4
     QOUT("***************")
     QOUT("* Exercicio28 *")
-    QOUT("")
-    QOUT("")
+    ACCEPT "Informe o primeiro numero: " TO nN1
+    ACCEPT "Informe o segundo numero: " TO nN2
+    ACCEPT "Informe o terceiro numero: " TO nN3
+    ACCEPT "Informe o quarto numero: " TO nN4
+    nN1 := val(nN1)
+    nN2 := val(nN2)
+    nN3 := val(nN3)
+    nN4 := val(nN4)
+    if Exercicio28_teste(nN1)
+        QOUT(nN1)
+    endif
+    if Exercicio28_teste(nN2)
+        QOUT(nN2)
+    endif
+    if Exercicio28_teste(nN3)
+        QOUT(nN3)
+    endif
+    if Exercicio28_teste(nN4)
+        QOUT(nN4)
+    endif
     QOUT("***************")
     QOUT("")
 Return nil
 
+Function Exercicio28_teste(nNum)
+    if nNum % 2 == 0 .AND. nNum % 3 == 0
+        Return .T.
+    endif
+Return .F.
+
 Function Exercicio29()
-    //
+    local nN1, nN2, nN3, nN4
     QOUT("***************")
     QOUT("* Exercicio29 *")
-    QOUT("")
-    QOUT("")
+    ACCEPT "Informe o primeiro numero: " TO nN1
+    ACCEPT "Informe o segundo numero: " TO nN2
+    ACCEPT "Informe o terceiro numero: " TO nN3
+    ACCEPT "Informe o quarto numero: " TO nN4
+    nN1 := val(nN1)
+    nN2 := val(nN2)
+    nN3 := val(nN3)
+    nN4 := val(nN4)
+    if Exercicio29_teste(nN1)
+        QOUT(nN1)
+    endif
+    if Exercicio29_teste(nN2)
+        QOUT(nN2)
+    endif
+    if Exercicio29_teste(nN3)
+        QOUT(nN3)
+    endif
+    if Exercicio29_teste(nN4)
+        QOUT(nN4)
+    endif
     QOUT("***************")
     QOUT("")
 Return nil
+
+Function Exercicio29_teste(nNum)
+    if nNum % 2 == 0 .OR. nNum % 3 == 0
+        Return .T.
+    endif
+Return .F.
 
 Function Exercicio30()
     //
@@ -392,7 +496,7 @@ Function Exercicio38()
 Return nil
 
 Function Exercicio39()
-    //
+    // IsLeap()   Tests if a specific year is a leap year
     QOUT("***************")
     QOUT("* Exercicio39 *")
     QOUT("")
