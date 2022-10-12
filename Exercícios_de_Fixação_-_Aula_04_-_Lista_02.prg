@@ -163,13 +163,13 @@ Function Main()
     // Exercicio25()
     // Exercicio26() // revisar o teste
     // Exercicio27() // revisar o teste
-    Exercicio28()
-    Exercicio29()
-    Exercicio30()
-    Exercicio31()
-    // Exercicio32()
-    // Exercicio33()
-    // Exercicio34()
+    // Exercicio28()
+    // Exercicio29()
+    // Exercicio30()
+    // Exercicio31()
+    Exercicio32()
+    Exercicio33()
+    Exercicio34()
     // Exercicio35()
     // Exercicio36()
     // Exercicio37()
@@ -406,31 +406,58 @@ Function Exercicio29_teste(nNum)
 Return .F.
 
 Function Exercicio30()
-    //
+    // efetue a leitura de um valor que esteja entre a faixa de 1 a 9
+    // o programa deverá indicar uma de duas mensagens:
+    // "O valor está na faixa permitida", caso o usuário forneça o valor nesta faixa
+    // "O valor está fora da faixa permitida", caso o usuário forneça valores menores que 1 ou maiores que 9.
+    local nValor
     QOUT("***************")
     QOUT("* Exercicio30 *")
-    QOUT("")
-    QOUT("")
+    ACCEPT "Informe um numero: " TO nValor
+    nValor := val(nValor)
+    if nValor >= 1 .AND. nValor <= 9
+        QOUT("O valor esta na faixa permitida")
+    else
+        QOUT("O valor esta fora da faixa permitida")
+    endif
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio31()
-    //
+    local cNome, cGenero
     QOUT("***************")
     QOUT("* Exercicio31 *")
-    QOUT("")
-    QOUT("")
+    ACCEPT "Informe o nome: " TO cNome
+    ACCEPT "Informe o genero (M/F): " TO cGenero
+    cGenero := upper(left(cGenero, 1))
+    if cGenero == "F" // .OR. cGenero == "f"
+        QOUT("Ilma. Sra. ")
+    elseif cGenero == "M" // .OR. cGenero == "m"
+        QOUT("Ilmo. Sr")
+    endif
+    QOUT(cNome)
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio32()
-    //
+    local nHIni, nHFim, nTempo
     QOUT("***************")
     QOUT("* Exercicio32 *")
-    QOUT("")
-    QOUT("")
+    QOUT("Jogo de Poker")
+    ACCEPT "Informe a hora de inicio (24h): " TO nHIni
+    ACCEPT "Informe a hora do fim (24h): " TO nHFim
+    nHIni := val(nHIni)
+    nHFim := val(nHFim)
+    // se a hora de inicio for maior que a hora do fim, a partira durou de um dia para o outro
+    // se não a partida ocorreu apenas em um dia
+    if nHIni > nHFim 
+        nTempo := (24 - nHIni) + nHFim
+    else
+        nTempo := nHFim - nHIni
+    endif
+    QOUT("a partida durou " + ALLtrim(str(nTempo)) + " horas")
     QOUT("***************")
     QOUT("")
 Return nil
@@ -497,6 +524,7 @@ Return nil
 
 Function Exercicio39()
     // IsLeap()   Tests if a specific year is a leap year
+    // DiadoAno := DoY(dData)
     QOUT("***************")
     QOUT("* Exercicio39 *")
     QOUT("")
