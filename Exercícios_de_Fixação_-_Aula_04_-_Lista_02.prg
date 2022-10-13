@@ -161,19 +161,19 @@ Function Main()
     // Exercicio23()
     // Exercicio24()
     // Exercicio25()
-    // Exercicio26() // revisar o teste
+    // Exercicio26()
     // Exercicio27() // revisar o teste
     // Exercicio28()
     // Exercicio29()
     // Exercicio30()
     // Exercicio31()
-    Exercicio32()
-    Exercicio33()
-    Exercicio34()
+    // Exercicio32()
+    // Exercicio33()
+    // Exercicio34()
     // Exercicio35()
     // Exercicio36()
     // Exercicio37()
-    // Exercicio38()
+    Exercicio38()
     // Exercicio39()
     // Exercicio40()
     // Exercicio41()
@@ -303,7 +303,7 @@ Function Exercicio26()
     QOUT("* Exercicio26 *")
     ACCEPT "Digite o valor de a: " to nA
     ACCEPT "Digite o valor de b: " to nB
-    nX = -Val(nB) / Val(nA)
+    nX = -Val(nB) / Val(nA) 
     QOUT("o resultado da equacao e de: " + ALLtrim(STR(nX)))
     QOUT("***************")
     QOUT("")
@@ -329,7 +329,7 @@ Function Exercicio27()
         else
             nX1 = (-Val(nB) - sqrt(nDelta))/(2 * Val(nA))
             nX2 = (-Val(nB) + sqrt(nDelta))/(2 * Val(nA))
-            QOUT("Resultado: delta" + ALLtrim(STR(nDelta)) + " n': "+ ALLtrim(STR(nX1)) + " n'': " + ALLtrim(STR(nX2)))
+            QOUT("Resultado: delta " + ALLtrim(STR(nDelta)) + " n': "+ ALLtrim(STR(nX1)) + " n'': " + ALLtrim(STR(nX2)))
 
         endif
     endif
@@ -338,72 +338,42 @@ Function Exercicio27()
 Return nil
 
 Function Exercicio28()
-    local nN1, nN2, nN3, nN4
+    local nNum, nContador := 0
     QOUT("***************")
     QOUT("* Exercicio28 *")
-    ACCEPT "Informe o primeiro numero: " TO nN1
-    ACCEPT "Informe o segundo numero: " TO nN2
-    ACCEPT "Informe o terceiro numero: " TO nN3
-    ACCEPT "Informe o quarto numero: " TO nN4
-    nN1 := val(nN1)
-    nN2 := val(nN2)
-    nN3 := val(nN3)
-    nN4 := val(nN4)
-    if Exercicio28_teste(nN1)
-        QOUT(nN1)
-    endif
-    if Exercicio28_teste(nN2)
-        QOUT(nN2)
-    endif
-    if Exercicio28_teste(nN3)
-        QOUT(nN3)
-    endif
-    if Exercicio28_teste(nN4)
-        QOUT(nN4)
-    endif
+    DO WHILE nContador < 4
+        ACCEPT "Informe o numero: " TO nNum
+        nNum := val(nNum)
+        IF nNum % 2 == 0 .AND. nNum % 3 == 0
+            QOUT(ALLtrim(STR(nNum)) + " e divisivel por 2 e 3")
+        ELSE
+            QOUT(ALLtrim(STR(nNum)) + " nao e divisivel por 2 e 3")
+        ENDIF
+        nContador++
+    ENDDO
     QOUT("***************")
     QOUT("")
 Return nil
 
-Function Exercicio28_teste(nNum)
-    if nNum % 2 == 0 .AND. nNum % 3 == 0
-        Return .T.
-    endif
-Return .F.
 
 Function Exercicio29()
-    local nN1, nN2, nN3, nN4
+    local nNum, nContador := 0
     QOUT("***************")
     QOUT("* Exercicio29 *")
-    ACCEPT "Informe o primeiro numero: " TO nN1
-    ACCEPT "Informe o segundo numero: " TO nN2
-    ACCEPT "Informe o terceiro numero: " TO nN3
-    ACCEPT "Informe o quarto numero: " TO nN4
-    nN1 := val(nN1)
-    nN2 := val(nN2)
-    nN3 := val(nN3)
-    nN4 := val(nN4)
-    if Exercicio29_teste(nN1)
-        QOUT(nN1)
-    endif
-    if Exercicio29_teste(nN2)
-        QOUT(nN2)
-    endif
-    if Exercicio29_teste(nN3)
-        QOUT(nN3)
-    endif
-    if Exercicio29_teste(nN4)
-        QOUT(nN4)
-    endif
+    DO WHILE nContador < 4
+        ACCEPT "Informe o numero: " TO nNum
+        nNum := val(nNum)
+        IF nNum % 2 == 0 .OR. nNum % 3 == 0
+            QOUT(ALLtrim(STR(nNum)) + " e divisivel por 2 ou 3")
+        ELSE
+            QOUT(ALLtrim(STR(nNum)) + " nao e divisivel por 2 ou 3")
+        ENDIF
+        nContador++
+    ENDDO
     QOUT("***************")
     QOUT("")
 Return nil
 
-Function Exercicio29_teste(nNum)
-    if nNum % 2 == 0 .OR. nNum % 3 == 0
-        Return .T.
-    endif
-Return .F.
 
 Function Exercicio30()
     // efetue a leitura de um valor que esteja entre a faixa de 1 a 9
@@ -463,29 +433,66 @@ Function Exercicio32()
 Return nil
 
 Function Exercicio33()
-    //
+    /*
+A jornada de trabalho semanal de um funcionário é de 40 horas
+O funcionário que trabalhar mais de 40 horas receberá hora extra, 
+cujo cálculo é o valor da hora regular com um acréscimo de 50%.
+leia o número de horas trabalhadas em um mês
+salário por hora
+escreva o salário total do funcionário
+e deverá ser acrescido das horas extras, caso tenham sido trabalhadas
+(considere que o mês possua 4 semanas exatas)
+    */
+    local nHorasMes, nSalarioHora, nSalarioMes
     QOUT("***************")
     QOUT("* Exercicio33 *")
-    QOUT("")
-    QOUT("")
+    ACCEPT "Horas no mes: " TO nHorasMes
+    ACCEPT "Salario por hora: " TO nSalarioHora
+    nHorasMes := val(nHorasMes)
+    nSalarioHora := val(nSalarioHora)
+    if nHorasMes > 160 // descobrir se tem horas extras para calcular
+        nSalarioMes := (160 * nSalarioHora) +  ((nHorasMes - 160) * (nSalarioHora * 1.5 ))
+    else // calculo sem hora extra
+        nSalarioMes := nHorasMes * nSalarioHora
+    endif
+    QOUT("salario do mes = R$ " + ALLtrim(str(round(nSalarioMes,2))))
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio34()
-    //
+    // Ler um valor e escrever se é positivo, negativo ou zero.
+    local nValor
     QOUT("***************")
     QOUT("* Exercicio34 *")
-    QOUT("")
-    QOUT("")
+    ACCEPT "Informe um numero: " TO nValor
+    nValor := val(nValor)
+    if nValor > 0 
+        QOUT("o numero " + ALLtrim(str(nValor)) + " e positivo")
+    elseif nValor < 0 
+        QOUT("o numero " + ALLtrim(str(nValor)) + " e negativo")
+    else 
+        QOUT("o numero " + ALLtrim(str(nValor)) + " e zero")
+    endif
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio35()
-    //
+    /**
+ler um nome de usuário (user name) e uma senha
+Caso correspondam aos dados armazenados internamente no programa através do uso de constantes (“chumbado”), 
+deve ser apresentada a mensagem “Acesso permitido”
+Caso o usuário/senha não coincidam, exibir a mensagem “Usuário ou senha inválido”. 
+a verificação da senha só deverá ocorrer caso o usuário coincida, 
+porém o usuário não deve saber especificamente 
+se foi o nome de usuário ou a senha que não coincidiu.
+*/
+    local cUserName, cSenha
     QOUT("***************")
     QOUT("* Exercicio35 *")
+    ACCEPT "Usuario: " TO cUserName
+    ACCEPT "Senha: " TO cSenha
     QOUT("")
     QOUT("")
     QOUT("***************")
@@ -493,11 +500,16 @@ Function Exercicio35()
 Return nil
 
 Function Exercicio36()
-    //
+    local cCaracter
     QOUT("***************")
     QOUT("* Exercicio36 *")
-    QOUT("")
-    QOUT("")
+    ACCEPT "Digite um caracter: " TO cCaracter
+    if IsAlpha(cCaracter)
+        cCaracter := upper(left(cCaracter, 1))
+        if cCaracter == "A" .OR. cCaracter == "E" .OR. cCaracter == "I" .OR. cCaracter == "O" .OR. cCaracter == "U" 
+            QOUT(cCaracter + " e uma vogal")
+        endif
+    endif
     QOUT("***************")
     QOUT("")
 Return nil
@@ -513,11 +525,22 @@ Function Exercicio37()
 Return nil
 
 Function Exercicio38()
-    //
+    local cCaracter
     QOUT("***************")
     QOUT("* Exercicio38 *")
-    QOUT("")
-    QOUT("")
+    ACCEPT "Digite um caracter: " TO cCaracter
+    if IsAlpha(cCaracter)
+        cCaracter := upper(left(cCaracter, 1))
+        if cCaracter == "A" .OR. cCaracter == "E" .OR. cCaracter == "I" .OR. cCaracter == "O" .OR. cCaracter == "U" 
+            QOUT(cCaracter + " e uma vogal")
+        else
+            QOUT(cCaracter + " e uma consoante")
+        endif
+    elseif IsDigit(cCaracter)
+        QOUT(cCaracter + " e um numero")
+    else
+        QOUT(cCaracter + " e um caracter especial")
+    endif
     QOUT("***************")
     QOUT("")
 Return nil
@@ -544,7 +567,7 @@ Function Exercicio40()
 Return nil
 
 Function Exercicio41()
-    //
+    // Efetuara leitura de três valores (variáveis A, B e C) e apresentar o maior deles.
     QOUT("***************")
     QOUT("* Exercicio41 *")
     QOUT("")
@@ -554,7 +577,7 @@ Function Exercicio41()
 Return nil
 
 Function Exercicio42()
-    //
+    // Efetuar a leitura de 3 valores inteiros e exibir na tela o menor e o maior deles.
     QOUT("***************")
     QOUT("* Exercicio42 *")
     QOUT("")
@@ -564,7 +587,7 @@ Function Exercicio42()
 Return nil
 
 Function Exercicio43()
-    //
+    // Efetuar a leitura de 4 valores inteiros e exibir na tela o menor e o maior deles.
     QOUT("***************")
     QOUT("* Exercicio43 *")
     QOUT("")
@@ -574,7 +597,7 @@ Function Exercicio43()
 Return nil
 
 Function Exercicio44()
-    //
+    // Efetuar a leitura de 5 valores inteiros e exibir na tela o menor e o maior deles
     QOUT("***************")
     QOUT("* Exercicio44 *")
     QOUT("")
@@ -614,7 +637,8 @@ Function Exercicio47()
 Return nil
 
 Function Exercicio48()
-    //
+    // Efetuar a leitura de três valores (variáveis A, B e C) e apresentar os valores dispostos em ordem crescente.
+
     QOUT("***************")
     QOUT("* Exercicio48 *")
     QOUT("")
@@ -624,7 +648,7 @@ Function Exercicio48()
 Return nil
 
 Function Exercicio49()
-    //
+    // Efetuar a leitura de 4 valores (variáveis A, B, C e D) e apresentar os valores dispostos em ordem crescente.
     QOUT("***************")
     QOUT("* Exercicio49 *")
     QOUT("")
