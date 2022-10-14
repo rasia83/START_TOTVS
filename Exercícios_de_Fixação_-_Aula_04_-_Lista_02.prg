@@ -146,7 +146,6 @@ valores dispostos em ordem crescente.
 */
 
 
-
 Function Main()
 
     QOUT(" !!! aviso !!! ")
@@ -162,7 +161,7 @@ Function Main()
     // Exercicio24()
     // Exercicio25()
     // Exercicio26()
-    // Exercicio27() // revisar o teste
+    // Exercicio27()
     // Exercicio28()
     // Exercicio29()
     // Exercicio30()
@@ -173,15 +172,15 @@ Function Main()
     // Exercicio35()
     // Exercicio36()
     // Exercicio37()
-    Exercicio38()
+    // Exercicio38()
     // Exercicio39()
     // Exercicio40()
     // Exercicio41()
     // Exercicio42()
     // Exercicio43()
     // Exercicio44()
-    // Exercicio45()
-    // Exercicio46()
+    Exercicio45()
+    Exercicio46()
     // Exercicio47()
     // Exercicio48()
     // Exercicio49()
@@ -489,12 +488,19 @@ porém o usuário não deve saber especificamente
 se foi o nome de usuário ou a senha que não coincidiu.
 */
     local cUserName, cSenha
+    #DEFINE cSysUserName  "adm"
+    #DEFINE cSysSenha  "123"
     QOUT("***************")
     QOUT("* Exercicio35 *")
     ACCEPT "Usuario: " TO cUserName
     ACCEPT "Senha: " TO cSenha
-    QOUT("")
-    QOUT("")
+    // sem ocultar o password , sem converter para um hash
+    // se alguem pergunter eu nego que fiz esse codigo
+    if cUserName == cSysUserName .AND. cSenha == cSysSenha
+        QOUT("Acesso permitido")
+    else
+        QOUT("Usuario ou senha invalido")
+    endif
     QOUT("***************")
     QOUT("")
 Return nil
@@ -515,11 +521,20 @@ Function Exercicio36()
 Return nil
 
 Function Exercicio37()
-    //
+    local nMes
     QOUT("***************")
     QOUT("* Exercicio37 *")
-    QOUT("")
-    QOUT("")
+    ACCEPT "Informe o mes (numero): " TO nMes
+    nMes := val(nMes)
+    if nMes == 1 .OR. nMes == 3 .OR. nMes == 5 .OR. nMes == 7 .OR. nMes == 8 .OR. nMes == 10 .OR. nMes == 12 
+        QOUT("este mes possui 31 dias")
+    elseif nMes == 4 .OR. nMes == 6 .OR. nMes == 9 .OR. nMes == 11
+        QOUT("este mes possui 30 dias")
+    elseif nMes == 2
+        QOUT("este mes possui 28 dias (29 em ano bissexto)")
+    else
+        QOUT("mes invalido")
+    endif
     QOUT("***************")
     QOUT("")
 Return nil
@@ -548,60 +563,126 @@ Return nil
 Function Exercicio39()
     // IsLeap()   Tests if a specific year is a leap year
     // DiadoAno := DoY(dData)
+    local dData 
     QOUT("***************")
     QOUT("* Exercicio39 *")
+    ACCEPT "Informar uma data: (aaaa/mm/dd) " TO dData
     QOUT("")
-    QOUT("")
+    dData := CtoD(dData)
+    QOUT("Este e o " + ALLtrim(str(DoY(dData))) + "º dia do ano indicado")
+    QOUT("na ", ALLtrim(str(hb_Week(dData))), "ª semana do ano indicado")
+    if IsLeap(Year( dData ))
+        QOUT(StrZero( Year( dData ), 4 ) + " e um ano bixesto")
+    else
+        QOUT(StrZero( Year( dData ), 4 ) + " NAO e um ano bixesto")
+    endif
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio40()
-    //
+    Local nA, nB, nC
     QOUT("***************")
     QOUT("* Exercicio40 *")
-    QOUT("")
-    QOUT("")
+    QOUT("***************")
+    QOUT("digite os lados de um triangulo")
+    ACCEPT "Digite o valor de a: " to nA
+    ACCEPT "Digite o valor de b: " to nB
+    ACCEPT "Digite o valor de c: " to nC
+    nA := val(nA)
+    nB := val(nB)
+    nC := val(nC)
+
+    if nA >= nB + nC .OR. nB >= nA + nC .OR. nC >= nA + nB
+        QOUT("os valores informados NAO formam um triangulo")
+    else
+        // deverá ser indicado qual tipo de triângulo foi formado: isósceles, escaleno ou equilátero. 
+        if nA == nB .AND. nA == nC // equilátero possui os três lados com as mesmas medidas
+            QOUT("triangulo equilatero")
+            QOUT("possui os tres lados com as mesmas medidas")
+        else
+            if nA == nB .OR. nA == nC .OR. nB == nC // isósceles dois lados congruentes, ou seja, com a mesma medida
+                QOUT("triangulo isoceles")
+                QOUT("dois lados congruentes, ou seja, com a mesma medida")
+            else // escaleno as medidas dos lados são todas diferentes
+                QOUT("triangulo escaleno")
+                QOUT("as medidas dos lados sao todas diferentes")
+            endif
+        endif
+    endif
+
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio41()
     // Efetuara leitura de três valores (variáveis A, B e C) e apresentar o maior deles.
+    Local nA, nB, nC, nMax
     QOUT("***************")
     QOUT("* Exercicio41 *")
-    QOUT("")
-    QOUT("")
+    ACCEPT "Digite o valor de a: " to nA
+    ACCEPT "Digite o valor de b: " to nB
+    ACCEPT "Digite o valor de c: " to nC
+    nMax := Max(val(nA) , val(nB))
+    nMax := Max(nMax , val(nC))
+    QOUT("maior = " + str(nMax))
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio42()
     // Efetuar a leitura de 3 valores inteiros e exibir na tela o menor e o maior deles.
+    local aValores := {}
+    Local cEntrada := ""
+    Local nI       := 0
+    local nTamanho := 3
     QOUT("***************")
     QOUT("* Exercicio42 *")
-    QOUT("")
-    QOUT("")
+    for nI := 1 to nTamanho
+        ACCEPT "Digite um numero: " to cEntrada   
+        aAdd(aValores, Val(cEntrada))
+    next nI
+    aValores := aSort(aValores)
+    QOUT("menor = " + str(aValores[1]))
+    QOUT("maior = " + str(aValores[len(aValores)]))
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio43()
     // Efetuar a leitura de 4 valores inteiros e exibir na tela o menor e o maior deles.
+    local aValores := {}
+    Local cEntrada := ""
+    Local nI       := 0
+    local nTamanho := 4
     QOUT("***************")
     QOUT("* Exercicio43 *")
-    QOUT("")
-    QOUT("")
+    for nI := 1 to nTamanho
+        ACCEPT "Digite um numero: " to cEntrada   
+        aAdd(aValores, Val(cEntrada))
+    next nI
+    aValores := aSort(aValores)
+    QOUT("menor = " + str(aValores[1]))
+    QOUT("maior = " + str(aValores[len(aValores)]))
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio44()
     // Efetuar a leitura de 5 valores inteiros e exibir na tela o menor e o maior deles
+    local aValores := {}
+    Local cEntrada := ""
+    Local nI       := 0
+    local nTamanho := 5
     QOUT("***************")
     QOUT("* Exercicio44 *")
-    QOUT("")
-    QOUT("")
+    for nI := 1 to nTamanho
+        ACCEPT "Digite um numero: " to cEntrada   
+        aAdd(aValores, Val(cEntrada))
+    next nI
+    aValores := aSort(aValores)
+    QOUT("menor = " + str(aValores[1]))
+    QOUT("maior = " + str(aValores[len(aValores)]))
     QOUT("***************")
     QOUT("")
 Return nil
@@ -620,17 +701,39 @@ Function Exercicio46()
     //
     QOUT("***************")
     QOUT("* Exercicio46 *")
+    QOUT("Atraves de teste de mesa, analise e indique a finalidade do algoritmo")
+    QOUT("Leia(R1, R2)")
+    QOUT("Se R1 >= R2 entao")
+    QOUT("  Aux R1")
+    QOUT("  R1 R2")
+    QOUT("  R2 Aux")
+    QOUT("Fimse")
+    QOUT("Escreva(R1, R2)")
     QOUT("")
+    QOUT("Este algotitimo ordena de forma crescente e mostra os numeros que foram recebidos na entrada")
     QOUT("")
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio47()
-    //
+    local nRandon, nValor
     QOUT("***************")
     QOUT("* Exercicio47 *")
-    QOUT("")
+    nRandon := HB_RandomInt(0,100)
+    //QOUT(STR(nRandon))
+    while .T.
+        ACCEPT "Informe um valor: " TO nValor
+        if VAL(nValor) == nRandon
+            QOUT("")
+            QOUT("ACERTOU MISERAVI")
+            exit
+        elseif VAL(nValor) > nRandon
+            QOUT("Tente um numero menor")
+        else
+            QOUT("Tente um numero maior")
+        endif
+    enddo
     QOUT("")
     QOUT("***************")
     QOUT("")
@@ -638,10 +741,20 @@ Return nil
 
 Function Exercicio48()
     // Efetuar a leitura de três valores (variáveis A, B e C) e apresentar os valores dispostos em ordem crescente.
-
+    local aValores := {}
+    Local cEntrada := ""
+    Local nI       := 0
+    local nTamanho := 3
     QOUT("***************")
     QOUT("* Exercicio48 *")
-    QOUT("")
+    for nI := 1 to nTamanho
+        ACCEPT "Digite um numero: " to cEntrada   
+        aAdd(aValores, Val(cEntrada))
+    next nI
+    aValores := aSort(aValores)    
+    for nI := 1 to len(aValores)
+        QOUT("Posicao [" + Alltrim(Str(nI)) + "]: " + Alltrim(Str(aValores[nI])))   
+    next nI
     QOUT("")
     QOUT("***************")
     QOUT("")
@@ -649,9 +762,20 @@ Return nil
 
 Function Exercicio49()
     // Efetuar a leitura de 4 valores (variáveis A, B, C e D) e apresentar os valores dispostos em ordem crescente.
+    local aValores := {}
+    Local cEntrada := ""
+    Local nI       := 0
+    local nTamanho := 4
     QOUT("***************")
     QOUT("* Exercicio49 *")
-    QOUT("")
+    for nI := 1 to nTamanho
+        ACCEPT "Digite um numero: " to cEntrada   
+        aAdd(aValores, Val(cEntrada))
+    next nI
+    aValores := aSort(aValores)    
+    for nI := 1 to len(aValores)
+        QOUT("Posicao [" + Alltrim(Str(nI)) + "]: " + Alltrim(Str(aValores[nI])))   
+    next nI
     QOUT("")
     QOUT("***************")
     QOUT("")
