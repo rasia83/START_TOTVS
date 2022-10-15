@@ -769,7 +769,7 @@ Function Exercicio49()
     QOUT("***************")
     QOUT("* Exercicio49 *")
     for nI := 1 to nTamanho
-        ACCEPT "Digite um numero: " to cEntrada   
+        ACCEPT ("Digite o " + Alltrim(str(nI)) + "º numero: ") to cEntrada   
         aAdd(aValores, Val(cEntrada))
     next nI
     aValores := aSort(aValores)    
