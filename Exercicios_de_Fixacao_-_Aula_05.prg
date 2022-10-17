@@ -8,14 +8,14 @@ Function Main()
     QOUT(" ultilizar . e nao , ")
     QOUT("")
 
-    Exercicio50()
-    Exercicio51()
-    Exercicio52()
+    // Exercicio50()
+    // Exercicio51()
+    // Exercicio52()
     // Exercicio53()
     // Exercicio54()
     // Exercicio55()
     // Exercicio56()
-    // Exercicio57()
+    Exercicio57()
     // Exercicio58()
     // Exercicio59()
     // Exercicio60()
@@ -191,7 +191,7 @@ Function Exercicio52()
 Return nil
 
 Function Exercicio53()
-    //
+    // 
     QOUT("***************")
     QOUT("* Exercicio53 *")
     QOUT("")
@@ -231,11 +231,41 @@ Function Exercicio56()
 Return nil
 
 Function Exercicio57()
-    //
+    // Elaborar um programa que gere, automaticamente, valores aleatórios, entre 0 e 99 
+    // e exiba na tela apenas àqueles que são múltiplos de um número informado pelo usuário. 
+    // A quantidade de valores a serem gerados, também deve ser informado pelo usuário. 
+    // Fazer duas versões da solução utilizando diferentes estruturas de repetição, a sua escolha.
+    Local nQtd , nEntrada , nRandon
+    Local nI       := 0
+    Local aNumeros := {}
     QOUT("***************")
     QOUT("* Exercicio57 *")
+    ACCEPT "Digite um numero para a quantidade: " to nQtd 
+    nQtd := val(nQtd)
+    ACCEPT "Digite um numero referencia : " to nEntrada 
+    nEntrada := val(nEntrada)
+    while nI < nQtd 
+        nRandon := HB_RandomInt(00,99)
+        if nRandon % nEntrada == 0
+            aAdd(aNumeros, Alltrim(str(nRandon)))  
+        endif
+        nI++
+    enddo 
+    QOUT("while nI < nQtd ")
+    QOUT(hb_valtoexp(aNumeros))
+    QOUT(Alltrim(STR(len(aNumeros))) + " de " + str(nQtd) + " sao multiplos de " + STR(nEntrada))
+
     QOUT("")
-    QOUT("")
+    aNumeros := {}
+    for nI := 1 to nQtd 
+        nRandon := HB_RandomInt(00,99)
+        if nRandon % nEntrada == 0
+            aAdd(aNumeros, Alltrim(str(nRandon)))  
+        endif
+    next nI  
+    QOUT("for nI := 1 to nQtd ")
+    QOUT(hb_valtoexp(aNumeros))
+    QOUT(Alltrim(STR(len(aNumeros))) + " de " + str(nQtd) + " sao multiplos de " + STR(nEntrada))
     QOUT("***************")
     QOUT("")
 Return nil
