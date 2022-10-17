@@ -11,37 +11,37 @@ Function Main()
     Exercicio50()
     Exercicio51()
     Exercicio52()
-    Exercicio53()
-    Exercicio54()
-    Exercicio55()
-    Exercicio56()
-    Exercicio57()
-    Exercicio58()
-    Exercicio59()
-    Exercicio60()
-    Exercicio61()
-    Exercicio62()
-    Exercicio63()
-    Exercicio64()
-    Exercicio65()
-    Exercicio66()
-    Exercicio67()
-    Exercicio68()
-    Exercicio69()
-    Exercicio70()
-    Exercicio71()
-    Exercicio72()
-    Exercicio73()
-    Exercicio74()
-    Exercicio75()
-    Exercicio76()
-    Exercicio77()
-    Exercicio78()
-    Exercicio79()
-    Exercicio80()
-    Exercicio81()
-    Exercicio82()
-    Exercicio83()
+    // Exercicio53()
+    // Exercicio54()
+    // Exercicio55()
+    // Exercicio56()
+    // Exercicio57()
+    // Exercicio58()
+    // Exercicio59()
+    // Exercicio60()
+    // Exercicio61()
+    // Exercicio62()
+    // Exercicio63()
+    // Exercicio64()
+    // Exercicio65()
+    // Exercicio66()
+    // Exercicio67()
+    // Exercicio68()
+    // Exercicio69()
+    // Exercicio70()
+    // Exercicio71()
+    // Exercicio72()
+    // Exercicio73()
+    // Exercicio74()
+    // Exercicio75()
+    // Exercicio76()
+    // Exercicio77()
+    // Exercicio78()
+    // Exercicio79()
+    // Exercicio80()
+    // Exercicio81()
+    // Exercicio82()
+    // Exercicio83()
     
 return NIL
 
@@ -49,9 +49,53 @@ return NIL
 
 
 Function Exercicio50()
-    //
+    // exiba na tela todos os números naturais entre 0 e 100, em ordem crescente. 
+    // Fazer 3 versões desta solução: 
+    // uma utilizando laço com pré-teste (enquanto), 
+    // outra usando laço com pós-teste (repita) 
+    // e uma última usando laço finito (para).
+
+    local cResultado := ""
+    local nI := 0
     QOUT("***************")
     QOUT("* Exercicio50 *")
+    while nI <= 100 
+        cResultado += Alltrim(str(nI)) +" "
+        if (nI % 20) == 0 .AND. nI != 0
+            cResultado += CHR(10)
+        endif
+        nI++
+    enddo 
+    QOUT("while nI <= 100")
+    QOUT(cResultado)
+
+    
+    cResultado := ""
+    for nI := 1 to 100
+        cResultado += Alltrim(str(nI)) +" "
+        if (nI % 20) == 0 .AND. nI != 0
+            cResultado += CHR(10)
+        endif
+    next nI
+    QOUT("for nI := 1 to 100")
+    QOUT(cResultado)
+    
+
+    cResultado := ""
+    nI := 0
+    while .T.
+        cResultado += Alltrim(str(nI)) +" "
+        if (nI % 20) == 0 .AND. nI != 0
+            cResultado += CHR(10)
+        endif
+        if nI == 100
+            exit
+        endif
+        nI++
+    enddo 
+    QOUT("while .T.")
+    QOUT(cResultado)
+
     QOUT("")
     QOUT("")
     QOUT("***************")
@@ -59,21 +103,89 @@ Function Exercicio50()
 Return nil
 
 Function Exercicio51()
-    //
+    local cResultado := ""
+    local nI := 100
     QOUT("***************")
     QOUT("* Exercicio51 *")
-    QOUT("")
-    QOUT("")
+    while nI >= 0 
+        cResultado += Alltrim(str(nI)) + " "
+        if (nI % 20) == 0 .AND. nI != 100
+            cResultado += CHR(10)
+        endif
+        nI--
+    enddo 
+    QOUT("while nI >= 0")
+    QOUT(cResultado)
+
+    
+    cResultado := ""
+    for nI := 100 to 0 step -1
+        cResultado += Alltrim(str(nI)) + " "
+        if (nI % 20) == 0 .AND. nI != 100
+            cResultado += CHR(10)
+        endif
+    next nI
+    QOUT("for nI := 100 to 0 step -1")
+    QOUT(cResultado)
+    
+
+    cResultado := ""
+    nI := 100
+    while .T.
+        cResultado += Alltrim(str(nI)) +" "
+        if (nI % 20) == 0 .AND. nI != 100
+            cResultado += CHR(10)
+        endif
+        if nI == 0
+            exit
+        endif
+        nI--
+    enddo 
+    QOUT("while .T.")
+    QOUT(cResultado)
+
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio52()
-    //
+    // e exiba na tela, automaticamente, 50 valores gerados aleatoriamente, entre 10 e 99
+    Local nI       := 0
+    Local aNumeros := {}
     QOUT("***************")
     QOUT("* Exercicio52 *")
+    while nI < 50 
+        // aAdd(aNumeros, Alltrim(str((int(Random()%89) + 10)))) 
+        aAdd(aNumeros, Alltrim(str(HB_RandomInt(10,99))))  
+        nI++
+    enddo 
+    QOUT("nI := 0  -- while nI < 50")
+    QOUT(hb_valtoexp(aNumeros))
     QOUT("")
+
+    aNumeros := {}
+    for nI := 1 to 50
+        // aAdd(aNumeros, Alltrim(str((int(Random()%89) + 10))))  
+        aAdd(aNumeros, Alltrim(str(HB_RandomInt(10,99)))) 
+    next nI
+    QOUT("for nI := 1 to 50")
+    QOUT(hb_valtoexp(aNumeros))
     QOUT("")
+    
+    aNumeros := {}
+    nI := 1
+    while .T.
+        aAdd(aNumeros, Alltrim(str((int(Random()%89) + 10))))  
+        //aAdd(aNumeros, Alltrim(str(HB_RandomInt(10,99)))) 
+        if nI == 50
+            exit
+        endif
+        nI++
+    enddo 
+    QOUT("while .T.")
+    QOUT(hb_valtoexp(aNumeros))
+    QOUT("")
+
     QOUT("***************")
     QOUT("")
 Return nil
