@@ -9,17 +9,19 @@ Function Main()
     QOUT("")
 
     // Exercicio50()
+    // wait 
     // Exercicio51()
+    // wait 
     // Exercicio52()
     // Exercicio53()
     // Exercicio54()
     // Exercicio55()
     // Exercicio56()
-    Exercicio57()
+    // Exercicio57()
     // Exercicio58()
     // Exercicio59()
     // Exercicio60()
-    // Exercicio61()
+    Exercicio61()
     // Exercicio62()
     // Exercicio63()
     // Exercicio64()
@@ -95,9 +97,6 @@ Function Exercicio50()
     enddo 
     QOUT("while .T.")
     QOUT(cResultado)
-
-    QOUT("")
-    QOUT("")
     QOUT("***************")
     QOUT("")
 Return nil
@@ -143,7 +142,6 @@ Function Exercicio51()
     enddo 
     QOUT("while .T.")
     QOUT(cResultado)
-
     QOUT("***************")
     QOUT("")
 Return nil
@@ -184,46 +182,116 @@ Function Exercicio52()
     enddo 
     QOUT("while .T.")
     QOUT(hb_valtoexp(aNumeros))
-    QOUT("")
-
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio53()
-    // 
+// Os valores deverão ser gerados indefinidamente até que surja o valor 80
+// que ao surgir não deve ser exibido na tela. 
+    Local nI       := 0
+    Local aNumeros := {}
+    local nNum := 0
     QOUT("***************")
     QOUT("* Exercicio53 *")
+    while .T.
+        nNum := HB_RandomInt(10,99)
+        if nNum == 80
+            exit
+        endif 
+        aAdd(aNumeros, Alltrim(str(nNum)))  
+    enddo 
+    QOUT("while .T. ")
+    QOUT(hb_valtoexp(aNumeros))
     QOUT("")
+
+    aNumeros := {}
+    for nI := 1 to 2
+        nNum := HB_RandomInt(10,99)
+        if nNum == 80
+            exit
+        endif 
+        aAdd(aNumeros, Alltrim(str(nNum))) 
+        nI := 1
+    next nI
+    QOUT("for nI := 1 to 2")
+    QOUT(hb_valtoexp(aNumeros))
     QOUT("")
+    
     QOUT("***************")
     QOUT("")
+    
 Return nil
 
 Function Exercicio54()
-    //
+    // ASCII (do 32 ao 126) 
+    // formato “código – caractere”. Exemplo: “80 – P”
+    local cASCII := ""
+    local nI := 32
     QOUT("***************")
     QOUT("* Exercicio54 *")
+    QOUT("while nI <= 126")
+    while nI <= 126 
+        cASCII := StrZero(nI,3) + " - " + CHR(nI) + "  ||  "
+        cASCII += StrZero(nI+1,3) + " - " + CHR(nI+1) + "  ||  "
+        cASCII += StrZero(nI+2,3) + " - " + CHR(nI+2) + "  ||  "
+        cASCII += StrZero(nI+3,3) + " - " + CHR(nI+3) + "  ||  "
+        cASCII += StrZero(nI+4,3) + " - " + CHR(nI+4) 
+        QOUT(cASCII)
+        nI += 5
+    enddo 
+
     QOUT("")
-    QOUT("")
+    QOUT("for nI := 32 to 126 step 5")
+    for nI := 32 to 126 step 5
+        cASCII := StrZero(nI,3) + " - " + CHR(nI) + "  ||  "
+        cASCII += StrZero(nI+1,3) + " - " + CHR(nI+1) + "  ||  "
+        cASCII += StrZero(nI+2,3) + " - " + CHR(nI+2) + "  ||  "
+        cASCII += StrZero(nI+3,3) + " - " + CHR(nI+3) + "  ||  "
+        cASCII += StrZero(nI+4,3) + " - " + CHR(nI+4) 
+        QOUT(cASCII)
+    next nI 
+    
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio55()
-    //
+    local nI 
+    local cResultado := ""
     QOUT("***************")
     QOUT("* Exercicio55 *")
-    QOUT("")
-    QOUT("")
+    QOUT("multiplos de 3 existentes entre 1 e 100")
+    for nI := 3 to 100 step 3
+        cResultado += Alltrim(strZero(nI,2)) + " "
+        if (nI % 30) == 0 .AND. nI != 100
+            cResultado += CHR(10)
+        endif
+    next nI 
+    QOUT(cResultado)
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio56()
-    //
+    local nNumero, nLimite, nI
+    local cResultado := ""
     QOUT("***************")
     QOUT("* Exercicio56 *")
+    ACCEPT "Digite um numero: " to nNumero 
+    nNumero := val(nNumero)
+    ACCEPT "Digite um numero (limite): " to nLimite 
+    nLimite := val(nLimite)
+
+    QOUT("multiplos de " + Alltrim(str(nNumero)) + " existentes entre 1 e " + Alltrim(str(nLimite)))
+    for nI := nNumero to nLimite step nNumero
+        cResultado += Alltrim(str(nI)) 
+        if  nI != nLimite
+            cResultado += ", "
+        endif
+    next nI 
+    QOUT(cResultado)
+
     QOUT("")
     QOUT("")
     QOUT("***************")
@@ -271,41 +339,131 @@ Function Exercicio57()
 Return nil
 
 Function Exercicio58()
-    //
+    local nContagem := 0
+    local cContagem := ""
+    local nI 
+    local nMax := 10
     QOUT("***************")
     QOUT("* Exercicio58 *")
-    QOUT("")
-    QOUT("")
+    
+    for nI := 0 to (nMax - 1)
+        nContagem += nI
+        cContagem += Alltrim(str(nI)) + " "
+    next nI
+
+    QOUT("soma dos "+ Alltrim(Str(nMax)) + " primeiros numeros naturais ")
+    QOUT(cContagem +"e = " + Alltrim(Str(nContagem)))        
+
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio59()
-    //
+    local nContagem := 0
+    local cContagem := ""
+    local nI 
+    local nMax := 10
     QOUT("***************")
     QOUT("* Exercicio59 *")
-    QOUT("")
-    QOUT("")
+    
+    for nI := 0 to (nMax - 1)
+        if nI % 2 == 0
+            nContagem += nI
+            cContagem += Alltrim(str(nI)) + " "
+        endif
+    next nI
+
+    QOUT("soma dos "+ Alltrim(Str(nMax)) + " primeiros numeros naturais pares")
+    QOUT(cContagem +"e = " + Alltrim(Str(nContagem)))        
+
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio60()
-    //
+    local nContagem := 0
+    local cContagem := ""
+    local nI 
+    local nMax 
+    local cParOuImp
     QOUT("***************")
     QOUT("* Exercicio60 *")
-    QOUT("")
-    QOUT("")
+    ACCEPT "Digite um numero para a quantidade de numeros: " to nMax 
+    nMax := val(nMax)
+    ACCEPT "Escolha (P)Par ou (I)Impar: " to cParOuImp 
+    cParOuImp := upper(left(Alltrim(cParOuImp),1))
+    
+    for nI := 0 to (nMax - 1)
+        if cParOuImp == "P" .AND. nI % 2 == 0
+            nContagem += nI 
+            cContagem += Alltrim(str(nI)) + " "
+            
+        elseif cParOuImp == "I" .AND. nI % 2 != 0
+                nContagem += nI 
+                cContagem += Alltrim(str(nI)) + " "
+        endif
+    next nI
+
+    if cParOuImp == "P"
+        cParOuImp := "Pares "
+    elseif cParOuImp == "I" 
+        cParOuImp := "Impares "
+    endif
+    QOUT("soma dos "+ Alltrim(Str(nMax)) + " primeiros numeros naturais " + cParOuImp)
+    QOUT(cContagem +"e = " + Alltrim(Str(nContagem)))        
+
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio61()
-    //
+    Local nI       := 0
+    Local cEntrada := ""
+    Local nSoma    := 0
     QOUT("***************")
     QOUT("* Exercicio61 *")
+    
+    QOUT("while .T. ")
+    while .T.
+        ACCEPT "Digite um numero: " to cEntrada
+        if IsDigit(cEntrada)
+            if val(cEntrada) != 0
+                nSoma += Val(cEntrada)
+            else // = 0
+                exit
+            endif
+        endif    
+    enddo
+    QOUT("Total = " + alltrim(str(nSoma)))
     QOUT("")
+
+    nSoma    := 0
+    cEntrada := "1" // deixar a variavel dif de 0 , mas ela sera alterada assim que digitar qualquer numero
+    QOUT("while val(cEntrada) != 0 ")
+    QOUT("Sem desvio incondicional ")
+    while val(cEntrada) != 0
+        ACCEPT "Digite um numero: " to cEntrada
+        if IsDigit(cEntrada)
+            nSoma += Val(cEntrada)
+        endif    
+    enddo
+    QOUT("Total = " + alltrim(str(nSoma)))
     QOUT("")
+
+    nSoma    := 0
+    QOUT("for nI := 1 to 2 ")
+    for nI := 1 to 2
+        ACCEPT "Digite um numero: " to cEntrada
+        if IsDigit(cEntrada)
+            if val(cEntrada) != 0
+                nSoma += Val(cEntrada)
+            else // = 0
+                exit
+            endif
+        endif        
+        nI := 1
+    next nI
+    QOUT("Total = " + alltrim(str(nSoma)))
     QOUT("***************")
     QOUT("")
 Return nil
@@ -341,7 +499,13 @@ Function Exercicio64()
 Return nil
 
 Function Exercicio65()
-    //
+// simule um cadastro de usuário e senha para um sistema qualquer. 
+// O usuário informará um “username” e uma senha que deverá ser digitada duas vezes (confirmação de senha).
+// Realizar as seguintes consistências: 
+// a. o “username” deve possuir mais do que 5 caracteres. 
+// b. a senha e a confirmação da senha devem ser idênticas. 
+// c. a senha deve possuir ao menos 6 caracteres e deve conter
+// obrigatoriamente: ao menos uma letra maiúscula, um dígito numérico e um símbolo.
     QOUT("***************")
     QOUT("* Exercicio65 *")
     QOUT("")
