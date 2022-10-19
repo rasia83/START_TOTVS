@@ -24,20 +24,20 @@ Function Main()
     // Exercicio63()
     // Exercicio64()
     // Exercicio65() // TODO
-    // Exercicio66() // TODO
+    // Exercicio66() 
     // Exercicio67() // TODO
     // Exercicio68() // TODO
     // Exercicio69()
     // Exercicio70()
     // Exercicio71()
     // Exercicio72()
-    // Exercicio73() // TODO
+    // Exercicio73()
     // Exercicio74() // TODO
-    // Exercicio75() // TODO
+    // Exercicio75() 
     // Exercicio76() // TODO
-    // Exercicio77() // TODO
+    // Exercicio77() 
     // Exercicio78()
-    Exercicio79() // TODO
+    Exercicio79() 
     // Exercicio80() // TODO
     // Exercicio81() // TODO
     // Exercicio82()
@@ -568,11 +568,34 @@ Function Exercicio65()
 Return nil
 
 Function Exercicio66()
-    //
+    Local cOpcao   := ""
+    Local nTaxa    := 0
+    Local nProd    := 0
     QOUT("***************")
     QOUT("* Exercicio66 *")
-    QOUT("")
-    QOUT("")
+
+    While .T.
+        QOUT("Selecione  tipo de contrato:")
+        QOUT("(ESC) para sair")
+        ACCEPT "(A)crescimo ou (D)ecrescimo: " to cOpcao
+        cOpcao := UPPER(cOpcao)
+        if cOpcao == "A"
+            ACCEPT "Acrescimo (%): " to nTaxa
+            ACCEPT "Valor do produto (R$): " to nProd
+            nProd := (1 + (Val(ntaxa) / 100)) * Val(nProd)
+        elseif cOpcao == "D"
+            ACCEPT "Decrescimo (%): " to nTaxa
+            ACCEPT "Valor do produto (R$): " to nProd
+            nProd := (1 - (Val(ntaxa) / 100)) * Val(nProd)
+        elseif cOpcao == "ESC"
+            exit
+        elseif cOpcao != "A" .or.cOpcao != "D" .or. cOpcao != "ESC"
+            Qout("Opcao incorreta")
+            Loop
+        endif
+        QOUT("Valor atualizado do produto: " + alltrim(str(nProd)))
+        QOUT("")
+    enddo
     QOUT("***************")
     QOUT("")
 Return nil
@@ -695,11 +718,39 @@ Function Exercicio72()
 Return nil
 
 Function Exercicio73()
-    //
+    Local nCartao := ""
+    Local nMaior := -999999999
+    Local nMenor := 999999999
+    local nSoma := 0
+    local nAlunos := 0
+    local nMedia := 0
     QOUT("***************")
     QOUT("* Exercicio73 *")
+    while .T.
+        ACCEPT "Informar a nota ou digite ESC para encerrar: " TO nCartao
+        nCartao := UPPER(nCartao)
+        if nCartao == "ESC" 
+            exit
+        elseif IsDigit(nCartao)
+            if Val(nCartao) > nMaior
+                nMaior := Val(nCartao)
+            endif
+            if Val(nCartao) < nMenor
+                nMenor := Val(nCartao)
+            endif
+            nSoma += val(nCartao)
+            nAlunos++
+        else
+            QOUT("valor invalido")
+        endif
+    enddo
+    nMedia := nSoma / nAlunos
+
     QOUT("")
-    QOUT("")
+    QOUT("MAIOR NOTA:      " + AllTrim(str(nMaior)))
+    QOUT("MENOR NOTA:      " + AllTrim(str(nMenor)))
+    QOUT("TOTAL DE ALUNOS: " + AllTrim(str(nAlunos)))
+    QOUT("MEDIA DAS NOTAS: " + AllTrim(str(nMedia)))
     QOUT("***************")
     QOUT("")
 Return nil
@@ -715,11 +766,16 @@ Function Exercicio74()
 Return nil
 
 Function Exercicio75()
-    //
+    local nSoma := 0, nI, nTrigo := 1
     QOUT("***************")
     QOUT("* Exercicio75 *")
-    QOUT("")
-    QOUT("")
+    QOUT("O homem que calculava")
+    for nI := 1 to 64
+        nSoma += nTrigo
+        nTrigo *= 2
+    next nI
+    // QOUT("O total de graos de trigo e = " + str(int(nSoma)))
+    QOUT("O total de graos de trigo e = " + str(nSoma))
     QOUT("***************")
     QOUT("")
 Return nil
@@ -735,11 +791,23 @@ Function Exercicio76()
 Return nil
 
 Function Exercicio77()
-    //
+    local nArquivo := 0, nTotal := 0, nCapacidade := 1536
     QOUT("***************")
     QOUT("* Exercicio77 *")
-    QOUT("")
-    QOUT("")
+
+    while .T.
+        ACCEPT "Tamanho do arquivo (MB): " TO nArquivo
+        if isDigit(nArquivo) 
+            if ( val(nArquivo) + nTotal ) <= nCapacidade
+                nTotal += val(nArquivo)
+                QOUT("Total (MB): " + AllTrim(str(nTotal)))
+                QOUT("")
+            else
+                QOUT("Arquivo nao foi adicionado, estouro do limite " + AllTrim(str(nCapacidade)))
+                exit
+            endif
+        endif
+    enddo
     QOUT("***************")
     QOUT("")
 Return nil
@@ -785,17 +853,17 @@ Function Exercicio79()
     for nI := 1 to nTamanho
         if nI % nPin == 0
             QOUT("PIN")  
-            Tone(1500, 2)
+            Tone(1500, 10)
         else
             QOUT(Alltrim(str(nI)))
         endif
         //  Estabelecer um atraso a cada saída 
         // para que o jogador possa ira cantando juntamente com o programa
-        Wait 
+        WaitPeriod(80)
+        while WaitPeriod()
+        enddo
     next nI 
-
-    QOUT("")
-    QOUT("***************")
+    QOUT("***************") 
     QOUT("")
 Return nil
 
