@@ -21,6 +21,9 @@ Function Main()
         endif
     enddo
 
+    // retorna a primeira posição que ele encontrou o elemento
+    QOUT(str( aScan(aNumeros,10) ))
+
     for nI := 1 to len(aNumeros)
         //if IsDigit(aNumeros[nI])
             QOUT("Posicao [" + Alltrim(StrZero(nI,2)) + "] :" + Alltrim(Str(aNumeros[nI])))        

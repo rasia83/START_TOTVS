@@ -4,14 +4,12 @@ Function Main()
 
     QOUT(" !!! aviso !!! ")
     QOUT(" todos exercicios em que o valor apresentar casas decimais")
-    QOUT(" o mesmo deve ser representado no padrao ammericano ")
+    QOUT(" o mesmo deve ser representado no padrao americano ")
     QOUT(" ultilizar . e nao , ")
     QOUT("")
 
     // Exercicio50()
-    // wait 
     // Exercicio51()
-    // wait 
     // Exercicio52()
     // Exercicio53()
     // Exercicio54()
@@ -21,27 +19,27 @@ Function Main()
     // Exercicio58()
     // Exercicio59()
     // Exercicio60()
-    Exercicio61()
-    // Exercicio62()
+    // Exercicio61()
+    // Exercicio62() // TODO
     // Exercicio63()
     // Exercicio64()
-    // Exercicio65()
-    // Exercicio66()
-    // Exercicio67()
-    // Exercicio68()
+    // Exercicio65() // TODO
+    // Exercicio66() // TODO
+    // Exercicio67() // TODO
+    // Exercicio68() // TODO
     // Exercicio69()
     // Exercicio70()
     // Exercicio71()
     // Exercicio72()
-    // Exercicio73()
-    // Exercicio74()
-    // Exercicio75()
-    // Exercicio76()
-    // Exercicio77()
+    // Exercicio73() // TODO
+    // Exercicio74() // TODO
+    // Exercicio75() // TODO
+    // Exercicio76() // TODO
+    // Exercicio77() // TODO
     // Exercicio78()
-    // Exercicio79()
-    // Exercicio80()
-    // Exercicio81()
+    Exercicio79() // TODO
+    // Exercicio80() // TODO
+    // Exercicio81() // TODO
     // Exercicio82()
     // Exercicio83()
     
@@ -158,7 +156,7 @@ Function Exercicio52()
         nI++
     enddo 
     QOUT("nI := 0  -- while nI < 50")
-    QOUT(hb_valtoexp(aNumeros))
+    QOUT(hb_ValToExp(aNumeros))
     QOUT("")
 
     aNumeros := {}
@@ -167,7 +165,7 @@ Function Exercicio52()
         aAdd(aNumeros, Alltrim(str(HB_RandomInt(10,99)))) 
     next nI
     QOUT("for nI := 1 to 50")
-    QOUT(hb_valtoexp(aNumeros))
+    QOUT(hb_ValToExp(aNumeros))
     QOUT("")
     
     aNumeros := {}
@@ -181,7 +179,7 @@ Function Exercicio52()
         nI++
     enddo 
     QOUT("while .T.")
-    QOUT(hb_valtoexp(aNumeros))
+    QOUT(hb_ValToExp(aNumeros))
     QOUT("***************")
     QOUT("")
 Return nil
@@ -202,7 +200,7 @@ Function Exercicio53()
         aAdd(aNumeros, Alltrim(str(nNum)))  
     enddo 
     QOUT("while .T. ")
-    QOUT(hb_valtoexp(aNumeros))
+    QOUT(hb_ValToExp(aNumeros))
     QOUT("")
 
     aNumeros := {}
@@ -215,9 +213,7 @@ Function Exercicio53()
         nI := 1
     next nI
     QOUT("for nI := 1 to 2")
-    QOUT(hb_valtoexp(aNumeros))
-    QOUT("")
-    
+    QOUT(hb_ValToExp(aNumeros))
     QOUT("***************")
     QOUT("")
     
@@ -320,7 +316,7 @@ Function Exercicio57()
         nI++
     enddo 
     QOUT("while nI < nQtd ")
-    QOUT(hb_valtoexp(aNumeros))
+    QOUT(hb_ValToExp(aNumeros))
     QOUT(Alltrim(STR(len(aNumeros))) + " de " + str(nQtd) + " sao multiplos de " + STR(nEntrada))
 
     QOUT("")
@@ -332,7 +328,7 @@ Function Exercicio57()
         endif
     next nI  
     QOUT("for nI := 1 to nQtd ")
-    QOUT(hb_valtoexp(aNumeros))
+    QOUT(hb_ValToExp(aNumeros))
     QOUT(Alltrim(STR(len(aNumeros))) + " de " + str(nQtd) + " sao multiplos de " + STR(nEntrada))
     QOUT("***************")
     QOUT("")
@@ -469,31 +465,88 @@ Function Exercicio61()
 Return nil
 
 Function Exercicio62()
-    //
+    local nCont, cChu, cFoi
     QOUT("***************")
     QOUT("* Exercicio62 *")
-    QOUT("")
-    QOUT("")
+    /*
+    for nCont:=1 to 2
+        ACCEPT "Digite uma letra ou sair para parar o programa: " to cChu
+        cChu := UPPER(cChu)
+
+        if cChu == "SAIR" 
+            nCont := 2
+        else 
+            nCont := 1
+            if Len(cChu) > 1
+                QOUT( "insira apenas 1 letra")
+                loop
+            else
+                if cChu $ cFoi 
+                    QOUT("essa letra já foi informada anteriormente, tente outra letra")
+                    loop
+                else
+                    cFoi += cChu
+                end if
+            end if
+        end if
+    next
+    */
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio63()
-    //
+    local nN1, nN2, nN3, nN4, nMed, nExame
+    local cSituacao := "reprovado"
     QOUT("***************")
     QOUT("* Exercicio63 *")
-    QOUT("")
-    QOUT("")
+    while !IsDigit(nN1) .OR. val(nN1) < 0 .OR. val(nN1) > 10
+        ACCEPT "Informe a primeira nota: " TO nN1
+    enddo
+    while !IsDigit(nN2) .OR. val(nN2) < 0 .OR. val(nN2) > 10
+        ACCEPT "Informe a segunda nota: " TO nN2
+    enddo
+    while !IsDigit(nN3) .OR. val(nN3) < 0 .OR. val(nN3) > 10
+        ACCEPT "Informe a terceira nota: " TO nN3
+    enddo
+    while !IsDigit(nN4) .OR. val(nN4) < 0 .OR. val(nN4) > 10
+        ACCEPT "Informe a quarta nota: " TO nN4
+    enddo
+    nN1 := val(nN1)
+    nN2 := val(nN2)
+    nN3 := val(nN3)
+    nN4 := val(nN4)
+    nMed := ( nN1 + nN2 + nN3 + nN4 ) / 4
+    if nMed >= 7
+        cSituacao := "aprovado"
+    else
+        ACCEPT "Informe a nota do exame: " TO nExame
+        nExame := val(nExame)
+        nMed := ( nMed + nExame ) / 2
+        if nMed >= 5
+            cSituacao := "aprovado em exame"
+        endif
+    endif
+    QOUT("Aluno " + cSituacao + " com media " + allTrim(str(round(nMed,2))) )
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio64()
-    //
+    local cNome := "", cGenero
     QOUT("***************")
     QOUT("* Exercicio64 *")
-    QOUT("")
-    QOUT("")
+    QOUT("Refactoring do 31")
+    while cNome == ""
+        ACCEPT "Informe o nome: " TO cNome
+    enddo
+    ACCEPT "Informe o genero (M/F): " TO cGenero
+    cGenero := upper(left(cGenero, 1))
+    if cGenero == "F" // .OR. cGenero == "f"
+        QOUT("Ilma. Sra. " + cNome)
+    elseif cGenero == "M" // .OR. cGenero == "m"
+        QOUT("Ilmo. Sr" + cNome)
+    endif
     QOUT("***************")
     QOUT("")
 Return nil
@@ -545,41 +598,98 @@ Function Exercicio68()
 Return nil
 
 Function Exercicio69()
-    //
+// Elaborar um programa que calcule e exiba as potências de 3 
+// variando de 0 até 15, 
+// O Pascal não possui uma função para cálculo de potência, 
+// mas possui uma para cálculo de exponencial. 
+// Desta forma através de propriedade matemática dos logaritmos, 
+// você pode resolver cálculo de potência e até de raízes n ésimas da seguinte forma: 
+// exp( expoente * ln(base));
+    local nI 
     QOUT("***************")
     QOUT("* Exercicio69 *")
-    QOUT("")
-    QOUT("")
+    QOUT("exiba as potencias de 3 variando de 0 até 15")
+    for nI := 0 to 15
+        QOUT("3 elevado a " + alltrim(strzero(nI,2)) + " = " + str(3 ** nI))
+    next nI
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio70()
-    //
+    local nI , nJ , nCalc
     QOUT("***************")
     QOUT("* Exercicio70 *")
-    QOUT("")
-    QOUT("")
+    QOUT("exiba as potencias de 3 variando de 0 até 15 (sem a funcao) ")
+    for nI := 0 to 15
+        nCalc := 1
+        for nJ := 1 to nI
+            nCalc *= 3
+            //QOUT(str(nI) + str(nJ) + str(nCalc))
+        next nJ
+        QOUT("3 elevado a " + alltrim(strzero(nI,2)) + " = " + str(nCalc))
+    next nI
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio71()
-    //
+    // dado um número inteiro positivo
+    // calcule n e exiba o seu fatorial
+    local nFatorial := 1
+    local nNum := 0
+    local cEntrada := "0"
     QOUT("***************")
     QOUT("* Exercicio71 *")
-    QOUT("")
-    QOUT("")
+    QOUT("Fatorial")
+    while !IsDigit(cEntrada) .OR. val(cEntrada) <= 0 
+        ACCEPT "Informe um numero: " TO cEntrada
+    enddo
+    nNum := val(cEntrada)
+    // nFatorial := Fact(nNum)
+    if nNum > 1
+        while nNum > 1
+            nFatorial *= nNum
+            nNum -= 1
+        enddo
+    endif 
+    QOUT("Fatorial de " + cEntrada + "! = " + alltrim(str(nFatorial)))
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio72()
-    //
+    local nNum
+    local nA      := 0
+    local nB      := 1
+    local nC      := 0
+    local nCont   := 1
     QOUT("***************")
     QOUT("* Exercicio72 *")
-    QOUT("")
-    QOUT("")
+    QOUT("Fibonacci")
+    
+    while !IsDigit(nNum) .OR. val(nNum) <= 0 .OR. val(nNum) > 97
+        ACCEPT "Informe a quantidade de numeros (1 - 97): " TO nNum
+    enddo
+    nNum := val(nNum)
+
+    if nNum = 0
+        QOUT(nA)
+    elseif nNum = 1
+        QOUT(nB)
+    else
+        QOUT()
+        QOUT("A sequencia Fibonacci eh: ")
+        QOUT()
+        QOUT(StrZero(nCont,4) , ":" , AllTrim(str(nB)))
+        while (nCont < nNum)
+            nC := nA + nB
+            nA := nB
+            nB := nC
+                nCont++
+            QOUT(StrZero(nCont,4) , ":" , AllTrim(str(nC)))
+       enddo   
+    endif
     QOUT("***************")
     QOUT("")
 Return nil
@@ -635,27 +745,66 @@ Function Exercicio77()
 Return nil
 
 Function Exercicio78()
-    //
+    // Fazer um programa para determinar e exibir se um número informado é primo.
+    local nNum, nI
+    local cResultado := ""
     QOUT("***************")
     QOUT("* Exercicio78 *")
-    QOUT("")
-    QOUT("")
+    QOUT("NUMERO PRIMO")
+    
+    while !IsDigit(nNum) .OR. val(nNum) <= 0 
+        ACCEPT "Informe um numero: " TO nNum
+    enddo
+    nNum := val(nNum)
+
+    for nI := 2 to (nNum - 1)
+        if nNum % nI == 0
+            cResultado := " nao"
+            exit
+        endif
+    next nI
+    
+    QOUT(alltrim(str(nNum)) + cResultado + " e um numero primo")
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio79()
-    //
+    // Local cEntrada := ""
+    Local nI       := 0
+    local nTamanho := 60
+    local nPin 
     QOUT("***************")
     QOUT("* Exercicio79 *")
-    QOUT("")
+    QOUT("Jogo do 'pim'")
+    while !IsDigit(nPin) .OR. val(nPin) <= 0 
+        ACCEPT "Informe um numero PIM: " TO nPin
+    enddo
+    nPin := val(nPin)
+
+    for nI := 1 to nTamanho
+        if nI % nPin == 0
+            QOUT("PIN")  
+            Tone(1500, 2)
+        else
+            QOUT(Alltrim(str(nI)))
+        endif
+        //  Estabelecer um atraso a cada saída 
+        // para que o jogador possa ira cantando juntamente com o programa
+        Wait 
+    next nI 
+
     QOUT("")
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio80()
-    //
+    // Considere dados referentes a altura e o sexo de 40 pessoas
+    // a. A maior e a menor altura do grupo.
+    // b. A média de altura das mulheres.
+    // c. O número de homens.
+
     QOUT("***************")
     QOUT("* Exercicio80 *")
     QOUT("")
@@ -675,21 +824,47 @@ Function Exercicio81()
 Return nil
 
 Function Exercicio82()
-    //
+    // Fazer um programa que leia 10 valores 
+    // e apresente-os na ordem inversa em que foram digitados.
+    local aValores := {}
+    local aValoresInv := {}
+    Local cEntrada := ""
+    Local nI       := 0
+    local nTamanho := 10
     QOUT("***************")
     QOUT("* Exercicio82 *")
-    QOUT("")
-    QOUT("")
+    for nI := 1 to nTamanho
+        ACCEPT "Digite um numero: " to cEntrada   
+        aAdd(aValores, Val(cEntrada))
+    next nI
+    aValores := aSort(aValores)
+    for nI := len(aValores) to 1 step -1
+        aAdd(aValoresInv, aValores[nI])
+    next nI
+    QOUT(hb_ValToExp(aValoresInv))
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio83()
-    //
+    // HB_RandomInt(0,100)
+    local aValores := {}
+    local aValoresInv := {}
+    Local cEntrada := ""
+    Local nI       := 0
+    local nTamanho := 10000
     QOUT("***************")
     QOUT("* Exercicio83 *")
-    QOUT("")
-    QOUT("")
+    for nI := 1 to nTamanho
+        //ACCEPT "Digite um numero: " to cEntrada   
+        aAdd(aValores, HB_RandomInt(0,10000))
+    next nI
+    aValores := aSort(aValores)
+    for nI := len(aValores) to 1 step -1
+        aAdd(aValoresInv, aValores[nI])
+    next nI
+    QOUT(hb_ValToExp(aValoresInv))
     QOUT("***************")
     QOUT("")
 Return nil
+
