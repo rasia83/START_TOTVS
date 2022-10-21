@@ -20,24 +20,24 @@ Function Main()
     // Exercicio59()
     // Exercicio60()
     // Exercicio61()
-    // Exercicio62() // TODO
+    // Exercicio62() 
     // Exercicio63()
     // Exercicio64()
-    // Exercicio65() // TODO
-    // Exercicio66() 
-    // Exercicio67() // TODO
-    // Exercicio68() // TODO
+    // Exercicio65()
+    // Exercicio66() // REFAZER, calcular acumulando por meses
+    // Exercicio67()
+    // Exercicio68()
     // Exercicio69()
     // Exercicio70()
     // Exercicio71()
     // Exercicio72()
     // Exercicio73()
-    // Exercicio74() // TODO
+    Exercicio74()
     // Exercicio75() 
     // Exercicio76() // TODO
     // Exercicio77() 
     // Exercicio78()
-    Exercicio79() 
+    // Exercicio79() 
     // Exercicio80() // TODO
     // Exercicio81() // TODO
     // Exercicio82()
@@ -468,8 +468,8 @@ Function Exercicio62()
     local nCont, cChu, cFoi
     QOUT("***************")
     QOUT("* Exercicio62 *")
-    /*
-    for nCont:=1 to 2
+    
+    for nCont:= 1 to 2
         ACCEPT "Digite uma letra ou sair para parar o programa: " to cChu
         cChu := UPPER(cChu)
 
@@ -481,7 +481,7 @@ Function Exercicio62()
                 QOUT( "insira apenas 1 letra")
                 loop
             else
-                if cChu $ cFoi 
+                if (cChu != cFoi )
                     QOUT("essa letra já foi informada anteriormente, tente outra letra")
                     loop
                 else
@@ -490,7 +490,7 @@ Function Exercicio62()
             end if
         end if
     next
-    */
+    
     QOUT("***************")
     QOUT("")
 Return nil
@@ -559,13 +559,75 @@ Function Exercicio65()
 // b. a senha e a confirmação da senha devem ser idênticas. 
 // c. a senha deve possuir ao menos 6 caracteres e deve conter
 // obrigatoriamente: ao menos uma letra maiúscula, um dígito numérico e um símbolo.
+    local cUserName := "", cSenha := "", cSenha2 := "" 
     QOUT("***************")
     QOUT("* Exercicio65 *")
+    while  .T.
+        ACCEPT "Username: " TO cUserName
+        if len(cUserName) < 6
+            QOUT("Username deve possuir mais do que 5 caracteres")
+        else
+            exit
+        endif
+    enddo
+    
+    while .T. 
+        ACCEPT "Senha: " TO cSenha
+        if len(cSenha) < 6
+            QOUT("Senha deve possuir mais do que 5 caracteres")
+        elseif !TesteSenha(cSenha)
+            QOUT("Senha deve possuir ao menos uma letra maiuscula, um digito numerico e um simbolo")
+        else
+            exit
+        endif
+    enddo
+    
+    while .T.
+        ACCEPT "Repita a senha: " TO cSenha2
+        if cSenha == cSenha2
+            exit
+        else
+            QOUT("Confirmacao da senha diferente da senha")
+        endif
+    enddo
+
     QOUT("")
-    QOUT("")
+    QOUT("Usuario e senha cadastrado")
     QOUT("***************")
     QOUT("")
 Return nil
+
+static function TesteSenha(cSenha)
+    local nI
+    local lLetra := .F.
+    local lDigito := .F.
+    local lSimbolo := .F.
+    
+    for nI := 1 to len(cSenha)
+        if isUpper(SubStr(cSenha, nI , 1))
+            lLetra := .T.
+            exit
+        endif
+    next nI
+    
+    for nI := 1 to len(cSenha)
+        if IsDigit(SubStr(cSenha, nI , 1))
+            lDigito := .T.
+            exit
+        endif
+    next nI
+    
+    for nI := 1 to len(cSenha)
+        if (asc(SubStr(cSenha, nI, 1)) >= 33 .and. asc(SubStr(cSenha, nI, 1)) <= 47) .or.(asc(SubStr(cSenha, nI, 1)) >=58 .and. asc(SubStr(cSenha, nI, 1)) <=64) .or. (asc(SubStr(cSenha, nI, 1)) >= 91 .and. asc(SubStr(cSenha, nI, 1)) <= 96) .or. (asc(SubStr(cSenha, nI, 1)) >= 123 .and. asc(SubStr(cSenha, nI, 1)) <= 126)
+            lSimbolo := .T.
+            exit
+        endif
+    next nI
+
+    if lLetra .AND. lDigito .AND. lSimbolo
+        return .T.
+    endif
+return .F.
 
 Function Exercicio66()
     Local cOpcao   := ""
@@ -573,6 +635,7 @@ Function Exercicio66()
     Local nProd    := 0
     QOUT("***************")
     QOUT("* Exercicio66 *")
+    QOUT(" *** preciso refazer , nao havia entendido que a taxa e acumulativa *** ")
 
     While .T.
         QOUT("Selecione  tipo de contrato:")
@@ -589,7 +652,7 @@ Function Exercicio66()
             nProd := (1 - (Val(ntaxa) / 100)) * Val(nProd)
         elseif cOpcao == "ESC"
             exit
-        elseif cOpcao != "A" .or.cOpcao != "D" .or. cOpcao != "ESC"
+        elseif cOpcao != "A" .or. cOpcao != "D" .or. cOpcao != "ESC"
             Qout("Opcao incorreta")
             Loop
         endif
@@ -601,21 +664,83 @@ Function Exercicio66()
 Return nil
 
 Function Exercicio67()
-    //
+    local cCartao := ""
+    local nO := 0
+    local nP := 0
+    local nB := 0
+    local nTotal := 0
+    local bContinuar := .T. 
     QOUT("***************")
     QOUT("* Exercicio67 *")
-    QOUT("")
-    QOUT("")
+    qout("Informar o cartao (O)uro, (P)rata, (B)ronze ou (F)im ")
+    DO WHILE (bContinuar) // repetir até encontrar cartão F
+        Accept "Cartao: " to cCartao
+        cCartao := SubStr(alltrim(cCartao) , 1 , 1 )
+            
+        IF (cCartao == "F" .or. cCartao == "f") 
+            bContinuar := .F. 
+        ELSEIF (cCartao == "O" .or. cCartao == "o")
+            nO := nO + 1
+            nTotal := nTotal + 1
+        ELSEIF (cCartao == "P" .or. cCartao == "p")
+            nP := nP + 1
+            nTotal := nTotal + 1
+        ELSEIF (cCartao == "B" .or. cCartao == "b")
+            nB := nB + 1
+            nTotal := nTotal + 1
+        // ELSE apenas repetir, pegar novo cartão
+        ENDIF
+
+    ENDDO
+    // print result
+    qout("")
+    qout("Total de medalhas: ", alltrim(str(nTotal)))
+    qout("Ouro:   ", alltrim(str(nO)))
+    qout("Prata:  ", alltrim(str(nP)))
+    qout("Bronze: ", alltrim(str(nB)))
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio68()
-    //
+    local cNota := ""
+    local nSomaTotal := 0
+    local nTotalAlunos := 0
+    local nMedia := 0
+    local nMaiorNota := -1
+    local nMenorNota := 9999
     QOUT("***************")
     QOUT("* Exercicio68 *")
+    DO WHILE nTotalAlunos < 15 // repetir até RECEBER 15 NOTAS
+        Accept "Informar nota: " to cNota
+            
+        IF cNota == "" 
+            Loop
+        ENDIF
+
+        IF IsDigit(cNota)
+            IF val(cNota) > nMaiorNota
+                nMaiorNota := val(cNota)
+            ENDIF
+            
+            IF val(cNota) < nMenorNota
+                nMenorNota := val(cNota)
+            ENDIF
+
+            nSomaTotal := nSomaTotal + val(cNota)
+            nTotalAlunos := nTotalAlunos + 1
+        ENDIF
+        
+    ENDDO
+
+    nMedia := nSomaTotal / nTotalAlunos
+    
+    // print result
     QOUT("")
-    QOUT("")
+    qout("Total de alunos: ", nTotalAlunos)
+    qout("Media das notas: ", nMedia)
+    qout("Maior nota: ", nMaiorNota)
+    qout("Menor nota: ", nMenorNota)
     QOUT("***************")
     QOUT("")
 Return nil
@@ -755,11 +880,34 @@ Function Exercicio73()
     QOUT("")
 Return nil
 
-Function Exercicio74()
-    //
+Function Exercicio74()    
+local nRandon, nValor, nTentativas := 0
     QOUT("***************")
     QOUT("* Exercicio74 *")
-    QOUT("")
+    nRandon := HB_RandomInt(0,100)
+    //QOUT(STR(nRandon))
+    while .T.
+        ACCEPT "Informe um valor: " TO nValor
+        nTentativas++
+        if VAL(nValor) == nRandon
+            QOUT("")
+            QOUT("ACERTOU MISERAVI")
+            if nTentativas <= 5
+                QOUT("Voce e muito bom, acertou em " + AllTrim(str(nTentativas)) + " tentativas")
+            elseif nTentativas <= 9
+                QOUT("Voce e bom, acertou em " + AllTrim(str(nTentativas)) + " tentativas")
+            elseif nTentativas <= 13
+                QOUT("Voce e mediano, acertou em " + AllTrim(str(nTentativas)) + " tentativas")
+            else
+                QOUT("Voce e muito fraco, acertou em " + AllTrim(str(nTentativas)) + " tentativas")
+            endif
+            exit
+        elseif VAL(nValor) > nRandon
+            QOUT("Tente um numero menor")
+        else
+            QOUT("Tente um numero maior")
+        endif
+    enddo
     QOUT("")
     QOUT("***************")
     QOUT("")
@@ -794,7 +942,7 @@ Function Exercicio77()
     local nArquivo := 0, nTotal := 0, nCapacidade := 1536
     QOUT("***************")
     QOUT("* Exercicio77 *")
-
+ 
     while .T.
         ACCEPT "Tamanho do arquivo (MB): " TO nArquivo
         if isDigit(nArquivo) 
@@ -803,7 +951,8 @@ Function Exercicio77()
                 QOUT("Total (MB): " + AllTrim(str(nTotal)))
                 QOUT("")
             else
-                QOUT("Arquivo nao foi adicionado, estouro do limite " + AllTrim(str(nCapacidade)))
+                QOUT("Arquivo de "+nArquivo+"MB nao foi adicionado, ")
+                QOUT("estouro do limite " + AllTrim(str(nCapacidade)) + "MB")
                 exit
             endif
         endif
