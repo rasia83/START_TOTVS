@@ -1,32 +1,45 @@
 #include "fileio.ch"
 
 function Main()
-    local nHandleArq   := 0
-    local nI, cEntrada
-
-    nHandleArq := FCreate("Arquivo_aula_arquivo.txt", FC_NORMAL)
-        
-    for nI := 1 to 10
-        ACCEPT "Digite o nome: " to cEntrada 
-        cEntrada += CHR(13)
-        FWrite(nHandleArq, cEntrada)
-    next nI
-
-    FClose(nHandleArq)
+    local cNome := "Arquivo_aula_arquivo2.txt"
+    apagar_arquivo(cNome)
+    wait
+    gravar_arquivo(cNome)
+    wait
+    ler_arquivo(cNome)
 
 return nil
 
-/*
-    IF (nHandleArq := FCreate("Arquivo_aula_arquivo2.txt", FC_NORMAL)) == -1
+function gravar_arquivo(cNome)
+    local nHandle   := nil
+    local nI, cEntrada
+
+    IF (nHandle := FCreate(cNome, FC_NORMAL)) == -1
         ? "O arquivo não pode ser criado:", FError()
         BREAK
     ELSE
-        for nI := 1 to 10
+        for nI := 1 to 3
             ACCEPT "Digite o nome: " to cEntrada 
             cEntrada += CHR(13)
-            FWrite(nHandleArq, cEntrada)
+            FWrite(nHandle, cEntrada)
         next nI
-        FClose(nHandleArq)
+        FClose(nHandle)
     ENDIF
-*/
-//  fErase("arquivo_teste.txt")
+
+return nil
+
+function apagar_arquivo(cNome)
+    fErase(cNome)
+return nil
+
+function ler_arquivo(cNome)
+    local nHandle   := nil
+    local cBuffer := FReadStr( nHandle , 1 )
+    IF ( nHandle := FOpen( cNome ) ) == F_ERROR
+        FRead( nHandle, @cBuffer, 500 )
+        ? cbuffer
+    ENDIF
+
+    FClose( nHandle )
+
+return nil
