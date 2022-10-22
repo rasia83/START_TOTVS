@@ -1,4 +1,5 @@
- 
+SET PROCEDURE TO Exercicios_de_Fixacao_-_Aula_06_lib.prg
+
 Function Main()
     // QOUT(" !!! aviso !!! ")
     // QOUT(" todos exercicios em que o valor apresentar casas decimais")
@@ -15,8 +16,8 @@ Function Main()
     // Exercicio07()
     // Exercicio08()
     // Exercicio09()
-    Exercicio10()
-    Exercicio11()
+    // Exercicio10()
+    // Exercicio11()
     Exercicio12()
     Exercicio13()
     // Exercicio14()
@@ -340,8 +341,8 @@ Return (1 + (nRej / 100)) * nSal
 Function Exercicio12()
 // Faça um programa para cálculo do montante (valor futuro) 
 // a partir de um dado capital (valor presente). 
-// O programa deverá solicitar ao usuário o valor do capital (valor presente), 
-// a taxa de juros e o prazo.
+// O programa deverá solicitar ao usuário 
+// o valor do capital (valor presente), a taxa de juros e o prazo.
 // O programa também deverá permitir que o usuário escolha se quer
 // utilizar o regime de capitalização simples ou composto. 
 // Ao final apresentar ao usuário o montante (valor futuro e o valor dos juros).
@@ -355,10 +356,48 @@ Function Exercicio12()
 //     ? J = Juros
 //     ? i = taxa em decimal
 //     ? n = prazo
+    local nValorP , nValorF , nJur , nPrazo , cCSimpComp
     QOUT("***************")
     QOUT("* Exercicio12 *")
+    QOUT("Calculo valor futuro ")
+
+    while !IsDigit(nValorP)
+        ACCEPT "Informe o valor do capital (valor presente): " TO nValorP 
+    enddo
+    nValorP := val(nValorP)
+
+    while !IsDigit(nJur)
+        ACCEPT "Informe a taxa de juros (diaria): " TO nJur 
+    enddo
+    nJur := val(nJur)
+
+    while !IsDigit(nPrazo)
+        ACCEPT "Informe o prazo (dias): " TO nPrazo 
+    enddo
+    nPrazo := val(nPrazo)
+
+    QOUT("Regime de capitalizacao")
+    while .T.
+        ACCEPT "(S)imples ou (C)omposto: " TO cCSimpComp
+        //IsAlpha(cCSimpComp) 
+        cCSimpComp := upper(left(cCSimpComp, 1))
+        if  cCSimpComp == "S" .OR. cCSimpComp == "C"
+            exit
+        endif
+    enddo
+
+    if  cCSimpComp == "S" 
+        nValorF := f_juros_simples(nValorP , nJur , nPrazo)
+    elseif cCSimpComp == "C"
+        nValorF := f_juros_composto(nValorP , nJur , nPrazo)
+    endif
+
     QOUT("")
-    QOUT("")
+    QOUT("Valor presente: $ " + allTrim(str(nValorP)))
+    QOUT("Juros: " + allTrim(str(nJur)) + "%"  )
+    QOUT("Prazo: " + allTrim(str(nPrazo)) + " dias"  )
+    QOUT("Valor futuro: $ " + allTrim(str(nValorF)))
+
     QOUT("***************")
     QOUT("")
 Return nil
@@ -366,11 +405,33 @@ Return nil
 
 Function Exercicio13()
 // fazer uma função para cálculo do valor presente, dado o montante e a taxa.
-
+    local nValorP , nValorF , nJur , nPrazo , cCSimpComp
     QOUT("***************")
     QOUT("* Exercicio13 *")
+    QOUT("Calculo valor presente ")
+
+    while !IsDigit(nValorP)
+        ACCEPT "Informe o valor final do capital (valor futuro): " TO nValorP 
+    enddo
+    nValorP := val(nValorP)
+
+    while !IsDigit(nJur)
+        ACCEPT "Informe a taxa de juros (diaria): " TO nJur 
+    enddo
+    nJur := val(nJur)
+
+    while !IsDigit(nPrazo)
+        ACCEPT "Informe o prazo (dias): " TO nPrazo 
+    enddo
+    nPrazo := val(nPrazo)
+
+    nValorP := f_juros_valor_presente(nValorF , nJur , nPrazo)
+
     QOUT("")
-    QOUT("")
+    QOUT("Valor futuro: $ " + allTrim(str(nValorF)))
+    QOUT("Juros: " + allTrim(str(nJur)) + "%"  )
+    QOUT("Prazo: " + allTrim(str(nPrazo)) + " dias"  )
+    QOUT("Valor presente: $ " + allTrim(str(nValorP)))
     QOUT("***************")
     QOUT("")
 Return nil
