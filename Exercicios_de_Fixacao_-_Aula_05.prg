@@ -2,46 +2,80 @@
 
 Function Main()
 
-    QOUT(" !!! aviso !!! ")
-    QOUT(" todos exercicios em que o valor apresentar casas decimais")
-    QOUT(" o mesmo deve ser representado no padrao americano ")
-    QOUT(" ultilizar . e nao , ")
-    QOUT("")
+    // QOUT(" !!! aviso !!! ")
+    // QOUT(" todos exercicios em que o valor apresentar casas decimais")
+    // QOUT(" o mesmo deve ser representado no padrao americano ")
+    // QOUT(" ultilizar . e nao , ")
+    // QOUT("")
 
-    // Exercicio50()
-    // Exercicio51()
-    // Exercicio52()
-    // Exercicio53()
-    // Exercicio54()
-    // Exercicio55()
-    // Exercicio56()
-    // Exercicio57()
-    // Exercicio58()
-    // Exercicio59()
-    // Exercicio60()
-    // Exercicio61()
-    // Exercicio62() 
-    // Exercicio63()
-    // Exercicio64()
-    // Exercicio65()
-    // Exercicio66() // REFAZER, calcular acumulando por meses
-    // Exercicio67()
-    // Exercicio68()
-    // Exercicio69()
-    // Exercicio70()
-    // Exercicio71()
-    // Exercicio72()
-    // Exercicio73()
+    Exercicio50()
+    WAIT
+    Exercicio51()
+    WAIT
+    Exercicio52()
+    WAIT
+    Exercicio53()
+    WAIT
+    Exercicio54()
+    WAIT
+    Exercicio55()
+    WAIT
+    Exercicio56()
+    WAIT
+    Exercicio57()
+    WAIT
+    Exercicio58()
+    WAIT
+    Exercicio59()
+    WAIT
+    Exercicio60()
+    WAIT
+    Exercicio61()
+    WAIT
+    Exercicio62() 
+    WAIT
+    Exercicio63()
+    WAIT
+    Exercicio64()
+    WAIT
+    Exercicio65()
+    WAIT
+    Exercicio66()
+    WAIT
+    Exercicio67()
+    WAIT
+    Exercicio68()
+    WAIT
+    Exercicio69()
+    WAIT
+    Exercicio70()
+    WAIT
+    Exercicio71()
+    WAIT
+    Exercicio72()
+    WAIT
+    Exercicio73()
+    WAIT
     Exercicio74()
-    // Exercicio75() 
-    // Exercicio76() // TODO
-    // Exercicio77() 
-    // Exercicio78()
-    // Exercicio79() 
-    // Exercicio80() // TODO
-    // Exercicio81() // TODO
-    // Exercicio82()
-    // Exercicio83()
+    WAIT
+    Exercicio75() 
+    WAIT
+    Exercicio76()
+    WAIT
+    Exercicio77() 
+    WAIT
+    Exercicio78()
+    WAIT
+    Exercicio79() 
+    WAIT
+    Exercicio80() 
+    WAIT
+    Exercicio81()
+    WAIT
+    Exercicio82()
+    WAIT
+    Exercicio83()
+    WAIT
     
 return NIL
 
@@ -287,9 +321,6 @@ Function Exercicio56()
         endif
     next nI 
     QOUT(cResultado)
-
-    QOUT("")
-    QOUT("")
     QOUT("***************")
     QOUT("")
 Return nil
@@ -317,7 +348,7 @@ Function Exercicio57()
     enddo 
     QOUT("while nI < nQtd ")
     QOUT(hb_ValToExp(aNumeros))
-    QOUT(Alltrim(STR(len(aNumeros))) + " de " + str(nQtd) + " sao multiplos de " + STR(nEntrada))
+    QOUT(Alltrim(STR(len(aNumeros))) + " de " + str(nQtd) + " numeros sao multiplos de " + STR(nEntrada))
 
     QOUT("")
     aNumeros := {}
@@ -329,7 +360,7 @@ Function Exercicio57()
     next nI  
     QOUT("for nI := 1 to nQtd ")
     QOUT(hb_ValToExp(aNumeros))
-    QOUT(Alltrim(STR(len(aNumeros))) + " de " + str(nQtd) + " sao multiplos de " + STR(nEntrada))
+    QOUT(Alltrim(STR(len(aNumeros))) + " de " + str(nQtd) + " numeros sao multiplos de " + STR(nEntrada))
     QOUT("***************")
     QOUT("")
 Return nil
@@ -418,6 +449,7 @@ Function Exercicio61()
     Local nSoma    := 0
     QOUT("***************")
     QOUT("* Exercicio61 *")
+    QOUT("digite 0 para encerrar a sequencia")
     
     QOUT("while .T. ")
     while .T.
@@ -465,32 +497,10 @@ Function Exercicio61()
 Return nil
 
 Function Exercicio62()
-    local nCont, cChu, cFoi
+    
     QOUT("***************")
     QOUT("* Exercicio62 *")
-    
-    for nCont:= 1 to 2
-        ACCEPT "Digite uma letra ou sair para parar o programa: " to cChu
-        cChu := UPPER(cChu)
-
-        if cChu == "SAIR" 
-            nCont := 2
-        else 
-            nCont := 1
-            if Len(cChu) > 1
-                QOUT( "insira apenas 1 letra")
-                loop
-            else
-                if (cChu != cFoi )
-                    QOUT("essa letra já foi informada anteriormente, tente outra letra")
-                    loop
-                else
-                    cFoi += cChu
-                end if
-            end if
-        end if
-    next
-    
+        
     QOUT("***************")
     QOUT("")
 Return nil
@@ -545,7 +555,7 @@ Function Exercicio64()
     if cGenero == "F" // .OR. cGenero == "f"
         QOUT("Ilma. Sra. " + cNome)
     elseif cGenero == "M" // .OR. cGenero == "m"
-        QOUT("Ilmo. Sr" + cNome)
+        QOUT("Ilmo. Sr " + cNome)
     endif
     QOUT("***************")
     QOUT("")
@@ -630,35 +640,50 @@ static function TesteSenha(cSenha)
 return .F.
 
 Function Exercicio66()
-    Local cOpcao   := ""
-    Local nTaxa    := 0
-    Local nProd    := 0
+    Local cOpcao      := ""
+    Local nTaxa       := 0
+    Local nContrato   := -1
+    local nQtdFatores := 0
+
     QOUT("***************")
     QOUT("* Exercicio66 *")
-    QOUT(" *** preciso refazer , nao havia entendido que a taxa e acumulativa *** ")
+
+    while !IsDigit(nContrato) .OR. val(nContrato) < 0
+        ACCEPT "Valor do contrato: " TO nContrato
+    enddo
+    nContrato := val(nContrato)
 
     While .T.
-        QOUT("Selecione  tipo de contrato:")
-        QOUT("(ESC) para sair")
+        QOUT("Fator:")
+        QOUT("digite (ESC) para sair")
+
         ACCEPT "(A)crescimo ou (D)ecrescimo: " to cOpcao
         cOpcao := UPPER(cOpcao)
         if cOpcao == "A"
             ACCEPT "Acrescimo (%): " to nTaxa
-            ACCEPT "Valor do produto (R$): " to nProd
-            nProd := (1 + (Val(ntaxa) / 100)) * Val(nProd)
+            if val(nTaxa) > 0
+                nContrato := (1 + (Val(nTaxa) / 100)) * nContrato
+                nQtdFatores++
+            endif
         elseif cOpcao == "D"
             ACCEPT "Decrescimo (%): " to nTaxa
-            ACCEPT "Valor do produto (R$): " to nProd
-            nProd := (1 - (Val(ntaxa) / 100)) * Val(nProd)
+            if val(nTaxa) > 0
+                nContrato := (1 - (Val(nTaxa) / 100)) * nContrato
+                nQtdFatores++
+            endif
         elseif cOpcao == "ESC"
             exit
         elseif cOpcao != "A" .or. cOpcao != "D" .or. cOpcao != "ESC"
             Qout("Opcao incorreta")
+            QOUT("")
             Loop
         endif
-        QOUT("Valor atualizado do produto: " + alltrim(str(nProd)))
+        QOUT("Valor atualizado do produto: " + alltrim(str(nContrato)))
         QOUT("")
     enddo
+    QOUT("")
+    QOUT("Valor atualizado do produto: " + alltrim(str(nContrato)))
+    QOUT("Quantidade de fatores: " + alltrim(str(nQtdFatores)))
     QOUT("***************")
     QOUT("")
 Return nil
@@ -672,7 +697,7 @@ Function Exercicio67()
     local bContinuar := .T. 
     QOUT("***************")
     QOUT("* Exercicio67 *")
-    qout("Informar o cartao (O)uro, (P)rata, (B)ronze ou (F)im ")
+    qout("Informar o cartao, (O)uro, (P)rata, (B)ronze ou (F)im ")
     DO WHILE (bContinuar) // repetir até encontrar cartão F
         Accept "Cartao: " to cCartao
         cCartao := SubStr(alltrim(cCartao) , 1 , 1 )
@@ -692,7 +717,7 @@ Function Exercicio67()
         ENDIF
 
     ENDDO
-    // print result
+    // print result 
     qout("")
     qout("Total de medalhas: ", alltrim(str(nTotal)))
     qout("Ouro:   ", alltrim(str(nO)))
@@ -711,6 +736,7 @@ Function Exercicio68()
     local nMenorNota := 9999
     QOUT("***************")
     QOUT("* Exercicio68 *")
+    QOUT("Nota de 15 alunos")
     DO WHILE nTotalAlunos < 15 // repetir até RECEBER 15 NOTAS
         Accept "Informar nota: " to cNota
             
@@ -884,6 +910,7 @@ Function Exercicio74()
 local nRandon, nValor, nTentativas := 0
     QOUT("***************")
     QOUT("* Exercicio74 *")
+    QOUT("adivinhe o numero 0-100")
     nRandon := HB_RandomInt(0,100)
     //QOUT(STR(nRandon))
     while .T.
@@ -929,11 +956,81 @@ Function Exercicio75()
 Return nil
 
 Function Exercicio76()
-    //
+    local nSoma := 0
+    local nN , nI
+    local cL1, cL2, cL3
     QOUT("***************")
     QOUT("* Exercicio76 *")
     QOUT("")
+    ACCEPT "Informe o valor de 'N': " TO nN
+    nN := val(nN)
+
+    cL1 := "    "
+    cL2 := "Z = "
+    cL3 := "    "
+
+    QOUT("a)")
+    for nI := 1 to nN
+        nSoma += (1 / nI)
+        cL1 += " 01  "
+        cL2 += " -- "
+        cL3 += " " +AllTrim(StrZero(nI,2))+ "  "
+        if nI != nN
+            cL2 += "+"
+        else
+            cL2 += " "
+        endif
+    next nI
+    QOUT(cL1)
+    QOUT(cL2)
+    QOUT(cL3)
+    QOUT(" Z = "+ AllTrim(str(nSoma)))
     QOUT("")
+
+    nSoma := 0
+    cL1 := "    "
+    cL2 := "Z = "
+    cL3 := "    "
+    QOUT("b)")
+    for nI := 1 to nN
+        nSoma += (nI / ((nN-nI)+1))
+        cL1 += " " +AllTrim(StrZero(nI,2))+ "  "
+        cL2 += " -- "
+        cL3 += " " +AllTrim(StrZero((nN-nI)+1 ,2))+ "  "
+        if nI != nN
+            cL2 += "+"
+        else
+            cL2 += " "
+        endif
+    next nI
+    QOUT(cL1)
+    QOUT(cL2)
+    QOUT(cL3)
+    QOUT(" Z = "+ AllTrim(str(nSoma)))
+    QOUT("")
+
+    nSoma := 0
+    cL1 := "    "
+    cL2 := "Z = "
+    cL3 := "    "
+    QOUT("c)")
+    for nI := 1 to nN
+        nSoma += (nI / (nI*2))
+        cL1 += " " +AllTrim(StrZero(nI,2))+ "  "
+        cL2 += " -- "
+        cL3 += " " +AllTrim(StrZero(nI*2 ,2))+ "  "
+        if nI != nN
+            cL2 += "+"
+        else
+            cL2 += " "
+        endif
+    next nI
+    QOUT(cL1)
+    QOUT(cL2)
+    QOUT(cL3)
+    QOUT(" Z = "+ AllTrim(str(nSoma)))
+    QOUT("")
+
     QOUT("***************")
     QOUT("")
 Return nil
@@ -1021,24 +1118,166 @@ Function Exercicio80()
     // a. A maior e a menor altura do grupo.
     // b. A média de altura das mulheres.
     // c. O número de homens.
+/*    local aTraducao := 
+{{ 150 , "F" } , { 155 , "M" } , { 157 , "F" } , { 158 , "M" } , { 160 , "F"} , 
+{ 161 , "F" } , { 164 , "M" } , { 164 , "F" } , { 164 , "M" } , { 165 , "F" } , 
+{ 166 , "F" } , { 167 , "M" } , { 167 , "F" } , { 168 , "M" } , { 168 , "F" } , 
+{ 169 , "F" } , { 169 , "M" } , { 169 , "F" } , { 170 , "M" } , { 170 , "F" } , 
+{ 172 , "F" } , { 173 , "M" } , { 174 , "F" } , { 174 , "M" } , { 175 , "F" } , 
+{ 176 , "F" } , { 177 , "M" } , { 178 , "F" } , { 178 , "M" } , { 179 , "F" } , 
+{ 180 , "F" } , { 181 , "M" } , { 182 , "F" } , { 183 , "M" } , { 183 , "F" } , 
+{ 185 , "F" } , { 187 , "M" } , { 188 , "F" } , { 191 , "M" } , { 203 , "F" } }   */
+    local aGrupo :=  {{ 150 , "F" } , { 155 , "M" } , { 157 , "F" } , { 158 , "M" } , { 160 , "F"} , { 161 , "F" } , { 164 , "M" } , { 164 , "F" } , { 164 , "M" } , { 165 , "F" } , { 166 , "F" } , { 167 , "M" } , { 167 , "F" } , { 168 , "M" } , { 168 , "F" } , { 169 , "F" } , { 169 , "M" } , { 169 , "F" } , { 170 , "M" } , { 170 , "F" } , { 172 , "F" } , { 173 , "M" } , { 174 , "F" } , { 174 , "M" } , { 175 , "F" } , { 176 , "F" } , { 177 , "M" } , { 178 , "F" } , { 178 , "M" } , { 179 , "F" } , { 180 , "F" } , { 181 , "M" } , { 182 , "F" } , { 183 , "M" } , { 183 , "F" } , { 185 , "F" } , { 187 , "M" } , { 188 , "F" } , { 191 , "M" } , { 203 , "F" } }
+    local nMaiorA := 0
+    local nMenorA := 299
+    local nMediaM := 0
+    local nNumH := 0
+    local nNumM := 0
+    local nI
 
     QOUT("***************")
     QOUT("* Exercicio80 *")
-    QOUT("")
-    QOUT("")
+
+    for nI := 1 to len(aGrupo) 
+        if nMaiorA < aGrupo[nI][1] 
+            nMaiorA := aGrupo[nI][1]
+        endif
+        if nMenorA > aGrupo[nI][1] 
+            nMenorA := aGrupo[nI][1]
+        endif
+
+        if aGrupo[nI][2] == "F"
+            nMediaM += aGrupo[nI][1] 
+            nNumM += 1
+        endif
+
+        if aGrupo[nI][2] == "M"
+            nNumH += 1
+        endif
+
+    next nI
+
+    nMediaM := nMediaM / nNumM
+
+    QOUT("Maior altura do grupo " + allTrim(str(nMaiorA/100)) + "m")
+    QOUT("Menor altura do grupo " + allTrim(str(nMenorA/100)) + "m")
+    QOUT("A media de altura das mulheres " + allTrim(str(nMediaM/100)) + "m")
+    QOUT("O numero de homens " + allTrim(str(nNumH)))
     QOUT("***************")
     QOUT("")
 Return nil
 
 Function Exercicio81()
-    //
+
+    local nJogador , nComputador , nResultado, nIdioma
+    local aTraducao := {{ "Escolha (1)Papel, (2)Pedra ou (3)Tesoura: " , "Choose (1)Paper, (2)Rock  (3)Scissors: " }, { "Voce escolheu" , "You pick " }, { "Computador escolheu" , "Computer chose " }, { "Parabens voce venceu", "Congratulations you won" }, { "O computador venceu", "Computer won" }, { "empate", "tie" }}
+
     QOUT("***************")
     QOUT("* Exercicio81 *")
+    QOUT("Jokenpo")
+    
+    QOUT("Idioma do jogo? ")
+    QOUT("Game language? ")
+    while !IsDigit(nIdioma) .OR. val(nIdioma) < 1 .OR. val(nIdioma) > 2
+        ACCEPT("(1) PT-BR // (2) EN-US = ") to nIdioma
+    enddo
+    nIdioma := Val(nIdioma)    
+    
+    while !IsDigit(nJogador) .OR. val(nJogador) < 1 .OR. val(nJogador) > 3
+        // ACCEPT "Escolha (1)Papel, (2)Pedra ou (3)Tesoura: " TO nJogador
+        ACCEPT aTraducao[1][nIdioma] TO nJogador
+    enddo
+    nJogador := val(nJogador)
+
+    nComputador := HB_RandomInt(1,3)
     QOUT("")
+
+    // QOUT("Voce escolheu") 
+    QOUT(aTraducao[2][nIdioma]) 
+    imprime_jokenpo(nJogador)
+    QOUT(" ")
+    // QOUT("Computador escolheu")
+    QOUT(aTraducao[3][nIdioma])
+    imprime_jokenpo(nComputador)
+    QOUT(" ")
+
+    QOUT("")
+    nResultado := vitoria_jokenpo( nJogador , nComputador)
+    if nResultado == 1
+        // QOUT("Parabens voce venceu")
+        QOUT(aTraducao[4][nIdioma])
+    elseif nResultado == 2
+        // QOUT("O computador venceu")
+        QOUT(aTraducao[5][nIdioma])
+    else
+        // QOUT("empate")
+        QOUT(aTraducao[6][nIdioma])
+    endif
+
     QOUT("")
     QOUT("***************")
     QOUT("")
 Return nil
+
+static Function vitoria_jokenpo( nJogador , nComputador)
+// return 1 vitoria do jogador
+// return 2 vitoria do computador
+// (1)Papel  (2)pedra (3)tesoura
+// paper     rock     scissors
+
+    if nComputador == 1 // computador jogou papel
+        if nJogador == 1 // papel
+            return 0
+        elseif nJogador == 2 // pedra
+            return 2
+        elseif nJogador == 3 // tesoura
+            return 1
+        endif
+    elseif nComputador == 2 // computador jogou pedra
+        if nJogador == 1 // papel
+            return 1
+        elseif nJogador == 2 // pedra
+            return 0
+        elseif nJogador == 3 // tesoura
+            return 2
+        endif
+    elseif nComputador == 3 // computador jogou tesoura
+        if nJogador == 1 // papel
+            return 2
+        elseif nJogador == 2 // pedra
+            return 1
+        elseif nJogador == 3 // tesoura
+            return 0
+        endif
+    endif
+return 1
+
+Function imprime_jokenpo(nN)
+    if nN == 1
+        QOUT("    _______        ")
+        QOUT("---'   ____)____   ")
+        QOUT("          ______)  ")
+        QOUT("          _______) ")
+        QOUT("         _______)  ")
+        QOUT("---.__________)    ")
+    elseif nN == 2
+        QOUT("    _______    ")
+        QOUT("---'   ____)   ")
+        QOUT("      (_____)  ")
+        QOUT("      (_____)  ")
+        QOUT("      (____)   ")
+        QOUT("---.__(___)    ")
+    elseif nN == 3
+        QOUT("    _______        ")
+        QOUT("---'   ____)____   ")
+        QOUT("          ______)  ")
+        QOUT("       __________) ")
+        QOUT("      (____)       ")
+        QOUT("---.__(___)        ")
+    endif
+return nil
+
+
 
 Function Exercicio82()
     // Fazer um programa que leia 10 valores 
@@ -1050,6 +1289,7 @@ Function Exercicio82()
     local nTamanho := 10
     QOUT("***************")
     QOUT("* Exercicio82 *")
+    QOUT("leia 10 valores e apresente-os na ordem inversa em que foram digitados")
     for nI := 1 to nTamanho
         ACCEPT "Digite um numero: " to cEntrada   
         aAdd(aValores, Val(cEntrada))
