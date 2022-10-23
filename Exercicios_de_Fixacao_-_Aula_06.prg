@@ -1,29 +1,28 @@
+// funcoes dda aula
 SET PROCEDURE TO Exercicios_de_Fixacao_-_Aula_06_lib.prg
 
-Function Main()
-    // QOUT(" !!! aviso !!! ")
-    // QOUT(" todos exercicios em que o valor apresentar casas decimais")
-    // QOUT(" o mesmo deve ser representado no padrao ammericano ")
-    // QOUT(" ultilizar . e nao , ")
-    // QOUT("")
+// lib para tratamento de entradas
+SET PROCEDURE TO start_lib.prg
 
-    // Exercicio01()
-    // Exercicio02()
-    // Exercicio03()
-    // Exercicio04()
-    // Exercicio05()
-    // Exercicio06()
-    // Exercicio07()
-    // Exercicio08()
-    // Exercicio09()
-    // Exercicio10()
-    // Exercicio11()
+Function Main()
+
+    Exercicio01()
+    Exercicio02()
+    Exercicio03()
+    Exercicio04()
+    Exercicio05()
+    Exercicio06()
+    Exercicio07()
+    Exercicio08()
+    Exercicio09()
+    Exercicio10()
+    Exercicio11()
     Exercicio12()
     Exercicio13()
-    // Exercicio14()
-    // Exercicio15()
-    // Exercicio16()
-    // Exercicio17()
+    Exercicio14()
+    Exercicio15()
+    Exercicio16()
+    Exercicio17()
     
 Return nil
 
@@ -48,20 +47,9 @@ Function Exercicio02()
     QOUT("* Exercicio02 *")
     QOUT("Calculo de uma prestacao em atraso") 
 
-    while !IsDigit(nValor) .OR. val(nValor) < 0 // .OR. val(nNum) > 97
-        ACCEPT "Informe o valor: " TO nValor
-    enddo
-    nValor := val(nValor)
-
-    while !IsDigit(nTaxa) .OR. val(nTaxa) < 0 //.OR. val(nNum) > 97
-        ACCEPT "Informe a taxa: " TO nTaxa
-    enddo
-    nTaxa := val(nTaxa) 
-
-    while !IsDigit(nTempo) .OR. val(nTempo) < 0 //.OR. val(nNum) > 97
-        ACCEPT "Informe o tempo: " TO nTempo
-    enddo
-    nTempo := val(nTempo) 
+    nValor := inp_num("Informe o valor: " )
+    nTaxa := inp_num("Informe a taxa: ")
+    nTempo := inp_num("Informe o tempo: ")
 
     nPrest := calc_prestacao(nValor, nTaxa, nTempo )
 
@@ -70,34 +58,21 @@ Function Exercicio02()
     QOUT("")
 Return nil
 
-Function calc_prestacao(nValor, nTaxa, nTempo )
-Return nValor + ((nValor *  (nTaxa / 100)) * nTempo)
-
 
 
 Function Exercicio03()
-    local nN
+    local nN 
 // sub-rotina que efetue o somatório dos N primeiros números naturais iniciando em 1. 
-// O resultado deverá ser exibido no programa principal e não no procedimento.
+// O resultado deverá ser exibido no programa principal e não no procedimento. 
     QOUT("***************")
     QOUT("* Exercicio03 *")
     QOUT("efetue o somatorio dos N primeiros numeros naturais")
-    while !IsDigit(nN) .OR. val(nN) <= 1
-        ACCEPT "Informe o valor de N: " TO nN
-    enddo
-    nN := val(nN)
+    nN := inp_num("Informe o valor de N: ")
     
     QOUT("somatorio dos " + str(nN) + " primeiros nummeros = " + AllTrim(str( soma_naturais(nN) )) )
     QOUT("***************")
     QOUT("")
 Return nil
-
-Function soma_naturais(nN)
-    local nSoma := 0 , nI
-    for nI := 1 to nN
-        nSoma += nI
-    next
-Return nSoma
 
 
 Function Exercicio04()
@@ -128,19 +103,6 @@ Function Exercicio04()
     QOUT("")
 Return nil
 
-Function troca1(aValores)
-    aAdd(aValores , aValores[2] )  // salvar uma copia de [2] em [3]
-    aValores[2] := aValores[1] // clonar [1] em [2]
-    aValores[1] := aValores[3] // copiar [3] em [1]
-    aDel(aValores, 3) // apagar a auxiliar [3]
-Return aValores
-
-Function troca2(cA, cB)
-    local cC := cB
-    cB := cA
-    cA := cC
-Return nil
-
 
 Function Exercicio05()
 // dado o dividendo e o divisor de uma divisão, 
@@ -150,16 +112,9 @@ Function Exercicio05()
     local nDividendo, nDivisor, nQuociente, nResto
     QOUT("***************")
     QOUT("* Exercicio05 *")
-    QOUT("")
-    while !IsDigit(nDividendo) .OR. val(nDividendo) < 0
-        ACCEPT "Informe o Dividendo: " TO nDividendo
-    enddo
-    nDividendo := val(nDividendo)
-
-    while !IsDigit(nDivisor) .OR. val(nDivisor) < 0
-        ACCEPT "Informe o Divisor: " TO nDivisor
-    enddo
-    nDivisor := val(nDivisor) 
+    
+    nDividendo := inp_num("Informe o Dividendo: ")
+    nDivisor := inp_num("Informe o Divisor: ")
 
     nQuociente := quociente_divisao(nDividendo, nDivisor)
     nResto := resto_divisao(nDividendo, nDivisor)
@@ -169,12 +124,6 @@ Function Exercicio05()
     QOUT("***************")
     QOUT("")
 Return nil
-
-Function quociente_divisao(nDividendo, nDivisor)
-Return int(nDividendo / nDivisor)
-
-Function resto_divisao(nDividendo, nDivisor)
-Return int(nDividendo % nDivisor)
 
 
 Function Exercicio06()
@@ -186,18 +135,13 @@ Function Exercicio06()
     QOUT("***************")
     QOUT("* Exercicio06 *")
     QOUT("calcular o dobro de um numero")
-    while !IsDigit(nNum)
-        ACCEPT "Informe o numero: " TO nNum
-    enddo
-    nNum := val(nNum)
-    o_dobro_ou_nada(nNum)
+    nNum := inp_num("Informe o numero: ")
+
+    nNum := o_dobro_ou_nada(nNum)
+
+    QOUT("o dobro = " + AllTrim(str(nNum)))
     QOUT("***************")
     QOUT("")
-Return nil
-
-Function o_dobro_ou_nada(nNum)
-    nNum *= 2
-    QOUT("o dobro = " + AllTrim(str(nNum)))
 Return nil
 
 
@@ -209,14 +153,8 @@ Function Exercicio07()
     QOUT("***************")
     QOUT("* Exercicio07 *")
     QOUT("calculo de potencia")
-    while !IsDigit(nBase)
-        ACCEPT "Informe a base: " TO nBase
-    enddo
-    nBase := val(nBase)
-    while !IsDigit(nExpoente)
-        ACCEPT "Informe o expoente: " TO nExpoente
-    enddo
-    nExpoente := val(nExpoente)
+    nBase := inp_num("Informe a base: ")
+    nExpoente := inp_num("Informe o expoente: ")
 
     nPotencia := POT(nBase, nExpoente)
 
@@ -224,9 +162,6 @@ Function Exercicio07()
     QOUT("***************")
     QOUT("")
 Return nil
-
-Function POT(nBase, nExpoente)
-Return int(nBase ^ nExpoente)
 
 
 Function Exercicio08()
@@ -239,14 +174,8 @@ Function Exercicio08()
     QOUT("***************")
     QOUT("* Exercicio08 *")
     QOUT("calculo da area")
-    while !IsDigit(nL1)
-        ACCEPT "Informe um lado: " TO nL1
-    enddo
-    nL1 := val(nL1)
-    while !IsDigit(nL2)
-        ACCEPT "Informe o outro lado: " TO nL2
-    enddo
-    nL2 := val(nL2)
+    nL1 := inp_num("Informe um lado: ")
+    nL2 := inp_num("Informe o outro lado: ")
 
     nArea := area(nL1, nL2)
 
@@ -254,9 +183,6 @@ Function Exercicio08()
     QOUT("***************")
     QOUT("")
 Return nil
-
-Function area(nL1, nL2)
-Return int(nL1 * nL2)
 
 
 Function Exercicio09()
@@ -266,21 +192,13 @@ local nNum
     QOUT("***************")
     QOUT("* Exercicio09 *")
     QOUT("")
-    while !IsDigit(nNum)
-        ACCEPT "Informe um numero: " TO nNum
-    enddo
-    nNum := val(nNum)
+    nNum := inp_num("Informe um numero: ")
+
     QOUT("sucessor: " + allTrim(str(sucessor(nNum))))
     QOUT("antecessor: " + allTrim(str(antecessor(nNum))))
     QOUT("***************")
     QOUT("")
 Return nil
-
-Function sucessor(nNum)
-Return ++nNum
-
-Function antecessor(nNum)
-Return --nNum
 
 
 Function Exercicio10()
@@ -292,18 +210,11 @@ Function Exercicio10()
     QOUT("***************")
     QOUT("* Exercicio10 *")
     QOUT("calculo da media")
-    while !IsDigit(nA)
-        ACCEPT "Informe o valor A: " TO nA
-    enddo
-    nA := val(nA)
-    while !IsDigit(nB)
-        ACCEPT "Informe o valor B: " TO nB
-    enddo
-    nB := val(nB)
-    while !IsDigit(nC)
-        ACCEPT "Informe o valor C: " TO nC
-    enddo
-    nC := val(nC)
+    
+    nA := inp_num("Informe o valor A: ")
+    nB := inp_num("Informe o valor B: ")
+    nC := inp_num("Informe o valor C: ")
+    
     QOUT("media: " + allTrim(str(media(nA, nB, nC))))
     QOUT("***************")
     QOUT("")
@@ -320,14 +231,8 @@ Function Exercicio11()
     QOUT("***************")
     QOUT("* Exercicio11 *")
     QOUT("calcule o reajuste de um salario")
-    while !IsDigit(nSal)
-        ACCEPT "Informe o valor do salario: " TO nSal
-    enddo
-    nSal := val(nSal)
-    while !IsDigit(nRej)
-        ACCEPT "Informe o valor ddo reajuste: " TO nRej 
-    enddo
-    nRej := val(nRej)
+    nSal := inp_num( "Informe o valor do salario: " )
+    nRej := inp_num( "Informe o valor do reajuste: " )
 
     QOUT("novo salario: " + allTrim(str(reajuste(nSal, nRej))))
     QOUT("***************")
@@ -361,26 +266,13 @@ Function Exercicio12()
     QOUT("* Exercicio12 *")
     QOUT("Calculo valor futuro ")
 
-    while !IsDigit(nValorP)
-        ACCEPT "Informe o valor do capital (valor presente): " TO nValorP 
-    enddo
-    nValorP := val(nValorP)
-
-    while !IsDigit(nJur)
-        ACCEPT "Informe a taxa de juros (diaria): " TO nJur 
-    enddo
-    nJur := val(nJur)
-
-    while !IsDigit(nPrazo)
-        ACCEPT "Informe o prazo (dias): " TO nPrazo 
-    enddo
-    nPrazo := val(nPrazo)
+    nValorP := inp_num("Informe o valor do capital (valor presente): ")
+    nJur := inp_num("Informe a taxa de juros (diaria): ")
+    nPrazo := inp_num("Informe o prazo (dias): ")
 
     QOUT("Regime de capitalizacao")
     while .T.
-        ACCEPT "(S)imples ou (C)omposto: " TO cCSimpComp
-        //IsAlpha(cCSimpComp) 
-        cCSimpComp := upper(left(cCSimpComp, 1))
+        cCSimpComp := inp_up_chr("(S)imples ou (C)omposto: ")
         if  cCSimpComp == "S" .OR. cCSimpComp == "C"
             exit
         endif
@@ -410,20 +302,9 @@ Function Exercicio13()
     QOUT("* Exercicio13 *")
     QOUT("Calculo valor presente ")
 
-    while !IsDigit(nValorP)
-        ACCEPT "Informe o valor final do capital (valor futuro): " TO nValorP 
-    enddo
-    nValorP := val(nValorP)
-
-    while !IsDigit(nJur)
-        ACCEPT "Informe a taxa de juros (diaria): " TO nJur 
-    enddo
-    nJur := val(nJur)
-
-    while !IsDigit(nPrazo)
-        ACCEPT "Informe o prazo (dias): " TO nPrazo 
-    enddo
-    nPrazo := val(nPrazo)
+    nValorF := inp_num( "Informe o valor final do capital (valor futuro): " )
+    nJur := inp_num( "Informe a taxa de juros (diaria): " )
+    nPrazo := inp_num( "Informe o prazo (dias): " )
 
     nValorP := f_juros_valor_presente(nValorF , nJur , nPrazo)
 
@@ -439,23 +320,31 @@ Return nil
 
 Function Exercicio14()
 // Organize as funções de PV e FV numa unidade de funções financeiras.
-
     QOUT("***************")
     QOUT("* Exercicio14 *")
-    QOUT("")
-    QOUT("")
+    QOUT("as funcoes ja estao na Lib feita para esta lista")
+    QOUT(" SET PROCEDURE TO Exercicios_de_Fixacao_-_Aula_06_lib.prg ")
     QOUT("***************")
     QOUT("")
+    wait
 Return nil
 
 
-Function Exercicio15()
+Function Exercicio15() 
 // Crie uma função chamada “ehPositivo” 
 // que descubra se um valor é positivo ou negativo (considere o valor zero como positivo) e retorne Verdadeiro ou Falso. 
 // Use essa função em um programa que calcula o módulo de um número informado pelo usuário.
+    local nValor
     QOUT("***************")
     QOUT("* Exercicio15 *")
-    QOUT("")
+    nValor := inp_num( "Informe um numero: " )
+
+    IF !ehPositivo(nValor)
+        nValor *= -1
+    endif
+
+    QOUT("modulo = " + allTrim(str(nValor)))
+
     QOUT("")
     QOUT("***************")
     QOUT("")
@@ -469,28 +358,119 @@ Function Exercicio16()
 //     c. isSimbolo(c): informa se o caractere enviado é um símbolo.
 //     d. toLower(c): converte uma letra maiúscula em minúscula.
 //     e. cTroca(a, b): troca os valores entre as variáveis a e b.
+    local cA := "a"
+    local cB := 2
     QOUT("***************")
     QOUT("* Exercicio16 *")
     QOUT("")
-    QOUT("")
+    
+    if isLetra("9")
+        QOUT("9 isLetra .T. ")
+    else
+        QOUT("9 isLetra .F. ")
+    endif
+    if isLetra("C")
+        QOUT("C isLetra .T. ")
+    else
+        QOUT("C isLetra .F. ")
+    endif
+
+    if isDigito("9")
+        QOUT("9 isDigito .T. ")
+    else
+        QOUT("9 isDigito .F. ")
+    endif
+    if isDigito("#")
+        QOUT("# isDigito .T. ")
+    else
+        QOUT("# isDigito .F. ")
+    endif
+
+    if isSimbolo("@")
+        QOUT("@ isSimbolo .T. " )
+    else
+        QOUT("@ isSimbolo .F. ")
+    endif
+
+    if isSimbolo("T")
+        QOUT("T isSimbolo .T. " )
+    else
+        QOUT("T isSimbolo .F. ")
+    endif
+
+    QOUT("T toLower " + toLower("T") )
+
+    QOUT("a = A , b = 2  => cTroca ")
+    cA := "A"
+    cB := "2"
+    cTroca(@cA, @cB)
+    QOUT("a " + cA)
+    QOUT("b " + cB)
+    
     QOUT("***************")
     QOUT("")
+    wait
 Return nil
 
 
 Function Exercicio17()
 // Criar um programa de funções com literais e nela disponibilizar as funções:
-//     a. iTroca(a, b): troca os valores entre as variáveis a e b.
+//     a. iTroca(a, b): t   roca os valores entre as variáveis a e b.
 //     b. isPar(x): informa se o inteiro enviado é um número par.
 //     c. isImPar(x): informa se o inteiro enviado é um número ímpar.
 //     d. Inverte(x): retorna o número com sinal invertido.
 //     e. isDiv(a, b): retorna se a é divisível por b.
+    local cA := "a"
+    local cB := 2
     QOUT("***************")
     QOUT("* Exercicio17 *")
     QOUT("")
-    QOUT("")
+
+    QOUT("a = j , b = ?  => iTroca ")
+    cA := "j"
+    cB := "?"
+    iTroca(@cA, @cB)
+    QOUT("a " + cA)
+    QOUT("b " + cB)    
+    
+    if isPar(9)
+        QOUT("9 isPar .T. ")
+    else
+        QOUT("9 isPar .F. ")
+    endif
+    if isPar(8)
+        QOUT("8 isPar .T. ")
+    else
+        QOUT("8 isPar .F. ")
+    endif
+
+    if isImPar(9)
+        QOUT("9 isImPar .T. ")
+    else
+        QOUT("9 isImPar .F. ")
+    endif
+    if isImPar(8)
+        QOUT("8 isImPar .T. ")
+    else
+        QOUT("8 isImPar .F. ")
+    endif
+
+    QOUT("Inverte(5) = " + AllTrim(str(Inverte(5))))
+    QOUT("Inverte(-5) = " + AllTrim(str(Inverte(-5))))
+
+    if isDiv(9,5)
+        QOUT("9/5 isDiv .T. ")
+    else
+        QOUT("9/5 isDiv .F. ")
+    endif
+    if isDiv(8,4)
+        QOUT("8/4 isDiv .T. ")
+    else
+        QOUT("8/4 isDiv .F. ")
+    endif
+
     QOUT("***************")
     QOUT("")
-
+    wait
 Return nil
 
