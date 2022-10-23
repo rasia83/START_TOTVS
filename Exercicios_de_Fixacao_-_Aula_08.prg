@@ -1,10 +1,31 @@
-// funcoes dda aula
-SET PROCEDURE TO Exercicios_de_Fixacao_-_Aula_07_lib.prg
-
+ 
 // lib para tratamento de entradas
 SET PROCEDURE TO start_lib.prg
 
 Function Main()
+
+ ? " Computer Name:", GETENV( "COMPUTERNAME" )
+ ? " Home Drive :", GETENV( "HOMEDRIVE" ) 
+ ? " Home Path :", GETENV( "HOMEPATH" ) 
+ ? " LogOn Server :", GETENV( "LOGONSERVER" ) 
+ ? " Number of Processors :", GETENV( "NUMBER_OF_PROCESSORS" ) 
+ ? " Processor Architecture :", GETENV( "PROCESSOR_ARCHITECTURE" ) 
+ ? " Processor Identifier :", GETENV( "PROCESSOR_IDENTIFIER" )
+ ? " Processor Level :", GETENV( "PROCESSOR_LEVEL" )
+ ? " Processor Revision :", GETENV( "PROCESSOR_REVISION" )
+ ? " OS :", GETENV( "OS" )
+ ? " Session Name :", GETENV( "SESSIONNAME" ) 
+ ? " User Domain :", GETENV( "USERDOMAIN" ) 
+ ? " User Name :", GETENV( "USERNAME" )
+ ? " User Profile :", GETENV( "USERPROFILE" )
+ ? " Command Specification:", GETENV( "COMSPEC")
+ ? " TEMP Folder :", GETENV( "TEMP" )
+ ? " TMP Folder :", GETENV( "TMP" )
+ ? " WINDOWS Folder :", GETENV( "WINDIR" )
+ ? " Program Files Folder :", GETENV( "PROGRAMFILES" ) 
+ ? " Prog. files extentions :", GETENV( "PATHEXT" )
+ ? " Default Path :", GETENV( "PATH" )
+ ?
 
 
     // Exercicio01()
@@ -26,9 +47,6 @@ Function Main()
     // Exercicio16()
     // Exercicio17()
     // Exercicio18()
-
-// Ordenação e pesquisa
-
     // Exercicio19()
 
     // Exercicio20()
@@ -37,9 +55,6 @@ Function Main()
     // Exercicio23()
     // Exercicio24()
     // Exercicio25()
-    
-// String
-
     // Exercicio26()
     // Exercicio27()
     // Exercicio28()
@@ -48,9 +63,6 @@ Function Main()
     // Exercicio30()
     // Exercicio31()
     // Exercicio32()
-
-// Tabela
-
     // Exercicio33()
     // Exercicio34()
     // Exercicio35()
@@ -68,9 +80,7 @@ Return nil
 
 
 Function Exercicio01()
-// dados um número de 1 até 7, 
-// apresente o nome do dia da semana correspondente. 
-// Considere 1 como “Domingo”. Utilize vetor.
+    //
     QOUT("***************")
     QOUT("* Exercicio01 *")
     QOUT("")
@@ -81,8 +91,7 @@ Return nil
 
 
 Function Exercicio02()
-// Ler 10 elementos de uma matriz 
-// apresentá-los depois de todos serem lidos.
+    //
     QOUT("***************")
     QOUT("* Exercicio02 *")
     QOUT("")
@@ -93,8 +102,7 @@ Return nil
 
 
 Function Exercicio03()
-// Ler 10 elementos de uma matriz tipo vetor 
-// apresentá-los na ordem inversa em que foram lidos e armazenados.
+    //
     QOUT("***************")
     QOUT("* Exercicio03 *")
     QOUT("")
@@ -105,9 +113,7 @@ Return nil
 
 
 Function Exercicio04()
-// Dado um número de 1 até 12, 
-// apresentar o número de dias do mês correspondente. 
-// Se o número escolhido for 2 (fevereiro), considere 28 dias. Usar vetor
+    //
     QOUT("***************")
     QOUT("* Exercicio04 *")
     QOUT("")
@@ -118,9 +124,7 @@ Return nil
 
 
 Function Exercicio05()
-// popule um vetor de 30 posições 
-// com valores de 1 até 30. 
-// Exibir o conteúdo do vetor.
+    //
     QOUT("***************")
     QOUT("* Exercicio05 *")
     QOUT("")
@@ -131,9 +135,7 @@ Return nil
 
 
 Function Exercicio06()
-// popule um vetor de 30 posições 
-// com valores de 30 até 1. 
-// Exibir o conteúdo do vetor.
+    //
     QOUT("***************")
     QOUT("* Exercicio06 *")
     QOUT("")
@@ -144,9 +146,7 @@ Return nil
 
 
 Function Exercicio07()
-// popule um vetor de 10 posições 
-// com valores pares a partir de 2 até o 20. 
-// Exibir o conteúdo do vetor.
+    //
     QOUT("***************")
     QOUT("* Exercicio07 *")
     QOUT("")
@@ -157,10 +157,7 @@ Return nil
 
 
 Function Exercicio08()
-// Ler dois vetores A e B, 
-// de 20 elementos cada e calcular um terceiro, C, 
-// onde cada elemento será a soma dos correspondentes em A e B.
-// Apresentar o vetor resultante.
+    //
     QOUT("***************")
     QOUT("* Exercicio08 *")
     QOUT("")
@@ -171,10 +168,7 @@ Return nil
 
 
 Function Exercicio9()
-// apresente na tela todos os elementos de um vetor 
-// que será passado como parâmetro para a função. 
-// Este procedimento será útil para vários exercícios. 
-// Que tal colocá-lo numa biblioteca?
+    //
     QOUT("***************")
     QOUT("* Exercicio09 *")
     QOUT("")
@@ -185,12 +179,7 @@ Return nil
 
 
 Function Exercicio10()
-// Ler dois vetores, A e B de 10 elementos 
-// calcular um vetor C 
-// onde seu primeiro elemento é o primeiro elemento de A, seu segundo elemento é o primeiro de B, seu terceiro elemento é o segundo de A, e assim sucessivamente. 
-// Notem que o vetor C deverá ter 20 elementos. 
-// Exibir o conteúdo do vetor C.
-
+    //
     QOUT("***************")
     QOUT("* Exercicio10 *")
     QOUT("")
@@ -201,9 +190,7 @@ Return nil
 
 
 Function Exercicio11()
-// Ler um vetor A de 15 elementos e a partir dele 
-// construir um vetor B de mesmo tamanho, 
-// sendo o inverso de A
+    //
     QOUT("***************")
     QOUT("* Exercicio11 *")
     QOUT("")
@@ -214,10 +201,7 @@ Return nil
 
 
 Function Exercicio12()
-// carregue um vetor de 8 elementos 
-// inverta a ordem do seu conteúdo. 
-// Apresente no final o vetor invertido.
-// Usar apenas uma variável composta.
+    //
     QOUT("***************")
     QOUT("* Exercicio12 *")
     QOUT("")
@@ -228,9 +212,7 @@ Return nil
 
 
 Function Exercicio13()
-// Ler 8 elementos em uma matriz A tipo vetor. 
-// Construir uma matriz B de mesma dimensão 
-// onde cada elemento é o triplo do elemento correspondente da mátria A.
+    //
     QOUT("***************")
     QOUT("* Exercicio13 *")
     QOUT("")
@@ -241,10 +223,7 @@ Return nil
 
 
 Function Exercicio14()
-// Ler duas matrizes A e B com 20 elementos. 
-// Construir uma matriz C
-// onde cada elemento de C é a subtração do elemento correspondente de A com B. 
-// Apresentar a matriz C.
+    //
     QOUT("***************")
     QOUT("* Exercicio14 *")
     QOUT("")
@@ -255,11 +234,7 @@ Return nil
 
 
 Function Exercicio15()
-// Ler duas matrizes do tipo vetor. 
-// A com 10 elementos e B com 15 elementos. 
-// Construir uma matriz C, sendo esta, a junção das duas outras matrizes. 
-// C deverá ter a capacidade de armazenar 25 elementos. 
-// Apresentar a matriz C.
+    //
     QOUT("***************")
     QOUT("* Exercicio15 *")
     QOUT("")
@@ -270,10 +245,7 @@ Return nil
 
 
 Function Exercicio16()
-// Ler uma matriz A do tipo vetor com 5 elementos. 
-// Construir uma matriz B de mesmo tipo e dimensão, 
-// cada elemento da matriz B deverá ser o valor inverso (sinal trocado) do elemento correspondente da matriz A.  
-// Apresentar os elementos da matriz.
+    //
     QOUT("***************")
     QOUT("* Exercicio16 *")
     QOUT("")
@@ -284,10 +256,7 @@ Return nil
 
 
 Function Exercicio17()
-// Ler uma matriz A do tipo vetor com 10 elementos. 
-// Construir uma matriz B de mesmo tipo, 
-// sendo que cada elemento de B seja o somatório do primeiro até o elemento correspondente de A.
-// Apresentar os elementos da matriz B.
+    //
     QOUT("***************")
     QOUT("* Exercicio17 *")
     QOUT("")
@@ -298,9 +267,7 @@ Return nil
 
 
 Function Exercicio18()
-// Dada uma data informada pelo usuário, 
-// indicar ordinalmente o dia do ano que ela representa do 1º dia ao 365º/366º (conforme o ano for ou não bissexto). 
-// O usuário informará separadamente dos valores do dia, do mês e do ano pesquisado.
+    //
     QOUT("***************")
     QOUT("* Exercicio18 *")
     QOUT("")
@@ -309,13 +276,9 @@ Function Exercicio18()
     QOUT("")
 Return nil
 
-// Ordenação e pesquisa
 
 Function Exercicio19()
-// Carregar um vetor com 50 caracteres gerados aleatoriamente (randômicos). 
-// Serão válidos apenas caracteres que representem letras maiúsculas de “A” até “Z”. 
-// A carga do vetor deverá ser feita através de uma sub-rotina que é chamada automaticamente no programa principal. 
-// Os caracteres podem se repetir.
+    //
     QOUT("***************")
     QOUT("* Exercicio19 *")
     QOUT("")
@@ -326,19 +289,7 @@ Return nil
 
 
 Function Exercicio20()
-// Alterar o programa anterior de modo a incluir 4 menus que terão as seguintes finalidades:
-    // a. Listar o conteúdo completo do vetor.
-    // b. Solicitar ao usuário um caractere, a ser pesquisado no vetor e
-    // informar se o caractere pesquisado existe ou não no vetor
-    // informando a posição em que ele está (todas as ocorrências
-    // visto que o caractere pode se repetir).
-    // c. Pesquisar se existe no vetor um caractere informado pelo
-    // usuário e informar qual a posição da última ocorrência desse
-    // caractere (visto que um mesmo caractere poderá se repetir).
-    // d. Pesquisar se existe no vetor um caractere informado pelo
-    // usuário e informar qual a posição da primeira ocorrência desse
-    // caractere (visto que um mesmo caractere poderá se repetir).
-
+    //
     QOUT("***************")
     QOUT("* Exercicio20 *")
     QOUT("")
@@ -349,12 +300,7 @@ Return nil
 
 
 Function Exercicio21()
-// Carregar um vetor com 12 caracteres gerados aleatoriamente (randômicos). 
-// Serão válidos apenas caracteres que representem letras minúsculas de “a” até “z”. 
-// A carga do vetor deverá ser feita através de uma sub-rotina que é chamada automaticamente no programa principal. 
-// Os caracteres NÃO podem se repetir. 
-// Exibir no final o vetor gerado. 
-// A exibição deverá ser feita via uma sub-rotina.
+    //
     QOUT("***************")
     QOUT("* Exercicio21 *")
     QOUT("")
@@ -365,7 +311,7 @@ Return nil
 
 
 Function Exercicio22()
-// Ler 12 elementos de uma matriz tipo vetor, colocá-los em ordem crescente
+    //
     QOUT("***************")
     QOUT("* Exercicio22 *")
     QOUT("")
@@ -375,20 +321,8 @@ Function Exercicio22()
 Return nil
 
 
-// Function Exercicio23()
-// Fazer um programa que trate de um vetor de 8 elementos numéricos.
-// Ele deverá apresentar um menu que permitirá as seguintes operações: 
-//     a. Carregar o vetor através da leitura dos valores.
-//     b. Exibir o conteúdo do vetor.
-//     c. Classificar os valores em ordem crescente. Caso o vetor esteja vazio, informar.
-//     d. Classificar os valores em ordem decrescente. Caso o vetor esteja vazio, informar.
-//     e. Pesquisar a existência de um valor no vetor. Caso o vetor esteja vazio, informar.
-//     f. Informar o somatório dos valores do vetor.
-//     g. Informar a média dos valores do vetor.
-//     h. Informar o maior e o menor valor do vetor.
-//     i. Embaralhar o conteúdo do vetor.
-//     j. Informar os valores que se repetem e a quantidade de repetições.
-
+Function Exercicio23()
+    //
     QOUT("***************")
     QOUT("* Exercicio23 *")
     QOUT("")
@@ -399,7 +333,7 @@ Return nil
 
 
 Function Exercicio24()
-// Estudar através da execução passo a passo o algoritmo de pesquisa binária demonstrado em aula.
+    //
     QOUT("***************")
     QOUT("* Exercicio24 *")
     QOUT("")
@@ -410,11 +344,7 @@ Return nil
 
 
 Function Exercicio25()
-// Carregar um vetor com valores de 0 a 100. 
-// Implementar um menu que permita realizar neste vetor 
-// uma pesquisa sequencial e uma pesquisa binária. 
-// Incluir um contador nas rotinas de pesquisa 
-// para contar quantas inteirações foram realizadas para se encontrar (ou não) o valor pesquisado.
+    //
     QOUT("***************")
     QOUT("* Exercicio25 *")
     QOUT("")
@@ -423,7 +353,6 @@ Function Exercicio25()
     QOUT("")
 Return nil
 
-// String
 
 Function Exercicio26()
     //
