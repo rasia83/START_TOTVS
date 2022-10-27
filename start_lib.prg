@@ -11,11 +11,13 @@ function inp_num( cMsg )
         if len(nNum) == 1 // ACEITAR SE PRIMEIRO DIGITO == "-"
             if !IsDigit(SubStr(nNum, 1 , 1)) .OR. SubStr(nNum, 1 , 1) == "-"
                 bControle := .T.
+                loop
             endif
         endif
         for nI := 2 to len(nNum) 
             if !IsDigit(SubStr(nNum, nI , 1))  .AND. !(SubStr(nNum, nI , 1) == ".")
                 bControle := .T.
+                loop
             endif
         next nI
     enddo

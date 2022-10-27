@@ -6,7 +6,6 @@ SET PROCEDURE TO start_lib.prg
 
 Function Main()
 
-
     // Exercicio01()
     // Exercicio02()
     // Exercicio03()
@@ -16,7 +15,6 @@ Function Main()
     // Exercicio07()
     // Exercicio08()
     // Exercicio09()
-
     // Exercicio10()
     // Exercicio11()
     // Exercicio12()
@@ -28,41 +26,35 @@ Function Main()
     // Exercicio18()
 
 // Ordenação e pesquisa
-
-    Exercicio19()
-
-    // Exercicio20()
+    // Exercicio19()
+    // Exercicio20() // refatorar 
     // Exercicio21()
     // Exercicio22()
-    // Exercicio23()
-    // Exercicio24()
-    // Exercicio25()
+    // Exercicio23() // TODO
+    // Exercicio24() // DISPENSADO 
+    // Exercicio25() // DISPENSADO 
     
 // String
-
     // Exercicio26()
     // Exercicio27()
-    // Exercicio28()
-    // Exercicio29()
-
-    // Exercicio30()
-    // Exercicio31()
+    // Exercicio28() // DISPENSADO  binário em decimal e um número decimal em binário.
+    // Exercicio29() // CPF
+    // Exercicio30() // - finalidade do trecho de código
+    // Exercicio31() // TODO
     // Exercicio32()
 
 // Tabela
-
-    // Exercicio33()
-    // Exercicio34()
-    // Exercicio35()
-    // Exercicio36()
-    // Exercicio37()
-    // Exercicio38()
-    // Exercicio39()
-
+    // Exercicio33() // mapa de troco. 
+    // Exercicio34() //  código Morse.
+    // Exercicio35() 
+    // Exercicio36()  
+    // Exercicio37() // TODO
+    // Exercicio38() 
+    // Exercicio39() // diferença entre a diagonal principal e secundária da matriz 
     // Exercicio40()
-    // Exercicio41()
-    // Exercicio42()
-    // Exercicio43()
+    // Exercicio41() // TODO
+    // Exercicio42() // TODO
+    // Exercicio43() // TODO
     
 Return nil
 
@@ -469,14 +461,15 @@ Function Exercicio19()
 // CHR(hb_RandomInt(65 , 90))
 // Serão válidos apenas caracteres que representem letras maiúsculas de “A” até “Z”. 
 // A carga do vetor deverá ser feita através de uma sub-rotina que é chamada automaticamente no programa principal. 
-// Os caracteres podem se repetir.
+// Os caracteres podem se repetir. 
     local aArray := {}
     QOUT("***************")
     QOUT("* Exercicio19 *")
-    aArray := a_chr_r_up(aArray , 50)
+    aArray := fill_a_chr(aArray , 50 , "U" , .F. )
     print_array(aArray)
     QOUT("***************")
     QOUT("")
+    wait
 Return nil
 
 
@@ -493,13 +486,17 @@ Function Exercicio20()
     // d. Pesquisar se existe no vetor um caractere informado pelo
     // usuário e informar qual a posição da primeira ocorrência desse
     // caractere (visto que um mesmo caractere poderá se repetir).
+    local nCar:=""
+    QOUT("***************")
+    QOUT("* Exercicio20 *")    
 
+    ACCEPT("Informe uma letra: ") to nCar
+    ncar:=upper(ncar)
+
+    VetorCaracteres( nCar)
     QOUT("***************")
-    QOUT("* Exercicio20 *")
     QOUT("")
-    QOUT("")
-    QOUT("***************")
-    QOUT("")
+    wait
 Return nil
 
 
@@ -510,31 +507,35 @@ Function Exercicio21()
 // Os caracteres NÃO podem se repetir. 
 // Exibir no final o vetor gerado. 
 // A exibição deverá ser feita via uma sub-rotina.
+    local aArray := {}
     QOUT("***************")
     QOUT("* Exercicio21 *")
-    QOUT("")
-    QOUT("")
+    aArray := fill_a_chr(aArray , 12 , "L" , .T. )
+    print_array(aArray )
     QOUT("***************")
     QOUT("")
+    wait
 Return nil
 
 
 Function Exercicio22()
 // Ler 12 elementos de uma matriz tipo vetor, colocá-los em ordem crescente
+    local aArray := {}
     QOUT("***************")
     QOUT("* Exercicio22 *")
-    QOUT("")
-    QOUT("")
+    aArray := fill_a_chr(aArray , 12 , "L"  )
+    print_array(aArray , .F. , .T. )
     QOUT("***************")
     QOUT("")
+    wait
 Return nil
 
 
-// Function Exercicio23()
+Function Exercicio23()
 // Fazer um programa que trate de um vetor de 8 elementos numéricos.
-// Ele deverá apresentar um menu que permitirá as seguintes operações: 
-//     a. Carregar o vetor através da leitura dos valores.
-//     b. Exibir o conteúdo do vetor.
+// Ele deverá apresentar um menu que permitirá as seguintes operações:  
+//     a. Carregar o vetor através da leitura dos valores. 
+//     b. Exibir o conteúdo do vetor. 
 //     c. Classificar os valores em ordem crescente. Caso o vetor esteja vazio, informar.
 //     d. Classificar os valores em ordem decrescente. Caso o vetor esteja vazio, informar.
 //     e. Pesquisar a existência de um valor no vetor. Caso o vetor esteja vazio, informar.
@@ -550,6 +551,7 @@ Return nil
     QOUT("")
     QOUT("***************")
     QOUT("")
+    wait
 Return nil
 
 
@@ -561,6 +563,7 @@ Function Exercicio24()
     QOUT("")
     QOUT("***************")
     QOUT("")
+    wait
 Return nil
 
 
@@ -576,172 +579,575 @@ Function Exercicio25()
     QOUT("")
     QOUT("***************")
     QOUT("")
+    wait
 Return nil
 
 // String
 
 Function Exercicio26()
-    //
+// Fazer um programa que dada uma palavra qualquer informada pelo
+// usuário apresente na tela o seu primeiro caractere.
+    local cTexto 
     QOUT("***************")
     QOUT("* Exercicio26 *")
-    QOUT("")
-    QOUT("")
+    cTexto := inp_str( "Digite uma palavra qualquer " )
+    QOUT("Primeiro caracter = " + Left(cTexto,1))
     QOUT("***************")
     QOUT("")
+    wait
 Return nil
 
 
 Function Exercicio27()
-    //
+// Fazer um programa que apresente invertida uma palavra informada
+// pelo usuário. Informar também se é ou não um palíndromo
+    local cTexto , cTxtInv, nI , nTamanho // , aA := {} , aB := {}
     QOUT("***************")
     QOUT("* Exercicio27 *")
     QOUT("")
-    QOUT("")
+    cTexto := inp_str( "Digite uma palavra " )
+
+    nTamanho := len(cTexto)
+/*
+    aA := array(nTamanho)
+    aB := array(nTamanho)
+    /* 
+    for nI := 1 to nTamanho
+        aA[nI] = SubStr(cTexto, nI , 1)
+        aB[nI] = SubStr(cTexto, nTamanho-nI+1 , 1)
+    next nI */
+    
+    cTxtInv := ""
+    for nI := 1 to nTamanho
+        // cTxtInv += aB[nI]
+        cTxtInv += SubStr(cTexto, nTamanho-nI+1 , 1)
+    next nI
+
+    QOUT("invertida = " + cTxtInv)
+    if cTexto == cTxtInv
+        QOUT(cTexto + " e um palindromo")
+    endif
+
     QOUT("***************")
     QOUT("")
+    wait
 Return nil
 
 
 Function Exercicio28()
-    //
+// Faça um programa que possibilite realizar a conversão de um número
+// binário em decimal e um número decimal em binário.
+
     QOUT("***************")
     QOUT("* Exercicio28 *")
     QOUT("")
     QOUT("")
     QOUT("***************")
     QOUT("")
+    wait
 Return nil
 
 
 Function Exercicio29()
-    //
+// Faça um programa que valide um CPF informado pelo usuário, 
+// através do cálculo do dígito verificador (check-digit).
+    local cCPF , aCPF := {} , nI , nCalc := 0
+    
     QOUT("***************")
     QOUT("* Exercicio29 *")
     QOUT("")
-    QOUT("")
+    while .T.
+        cCPF := inp_num( "Digite o CPF... " )
+        cCPF := allTrim(str(cCPF))
+        // cCPF := "11111111111" // CPF TEMPORARIO
+        if len(cCPF) == 11
+            exit
+        endif
+    enddo
+    
+    aCPF := array(11)
+    for nI := 1 to 11
+        aCPF[nI] := val(SubStr(cCPF, nI , 1))
+    next nI
+
+    // CPF não pode ter todos digitos iguais
+    if aCPF[1] = aCPF[2] .and. aCPF[2] = aCPF[3] .and. aCPF[3] = aCPF[4] .and. aCPF[4] = aCPF[5] .and. aCPF[5] = aCPF[6] .and. aCPF[6] = aCPF[7] .and. aCPF[7] = aCPF[8] .and. aCPF[8] = aCPF[9] .and. aCPF[9] = aCPF[10] .and. aCPF[10] = aCPF[11]
+        QOUT("CPF INVALIDO")
+    else
+        // inicio do teste do primeiro digito verificador
+        nCalc := aCPF[1] * 10 + aCPF[2] * 9 + aCPF[3] * 8 + aCPF[4] * 7 + aCPF[5] * 6 + aCPF[6] * 5 + aCPF[7] * 4 + aCPF[8] * 3 + aCPF[9] * 2
+
+        nCalc :=  (nCalc * 10) % 11
+        if ( nCalc == 10)
+            nCalc := 0
+        endif
+
+        if (nCalc == aCPF[10]) // teste do primeiro digito verificador
+            // inicio do teste do segundo digito verificador
+            nCalc := aCPF[1] * 11 + aCPF[2] * 10 + aCPF[3] * 9 + aCPF[4] * 8 + aCPF[5] * 7 + aCPF[6] * 6 + aCPF[7] * 5 + aCPF[8] * 4 + aCPF[9] * 3 + aCPF[10] * 2
+
+            nCalc :=  (nCalc * 10) % 11
+            if ( nCalc == 10)
+                nCalc := 0
+            endif
+            
+            if (nCalc == aCPF[11])//teste do segundo digito verificador
+                QOUT("CPF VALIDO")
+            else
+                QOUT("CPF INVALIDO")
+            endif
+        endif
+    end if
+
     QOUT("***************")
     QOUT("")
+    wait
 Return nil
 
 
 Function Exercicio30()
-    //
+// Através de teste de mesa, indique a finalidade do trecho de código a seguir
+    local aANAG := {"A","M","O","R"}
+    local nI    := 0
+    local cAUX  := ""
+
     QOUT("***************")
     QOUT("* Exercicio30 *")
-    QOUT("")
-    QOUT("")
+    QOUT("Atraves de teste de mesa, indique a finalidade do trecho de codigo a seguir")
+    For nI := 1 TO 4
+        cAUX := aANAG[nI]
+        aANAG[nI] := aANAG[5-nI]
+        aANAG[5-nI] := cAUX
+        QOUT(hb_valtoexp(aANAG))
+    NEXT nI
+    QOUT("R: este codigo inverteu o array duas vezes , voltando ao seu estado original ")
     QOUT("***************")
     QOUT("")
+    wait
 Return nil
 
 
 Function Exercicio31()
-    //
+    // 
     QOUT("***************")
     QOUT("* Exercicio31 *")
     QOUT("")
     QOUT("")
     QOUT("***************")
     QOUT("")
+    wait
 Return nil
 
 
 Function Exercicio32()
-    //
+// Faça uma função de nome “encrypt”
+// recebe uma string e realiza a criptografia desta string. 
+// Essa criptografia pode ser 
+// uma mera troca de caracteres com base na tabela ASCII 
+// e/ou troca de posição de caracteres. 
+// Em seguida faça um programa que a partir de uma senha informada pelo usuário 
+// utilize a função criada para codificá-la e apresente na tela a senha criptografada.
+    local aCript := {} , cSenha := ""
     QOUT("***************")
     QOUT("* Exercicio32 *")
     QOUT("")
-    QOUT("")
+    
+    while len(cSenha) < 5
+        ACCEPT "Digite uma senha para criptografar: " TO cSenha
+    enddo
+
+    aCript := encrypt(cSenha)
+    QOUT("Senha criptografada")
+    QOUT(hb_valtoexp(aCript))
     QOUT("***************")
     QOUT("")
+    wait
 Return nil
 
+Function encrypt(MSG)
+    local nI     := 0
+    local cAux   := "A"
+    local aCript := {}
+
+    For nI := 1 TO len(MSG)
+        cAux := SubStr(MSG, nI, 1)
+        cAux := ( asc(cAux) + 22 ) / 2
+        aAdd(aCript,CHR(cAux))
+    next nI
+
+Return aCript
+
+// Tabela
 
 Function Exercicio33()
-    //
+// Faça o programa do mapa de troco. 
+// Nele o usuário informa um valor monetário a pagar 
+// o programa calcula qual a menor quantidade de cédulas/moedas serão necessárias para pagar exatamente este valor.
+// Por exemplo: se o usuário informar R$ 1.260,00, 
+// o programa deverá informar 
+// 6 notas de R$ 200,00; 
+// 1 nota de R$ 50,00; 
+// 1 nota de R$ 10,00. 
+// Pense em utilizar uma matriz de 2 dimensões, 
+// onde a primeira coluna contenha o valor de cada cédula/moeda e a segunda terá a quantidade.
+    local nEntrada := "" //, n200 := 0 , n100 := 0 , n50 := 0 , n20 := 0 , n10 := 0 , n5 := 0 , n2 := 0 , nM100 := 0 , nM50 := 0 , nM25 := 0 , nM10 := 0 , nM5 := 0 , nM1 := 0
+    local aTroco := {} , nI
     QOUT("***************")
     QOUT("* Exercicio33 *")
-    QOUT("")
-    QOUT("")
+
+
+    aAdd(aTroco , {"200" , 0 })     //  1
+    aAdd(aTroco , {"100" , 0 })     //  2
+    aAdd(aTroco , {"050" , 0 })     //  3
+    aAdd(aTroco , {"020" , 0 })     //  4
+    aAdd(aTroco , {"010" , 0 })     //  5
+    aAdd(aTroco , {"005" , 0 })     //  6    
+    aAdd(aTroco , {"002" , 0 })     //  7
+    aAdd(aTroco , {"1,00" , 0 })    //  8
+    aAdd(aTroco , {"0,50" , 0 })    //  9
+    aAdd(aTroco , {"0,25" , 0 })    // 10
+    aAdd(aTroco , {"0,10" , 0 })    // 11
+    aAdd(aTroco , {"0,05" , 0 })    // 12
+    aAdd(aTroco , {"0,01" , 0 })    // 13
+
+
+    nEntrada := inp_num("valor para troco: ")
+    // nEntrada := 388.91
+    // nEntrada := 1260.00
+
+    if nEntrada / 200 >= 1
+        aTroco[1][2] := int(nEntrada / 200)
+        // n200 := int(nEntrada / 200)
+        nEntrada %= 200
+    endif
+
+    if nEntrada / 100 >= 1
+        aTroco[2][2] := int(nEntrada / 100)
+        // n100 := int(nEntrada / 100)
+        nEntrada %= 100
+    endif
+    
+    if nEntrada / 50 >= 1
+        aTroco[3][2] := int(nEntrada / 50)
+        // n50 := int(nEntrada / 50)
+        nEntrada %= 50
+    endif
+    
+    if nEntrada / 20 >= 1
+        aTroco[4][2] := int(nEntrada / 20)
+        nEntrada %= 20
+    endif
+    
+    if nEntrada / 10 >= 1
+        aTroco[5][2] := int(nEntrada / 10)
+        nEntrada %= 10
+    endif
+    
+    if nEntrada / 5 >= 1
+        aTroco[6][2] := int(nEntrada / 5)
+        nEntrada %= 5
+    endif
+    
+    if nEntrada / 2 >= 1
+        aTroco[7][2] := int(nEntrada / 2)
+        nEntrada %= 2
+    endif
+    
+    if nEntrada / 1 >= 1
+        aTroco[8][2] := int(nEntrada / 1)
+        nEntrada %= 1
+    endif
+    
+    if nEntrada / 0.5 >= 1
+        aTroco[9][2] := int(nEntrada / 0.5)
+        nEntrada %= 0.5
+    endif
+    
+    if nEntrada / 0.25 >= 1
+        aTroco[10][2] := int(nEntrada / 0.25)
+        nEntrada %= 0.25
+    endif
+    
+    if nEntrada / 0.1 >= 1
+        aTroco[11][2] := int(nEntrada / 0.1)
+        nEntrada %= 0.1
+    endif
+    
+    if nEntrada / 0.05 >= 1
+        aTroco[12][2] := int(nEntrada / 0.05)
+        nEntrada %= 0.05
+    endif
+    
+    if nEntrada / 0.01 >= 1
+        aTroco[13][2] := int(nEntrada / 0.01)
+        nEntrada %= 0.01
+    endif
+
+
+    for nI := 1 to 7
+        qout("Notas de   " +aTroco[nI][1]+ " = " + allTrim(str(aTroco[nI][2])))
+    next nI
+    for nI := 8 to 13
+        qout("Moedas de " +aTroco[nI][1]+ " = " + allTrim(str(aTroco[nI][2])))
+    next nI
+
     QOUT("***************")
     QOUT("")
+    wait
 Return nil
 
 
 Function Exercicio34()
-    //
+// Fazer um tradutor de código Morse. 
+// O usuário poderá entrar com um caractere 
+// e obter o código correspondente 
+// ou entrar com o código e obter o caractere correspondente.
+// "O rato roeu a roda. A roda ficou feia". = --- / .-. .- - --- / .-. --- . ..- / .- / .-. --- -.. .- .-.-.- / .- / .-. --- -.. .- / ..-. .. -.-. --- ..- / ..-. . .. .- .-.-.- 
+    local nI, nJ, cAux, cResultado, cOperacao
+    local aMorse := {{ "A" , ".-"} , ;
+    { "B" , "-..."} , ;
+    { "C" , "-.-."} , ;
+    { "D" , "-.."} , ;
+    { "E" , "."} , ;
+    { "F" , "..-."} , ;
+    { "G" , "--."} , ;
+    { "H" , "...."} , ;
+    { "I" , ".."} , ;
+    { "J" , ".---"} , ;
+    { "K" , "-.-"} , ;
+    { "L" , ".-.."} , ;
+    { "M" , "--"} , ;
+    { "N" , "-."} , ;
+    { "O" , "---"} , ;
+    { "P" , ".--."} , ;
+    { "Q" , "--.-"} , ;
+    { "R" , ".-."} , ;
+    { "S" , "..."} , ;
+    { "T" , "-"} , ;
+    { "U" , "..-"} , ;
+    { "V" , "...-"} , ;
+    { "W" , ".--"} , ;
+    { "X" , "-..-"} , ;
+    { "Y" , "-.--"} , ;
+    { "Z" , "--.."} , ;
+    { "1" , ".----"} , ;
+    { "2" , "..---"} , ;
+    { "3" , "...--"} , ;
+    { "4" , "....-"} , ;
+    { "5" , "....."} , ;
+    { "6" , "-...."} , ;
+    { "7" , "--..."} , ;
+    { "8" , "---.."} , ;
+    { "9" , "----."} , ;
+    { "0" , "-----"} , ;
+    { "." , ".-.-.-"} , ;
+    { "?" , "..--.."} , ;
+    { "/" , "-..-."} , ;
+    { "-" , "-....-"} , ;
+    { "(" , "-.--."} , ;
+    { ")" , "-.--.-"} , ;
+    { " " , "/"}}
     QOUT("***************")
     QOUT("* Exercicio34 *")
-    QOUT("")
-    QOUT("")
+    QOUT("Tradutor Codigo Morse:")
+
+    While .T.
+        QOUT("")
+        QOUT("digite (ESC) para sair")
+        QOUT("(1) Digitar a palavra")
+        QOUT("(2) Digitar Codigo Morse")
+        ACCEPT "Operacao  = " to cOperacao
+        if cOperacao == "1"
+
+            ACCEPT "Texto = " to cAux
+            //cAux := "TIAGO"
+            cAux := Upper(cAux)
+
+            cResultado := " "
+            for nJ := 1 to len(cAux)  // percorrer a palavra letra por letra
+                for nI := 1 to len(aMorse) // procurar a letra no array
+                    if aMorse[nI][1] == SubStr(cAux, nJ , 1)
+                        // QOUT(SubStr(cAux, nJ , 1) + " = " + aMorse[nI][2]) // TESTE
+                        cResultado += aMorse[nI][2] + "  " // concatenar para montar uma saida
+                    endif
+                next nI
+            next nJ
+
+            qout("Morse >> " + cResultado)
+
+        elseif cOperacao == "2"
+
+            ACCEPT "Digite o Codigo Morse = " to cAux
+            for nI := 1 to len(aMorse) // procurar o codigo morse no array 
+                if aMorse[nI][2] == cAux
+                    qout(cAux + " >> '" + aMorse[nI][1] + "'" )
+                endif
+            next nI
+
+        elseif upper(cOperacao) == "ESC"
+            exit    
+        endif
+
+    enddo
+    
     QOUT("***************")
     QOUT("")
+    wait
 Return nil
-
+ 
 
 Function Exercicio35()
-    //
+// .Ler três vetores A, B e C com 10 elementos cada. 
+// montar uma matriz M de 3 linhas por 10 colunas, 
+// onde cada linha deverá receber os valores referentes a um dos vetores. 
+// Apresentar a matriz resultante.
+    local nI , aA := {} , aB := {} , aC := {}, aMatriz := {}
     QOUT("***************")
     QOUT("* Exercicio35 *")
-    QOUT("")
-    QOUT("")
+    
+    aA := fill_a_chr(aA , 10 , "U"  ) // um vetor de letras maiusculas
+    aB := fill_a_chr(aB , 10 , "L"  ) // um vetor de letras minusculas
+    for nI := 1 to 10                 // um vetor de numeros ( só para diferenciar )
+        aAdd(aC, (hb_RandomInt(1 , 9)))
+    next
+
+    aAdd(aMatriz , aA)
+    aAdd(aMatriz , aB)
+    aAdd(aMatriz , aC)
+
+    for nI := 1 to len(aMatriz)
+        print_array(aMatriz[nI])
+    next nI
+    
     QOUT("***************")
     QOUT("")
+    wait
 Return nil
 
 
 Function Exercicio36()
-    //
+// Criar uma matriz N de 10x3, 
+// onde cada elementos será a soma do índice de sua coluna com o índice de sua linha. 
+// Apresentar a matriz resultante
+    local aM := {}
+    local nI, nJ
     QOUT("***************")
     QOUT("* Exercicio36 *")
-    QOUT("")
-    QOUT("")
+
+    aM := array(10)
+    for nI := 1 to 10
+        aM[nI] := array(3)
+        for nJ := 1 to 3
+            aM[nI][nJ] := nI + nJ
+        next nJ
+    next nI
+
+    for nI := 1 to 10
+        QOUT(hb_valtoexp(aM[nI]))
+    next nI
+
     QOUT("***************")
     QOUT("")
+    wait
 Return nil
 
 
 Function Exercicio37()
-    //
+    // 
     QOUT("***************")
     QOUT("* Exercicio37 *")
     QOUT("")
     QOUT("")
     QOUT("***************")
     QOUT("")
+    wait
 Return nil
 
 
 Function Exercicio38()
-    //
+// Ler uma matriz A de 3 linhas e 3 colunas 
+// Calcular e exibir uma matriz B de mesmo tamanho 
+// sendo que a primeira linha de B receba a primeira coluna de A 
+// a segunda linha de B receba a segunda coluna de A 
+// e a terceira linha de B receba a terceira coluna de A 
+// Apresentar a matriz resultante 
+    local aA := {{"A","B","C"},{"D","E","F"},{"G","H","I"}}
+    local aB := {array(3), array(3), array(3)}
+    local nI , nJ
     QOUT("***************")
     QOUT("* Exercicio38 *")
-    QOUT("")
-    QOUT("")
+
+    for nI := 1 to 3
+        for nJ := 1 to 3
+            aB[nI][nJ] := aA[nJ][nI]
+        next nJ
+    next nI
+
+    // QOUT("")
+    // QOUT(hb_valtoexp(aA[1]))
+    // QOUT(hb_valtoexp(aA[2]))
+    // QOUT(hb_valtoexp(aA[3]))
+    
+    QOUT(hb_valtoexp(aB[1]))
+    QOUT(hb_valtoexp(aB[2]))
+    QOUT(hb_valtoexp(aB[3]))
+    
     QOUT("***************")
     QOUT("")
+    wait
 Return nil
 
 
 Function Exercicio39()
-    //
+// Dada uma matriz A de tamanho 3 x 3, 
+// preenchida sequencialmente a partir de 0 até 8. 
+// Calcule a diferença entre a diagonal principal e secundária da matriz 
+    local aA := {{0,1,2},{3,4,5},{6,7,8}}
+    local nI , nJ, nDigP , nDigS , nDif
     QOUT("***************")
     QOUT("* Exercicio39 *")
-    QOUT("")
-    QOUT("")
+    
+    nDigP := aA[1][1] + aA[2][2] + aA[3][3] 
+    nDigS := aA[1][3] + aA[2][2] + aA[3][1] 
+    nDif := nDigP - nDigS
+
+    QOUT(hb_valtoexp(aA[1]))
+    QOUT(hb_valtoexp(aA[2]))
+    QOUT(hb_valtoexp(aA[3]))
+    
+    QOUT("diagonal principal " + allTrim(str(nDigP)))
+    QOUT("diagonal secundaria " + allTrim(str(nDigS)))
+    QOUT("diferenca " + allTrim(str(nDif)))
+
     QOUT("***************")
     QOUT("")
+    wait
 Return nil
 
 
 Function Exercicio40()
-    //
+// Carregar uma matriz de 5x5 com caracteres aleatórios entre A e Z.
+// Apresentar no final a string formada pelos caracteres da diagonal 
+// principal dessa matriz
+    local aM := {}
+    local nI
     QOUT("***************")
     QOUT("* Exercicio40 *")
-    QOUT("")
-    QOUT("")
+
+    aM := array(5)
+    
+    for nI := 1 to 5
+        aM[nI] := fill_a_chr(aM[nI] , 5 , "U" , .F. )
+    next nI
+
+    QOUT("matriz")
+    for nI := 1 to 5
+        QOUT("[" + allTrim(str(nI)) + "][" + allTrim(str(nI)) + "] = " + aM[nI][nI] + " ")
+    next nI
+
     QOUT("***************")
     QOUT("")
+    wait
 Return nil
 
 
@@ -753,17 +1159,23 @@ Function Exercicio41()
     QOUT("")
     QOUT("***************")
     QOUT("")
+    wait
 Return nil
 
 
 Function Exercicio42()
-    //
+// Ler o nome e 3 notas de 5 alunos, 
+// calcular a média de cada aluno
+// (entre 2 das 3 notas pois a menor deve ser descartada). 
+// Apresentar todas as notas e médias no final. 
+// Permitir ordenar por ordem alfabética de nome e ordem decrescente de media final.
     QOUT("***************")
     QOUT("* Exercicio42 *")
     QOUT("")
-    QOUT("")
+    QOUT("") 
     QOUT("***************")
-    QOUT("")
+    QOUT("") 
+    wait
 Return nil
 
 
@@ -775,6 +1187,7 @@ Function Exercicio43()
     QOUT("")
     QOUT("***************")
     QOUT("")
+    wait
 Return nil
 
 
