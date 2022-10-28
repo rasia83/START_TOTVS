@@ -6,55 +6,55 @@ SET PROCEDURE TO start_lib.prg
 
 Function Main()
 
-    // Exercicio01()
-    // Exercicio02()
-    // Exercicio03()
-    // Exercicio04()
-    // Exercicio05()
-    // Exercicio06()
-    // Exercicio07()
-    // Exercicio08()
-    // Exercicio09()
-    // Exercicio10()
-    // Exercicio11()
-    // Exercicio12()
-    // Exercicio13()
-    // Exercicio14()
-    // Exercicio15()
-    // Exercicio16()
-    // Exercicio17()
-    // Exercicio18()
+    Exercicio01()
+    Exercicio02()
+    Exercicio03()
+    Exercicio04()
+    Exercicio05()
+    Exercicio06()
+    Exercicio07()
+    Exercicio08()
+    Exercicio09()
+    Exercicio10()
+    Exercicio11()
+    Exercicio12()
+    Exercicio13()
+    Exercicio14()
+    Exercicio15()
+    Exercicio16()
+    Exercicio17()
+    Exercicio18()
 
-// Ordenação e pesquisa
-    // Exercicio19()
-    // Exercicio20() // refatorar 
-    // Exercicio21()
-    // Exercicio22()
-    Exercicio23() 
-    // Exercicio24() // DISPENSADO 
-    // Exercicio25() // DISPENSADO 
-    
-// String
-    // Exercicio26()
-    // Exercicio27()
-    // Exercicio28() // DISPENSADO  binário em decimal e um número decimal em binário.
-    // Exercicio29() // CPF
-    // Exercicio30() // - finalidade do trecho de código
-    Exercicio31()
-    // Exercicio32()
+    /* Ordenação e pesquisa */
+    Exercicio19()
+    Exercicio20() // refatorar 
+    Exercicio21()
+    Exercicio22()
+    Exercicio23() // TODO
+    Exercicio24() // DISPENSADO 
+    Exercicio25() // DISPENSADO 
 
-// Tabela 
-    // Exercicio33() // mapa de troco. 
-    // Exercicio34() //  código Morse.
-    // Exercicio35() 
-    // Exercicio36()  
-    // Exercicio37() // o formato das matrizes sugere que o titulo seria o produto delas
-    // Exercicio38() 
-    // Exercicio39() // diferença entre a diagonal principal e secundária da matriz 
-    // Exercicio40()
-    // Exercicio41() 
-    // Exercicio42() // TODO
-    // Exercicio43() // TODO
+    /* String */
+    Exercicio26()
+    Exercicio27()
+    Exercicio28() // DISPENSADO  binário em decimal e um número decimal em binário.
+    Exercicio29() // CPF
+    Exercicio30() // - finalidade do trecho de código
+    Exercicio31() // TODO
+    Exercicio32()
+
+    /* Tabela */
+    Exercicio33() // mapa de troco. 
+    Exercicio34() //  código Morse.
+    Exercicio35() 
+    Exercicio36()  
+    Exercicio37() // o formato das matrizes sugere que o titulo seria o produto delas
+    Exercicio38() 
+    Exercicio39() // diferença entre a diagonal principal e secundária da matriz 
+    Exercicio40()
+    Exercicio41() 
+    Exercicio42() // TODO
+    Exercicio43() // TODO parcial
     
 Return nil
 
@@ -802,7 +802,7 @@ Function Exercicio33()
     aAdd(aTroco , {"050" , 0 })     //  3
     aAdd(aTroco , {"020" , 0 })     //  4
     aAdd(aTroco , {"010" , 0 })     //  5
-    aAdd(aTroco , {"005" , 0 })     //  6    
+    aAdd(aTroco , {"005" , 0 })     //  6
     aAdd(aTroco , {"002" , 0 })     //  7
     aAdd(aTroco , {"1,00" , 0 })    //  8
     aAdd(aTroco , {"0,50" , 0 })    //  9
@@ -814,7 +814,6 @@ Function Exercicio33()
 
     nEntrada := inp_num("valor para troco: ")
     // nEntrada := 388.91
-    // nEntrada := 1260.00
 
     if nEntrada / 200 >= 1
         aTroco[1][2] := int(nEntrada / 200)
@@ -1148,6 +1147,7 @@ Function Exercicio38()
     // QOUT(hb_valtoexp(aA[2]))
     // QOUT(hb_valtoexp(aA[3]))
     
+    QOUT("aB resultante")
     QOUT(hb_valtoexp(aB[1]))
     QOUT(hb_valtoexp(aB[2]))
     QOUT(hb_valtoexp(aB[3]))
@@ -1259,6 +1259,22 @@ Function Exercicio42()
 // (entre 2 das 3 notas pois a menor deve ser descartada). 
 // Apresentar todas as notas e médias no final. 
 // Permitir ordenar por ordem alfabética de nome e ordem decrescente de media final.
+local aAlunos := {}
+// array alunos >> Nome 
+
+
+// notas
+// n1  n2  n3
+//  if n1 > n2 .AND. n2 > n3
+//     nMed := (n1 + n2) / 2
+//  elseif n1 > n2 .AND. n2 < n3
+//     nMed := (n1 + n3) / 2
+//  elseif n1 < n2 .AND. n1 > n3
+//     nMed := (n2 + n3) / 2
+//  elseif n1 < n2 .AND. n1 < n3
+//     nMed := (n2 + n3) / 2
+// endif
+
     QOUT("***************")
     QOUT("* Exercicio42 *")
     QOUT("")
@@ -1270,10 +1286,162 @@ Return nil
 
 
 Function Exercicio43()
-    //
+
+// as cartas de um baralho serão apresentadas na tela 
+// dispostas em 7 linhas e 3 colunas. 
+// O programa será capaz de adivinhar uma carta selecionada pelo usuário, 
+// que apenas indicará em qual coluna a carta se encontra. 
+// [Solicitar demonstração ao professor]. 
+// Para implementar esse interessante jogo, implemente os seguintes passos:
+
+//     a. Montar um vetor de 52 posições contendo todas as cartas de cada naipe do baralho. 
+//     Dica: utilize uma string de 2 posições para representar cada carta. 
+//     Exemplo: o rei de espadas seria ‘K’ + #006 (caractere ASCII 6); 
+//     o ás de copas seria ‘A’ + #003; 
+//     o 5 de ouros seria ‘5’ + #004; 
+//     a dama de paus seria ‘Q’ + #005.
+
+    // b. Embaralhar as cartas dentro desse vetor.
+
+    // c. Montar um vetor de 21 posições 
+    // contendo as 21 primeiras cartas do baralho já embaralhado. 
+    // Nesta mágica apenas utilizaremos 21 cartas.
+
+    // d. Montar uma matriz de 7 linhas por 3 colunas onde 
+    // a primeira célula receberá a última carta do vetor 
+    // a segunda a penúltima e assim sucessivamente até que a última célula que se encontra
+    // na 7ª linha da 2ª coluna receba a primeira carta do vetor de 21 cartas.
+
+    // e. Apresentar a matriz na tela e 
+    // solicitar que o usuário escolha uma carta e indique em qual coluna ela se encontra.
+
+    // f. Preencher o vetor de 21 posições a partir das cartas da matriz 7 x 3 
+    // sendo que as cartas da coluna informada pelo usuário 
+    // deverão ocupar as posições de 8 a 14 do vetor 
+    // e as demais colunas as posições de 1 a 7 e 15 a 21 respectivamente.
+
+    // g. Repetir os passos de “d” a “f” por mais 2 vezes sendo que o
+    // usuário não escolhera uma nova carta, apenas indicará em que
+    // coluna está a carta escolhida inicialmente.
+
+    // h. Exibir na tela a 11ª carta do vetor de 21 posições.
+
+    local aBaralho := { "A"+chr(3) ,  "A"+chr(4) ,  "A"+chr(5) ,  "A"+chr(6) , ;
+                        "2"+chr(3) ,  "2"+chr(4) ,  "2"+chr(5) ,  "2"+chr(6) , ;
+                        "3"+chr(3) ,  "3"+chr(4) ,  "3"+chr(5) ,  "3"+chr(6) , ;
+                        "4"+chr(3) ,  "4"+chr(4) ,  "4"+chr(5) ,  "4"+chr(6) , ;
+                        "5"+chr(3) ,  "5"+chr(4) ,  "5"+chr(5) ,  "5"+chr(6) , ;
+                        "6"+chr(3) ,  "6"+chr(4) ,  "6"+chr(5) ,  "6"+chr(6) , ;
+                        "7"+chr(3) ,  "7"+chr(4) ,  "7"+chr(5) ,  "7"+chr(6) , ;
+                        "8"+chr(3) ,  "8"+chr(4) ,  "8"+chr(5) ,  "8"+chr(6) , ;
+                        "9"+chr(3) ,  "9"+chr(4) ,  "9"+chr(5) ,  "9"+chr(6) , ;
+                       "10"+chr(3) , "10"+chr(4) , "10"+chr(5) , "10"+chr(6) , ;
+                        "J"+chr(3) ,  "J"+chr(4) ,  "J"+chr(5) ,  "J"+chr(6) , ;
+                        "Q"+chr(3) ,  "Q"+chr(4) ,  "Q"+chr(5) ,  "Q"+chr(6) , ;
+                        "K"+chr(3) ,  "K"+chr(4) ,  "K"+chr(5) ,  "K"+chr(6) }
+
+    local aBaralho21 := array(21)
+    local cCarta , nI , nJ , nAux
+    local aBaralho7X3 := {}
+
     QOUT("***************")
     QOUT("* Exercicio43 *")
+    //QOUT(chr(3)+chr(4)+chr(5)+chr(6))
+
+    QOUT("A) " + allTrim(str(LEN(aBaralho))) + " cartas")
+    print_array(aBaralho)
+
+    /* ******************************************** */
+
+    for nI := 1 to 21
+        cCarta := aBaralho[hb_RandomInt(1 , 52)]
+        while AScan(aBaralho21, cCarta) != 0 
+            cCarta := aBaralho[hb_RandomInt(1 , 52)]
+        enddo
+        aBaralho21[nI] := cCarta
+    next
     QOUT("")
+    QOUT("B) + C) " + allTrim(str(LEN(aBaralho21))) + " cartas embaralhadas")
+    print_array(aBaralho21)
+
+    /* ******************************************** */
+
+    QOUT("")
+    // d. Montar uma matriz de 7 linhas por 3 colunas onde 
+    // a primeira célula receberá a última carta do vetor 
+    // a segunda a penúltima e assim sucessivamente 
+
+    aBaralho7X3 := array(7)
+    for nI := 1 to 7
+        aBaralho7X3[nI] := array(3)
+    next
+    
+    nAux := 21
+    for nI := 1 to 7
+        for nJ := 1 to 3
+            aBaralho7X3[nI][nJ] := aBaralho21[nAux]
+            nAux--
+        next
+    next
+
+    QOUT("D) uma matriz de 7 linhas por 3 colunas")
+    for nI := 1 to 7
+        print_array(aBaralho7X3[nI])
+    next
+    QOUT("(1)  (2)  (3) >> colunas")
+    QOUT("")
+
+
+    /* ******************************************** */
+    QOUT("E) escolha uma carta e indique a coluna")
+    nAux := 0
+    while nAux < 1 .OR. nAux > 3
+        nAux := inp_num( "escolha uma coluna (1)(2)(3) " )
+    enddo
+
+    // f. Preencher o vetor de 21 posições a partir das cartas da matriz 7 x 3 
+    // sendo que as cartas da coluna informada pelo usuário 
+    // deverão ocupar as posições de 8 a 14 do vetor 
+    // e as demais colunas as posições de 1 a 7 e 15 a 21 respectivamente.
+
+    //nAux 1-7  8-14  15-21
+    // 1 =  2 -  1  -  3
+    // 2 =  1 -  2  -  3 ( nao muda )
+    // 3 =  1 -  3  -  2
+
+    if nAux == 1 // trocar a primeira com a segunda coluna
+        for nI := 1 to 7
+            aBaralho21[ni] := aBaralho7X3[nI][2]
+            aBaralho21[ni+7] := aBaralho7X3[nI][1]
+            aBaralho21[ni+14] := aBaralho7X3[nI][3]
+        next
+    elseif nAux == 3 // trocar a terceira com a segunda coluna
+        for nI := 1 to 7
+            aBaralho21[ni] := aBaralho7X3[nI][1]
+            aBaralho21[ni+7] := aBaralho7X3[nI][3]
+            aBaralho21[ni+14] := aBaralho7X3[nI][2]
+        next
+    else
+        for nI := 1 to 7 // mantem a sequencia das colunas 
+            aBaralho21[ni] := aBaralho7X3[nI][1]
+            aBaralho21[ni+7] := aBaralho7X3[nI][2]
+            aBaralho21[ni+14] := aBaralho7X3[nI][3]
+        next
+    endif
+
+
+    QOUT("F) a coluna selecionada devera ocupar as posições de 8 a 14 do vetor ")
+    print_array(aBaralho21)
+
+    QOUT("") 
+
+    /* ******************************************** */
+    QOUT("G) ")
+    // g. Repetir os passos de “d” a “f” por mais 2 vezes sendo que o
+    // usuário não escolhera uma nova carta, apenas indicará em que
+    // coluna está a carta escolhida inicialmente.
+
+
     QOUT("")
     QOUT("***************")
     QOUT("")
