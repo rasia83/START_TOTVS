@@ -30,7 +30,7 @@ Function Main()
     // Exercicio20() // refatorar 
     // Exercicio21()
     // Exercicio22()
-    // Exercicio23() // TODO
+    Exercicio23() 
     // Exercicio24() // DISPENSADO 
     // Exercicio25() // DISPENSADO 
     
@@ -40,19 +40,19 @@ Function Main()
     // Exercicio28() // DISPENSADO  binário em decimal e um número decimal em binário.
     // Exercicio29() // CPF
     // Exercicio30() // - finalidade do trecho de código
-    // Exercicio31() // TODO
+    Exercicio31()
     // Exercicio32()
 
-// Tabela
+// Tabela 
     // Exercicio33() // mapa de troco. 
     // Exercicio34() //  código Morse.
     // Exercicio35() 
     // Exercicio36()  
-    // Exercicio37() // TODO
+    // Exercicio37() // o formato das matrizes sugere que o titulo seria o produto delas
     // Exercicio38() 
     // Exercicio39() // diferença entre a diagonal principal e secundária da matriz 
     // Exercicio40()
-    // Exercicio41() // TODO
+    // Exercicio41() 
     // Exercicio42() // TODO
     // Exercicio43() // TODO
     
@@ -790,6 +790,7 @@ Function Exercicio33()
 // 1 nota de R$ 10,00. 
 // Pense em utilizar uma matriz de 2 dimensões, 
 // onde a primeira coluna contenha o valor de cada cédula/moeda e a segunda terá a quantidade.
+
     local nEntrada := "" //, n200 := 0 , n100 := 0 , n50 := 0 , n20 := 0 , n10 := 0 , n5 := 0 , n2 := 0 , nM100 := 0 , nM50 := 0 , nM25 := 0 , nM10 := 0 , nM5 := 0 , nM1 := 0
     local aTroco := {} , nI
     QOUT("***************")
@@ -817,19 +818,16 @@ Function Exercicio33()
 
     if nEntrada / 200 >= 1
         aTroco[1][2] := int(nEntrada / 200)
-        // n200 := int(nEntrada / 200)
         nEntrada %= 200
     endif
 
     if nEntrada / 100 >= 1
         aTroco[2][2] := int(nEntrada / 100)
-        // n100 := int(nEntrada / 100)
         nEntrada %= 100
     endif
     
     if nEntrada / 50 >= 1
         aTroco[3][2] := int(nEntrada / 50)
-        // n50 := int(nEntrada / 50)
         nEntrada %= 50
     endif
     
@@ -1053,15 +1051,77 @@ Return nil
 
 
 Function Exercicio37()
-    // 
+    local aM := {} , aN := {} , aR := {} , nI , nJ
     QOUT("***************")
     QOUT("* Exercicio37 *")
+
+    // aM 10 * 3
+    // aN 3 * 10
+    // aR ??
+    /* ******************************************** */
+    aM := array(10)
+    for nI := 1 to 10     
+        aM[nI] := array(3)            
+        for nJ := 1 to 3             
+            aM[nI][nJ] := hb_RandomInt(1 , 9)
+        next
+    next
+    
+    QOUT("aM")
+    for nI := 1 to 10
+        //QOUT(hb_valtoexp(aM[nI]))
+        print_array(aM[nI])
+    next nI
     QOUT("")
+
+    /* ******************************************** */
+    aN := array(3)
+    for nI := 1 to 3
+        aN[nI] := array(10)            
+        for nJ := 1 to 10
+            aN[nI][nJ] := hb_RandomInt(1 , 9)
+        next
+    next
+    
+    QOUT("aN")
+    for nI := 1 to 3
+        //QOUT(hb_valtoexp(aN[nI]))
+        print_array(aN[nI])
+    next nI
     QOUT("")
+
+    /* ******************************************** */
+    aR := array(10)
+    for nI := 1 to 10
+        aR[nI] := array(10)            
+        for nJ := 1 to 10          
+            aR[nI][nJ] := calc_produto_matriz(nI , nJ , aM , aN ) 
+        next
+    next
+
+    QOUT("aR = aM * aN")
+    for nI := 1 to 10
+        //QOUT(hb_valtoexp(aR[nI]))
+        print_array(aR[nI])
+    next nI
+
     QOUT("***************")
     QOUT("")
     wait
 Return nil
+
+Function calc_produto_matriz(nI , nJ , aM , aN ) 
+    local nResult := 0 , nIaux , nJaux
+    // aR[1][1] = aM linha 1  e aN linha 1
+    // aR[1][2] = aM linha 1  e aN linha 2
+    // aR[2][1] = aM linha 2  e aN linha 1
+    // MULTIPLICAR POSIÇÃO DE aM COM aN E SOMAR COM DEMAIS DA LINHA * COLUNA
+    
+    //QOUT(" aM[nI][1] * aN[1][nJ] + aM[nI][2] * aN[2][nJ] + aM[nI][3] * aN[3][nJ] ")
+    //? STR(aM[nI][1]) + " * " + STR(aN[1][nJ]) + " + " + STR(aM[nI][2]) + " * " + STR(aN[2][nJ]) + " + " + STR(aM[nI][3]) + " * " + STR(aN[3][nJ]) 
+    nResult := aM[nI][1] * aN[1][nJ] + aM[nI][2] * aN[2][nJ] + aM[nI][3] * aN[3][nJ] 
+    //QOUT(STR(nResult))
+return nResult
 
 
 Function Exercicio38()
@@ -1152,11 +1212,41 @@ Return nil
 
 
 Function Exercicio41()
-    //
+    local Mat := {{"O" , "Q" , "*" , "I"} , ;
+                  {"E" , "*" , "E" , "S"} , ;
+                  {"R" , "E" , "U" , "T"} , ;
+                  {"A" , "*" , "*" , "S"}}
+    local i , j , Aux
     QOUT("***************")
     QOUT("* Exercicio41 *")
+    QOUT("original")
+    for i := 1 to 4
+        QOUT(" " + hb_valtoexp(Mat[i]) )
+    next i
+
+
+    for i := 1 to 3
+        for j := i + 1 to 4
+            Aux := Mat[i][j]
+            Mat[i][j] := Mat[j][i]
+            Mat[j][i] := Aux
+        next j
+    next i
+
+    Aux := Mat[1][1]
+    Mat[1][1] := Mat[4][4]
+    Mat[4][4] := Aux
+
+    Aux := Mat[2][2]
+    Mat[2][2] := Mat[3][3]
+    Mat[3][3] := Aux
+    
     QOUT("")
-    QOUT("")
+    QOUT("apos execucao")
+    for i := 1 to 4
+        QOUT(" " + hb_valtoexp(Mat[i]) )
+    next i
+
     QOUT("***************")
     QOUT("")
     wait
