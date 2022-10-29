@@ -16,8 +16,23 @@ Group Start TOTVS IP
       FoldersCount=2
       Folder Fontes
          VSSPath=Fontes
-         FilesCount=1
+         FilesCount=6
          File \START_TOTVS\protheus10_aula\STIPHello.PRW
+             Type=T
+         End
+         File \START_TOTVS\protheus10_aula\jok.prw
+             Type=T
+         End
+         File \START_TOTVS\protheus10_aula\STIP001.prw
+             Type=T
+         End
+         File \START_TOTVS\protheus10_aula\STIP002.PRW
+             Type=T
+         End
+         File \START_TOTVS\protheus10_aula\STIP003.PRW
+             Type=T
+         End
+         File \START_TOTVS\protheus10_aula\STIPLIB.PRW
              Type=T
          End
       End
