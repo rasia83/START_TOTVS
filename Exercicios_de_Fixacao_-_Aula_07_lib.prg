@@ -169,22 +169,23 @@ FUNCTION DecToBin( nNumber )
 RETURN cNewString
 
 
-function VetorCaracteres(nCar)
-    local nCont:=1, aux:=1,aVA:=ARRAY(50), aVB:={}
+function vetor_caracteres(nLetra)
+    local nCont := 1 , aux := 1 , aVA := ARRAY(50) , aVB:={}
+    local cOut := "A letra " + nLetra + " que foi informada esta presente no vetor nas posicoes "
 
     for nCont := 1 TO 50
         aVA[nCont] := CHR(hb_randomint(65,90))
 
-        if nCar == aVA[nCont]
-            Qout("O caracter",alltrim(nCar),"que foi informado esta presente no vetor",alltrim(STR(nCont)))
+        if nLetra == aVA[nCont]
+            cOut += " " + alltrim(STR(nCont))
             AADD(aVB, nCont)
-        else
-            Qout( nCont,"º = ", aVA[nCont])
         end if
     next
     Asort(aVB)
 
-    Qout("A primeira posicao da letra foi no vetor de posicao: ", alltrim(STR(aVB[1])))
-    Qout("A ultima posicao foi no vetor de posicao: ", alltrim(STR(aVB[len(aVB)])))
+    print_array(aVA)
+    QOUT( cOut)
+    //QOUT("A primeira posicao da letra foi no vetor : " + alltrim(STR(aVB[1])))
+    //QOUT("A ultima posicao foi no vetor de posicao: " + alltrim(STR(aVB[len(aVB)])))
 
 RETURN nil
