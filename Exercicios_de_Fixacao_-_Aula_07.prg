@@ -4,7 +4,7 @@ SET PROCEDURE TO Exercicios_de_Fixacao_-_Aula_07_lib.prg
 // lib para tratamento de entradas
 SET PROCEDURE TO start_lib.prg
 
-Function Main()
+Function Main() /*
 
     Exercicio01()
     Exercicio02()
@@ -25,26 +25,25 @@ Function Main()
     Exercicio17()
     Exercicio18()
 
-    /* Ordenação e pesquisa */
-    Exercicio19()
+    
+    Exercicio19() // Ordenação e pesquisa 
     Exercicio20() // refatorar 
     Exercicio21()
     Exercicio22()
-    Exercicio23() // TODO
-    Exercicio24() // DISPENSADO 
-    Exercicio25() // DISPENSADO 
+    // Exercicio23() // TODO
+    // Exercicio24() // DISPENSADO 
+    // Exercicio25() // DISPENSADO 
 
-    /* String */
-    Exercicio26()
+    Exercicio26() // String
     Exercicio27()
-    Exercicio28() // DISPENSADO  binário em decimal e um número decimal em binário.
+    // Exercicio28() // DISPENSADO  binário em decimal e um número decimal em binário.
     Exercicio29() // CPF
     Exercicio30() // - finalidade do trecho de código
-    Exercicio31() // TODO
+    // Exercicio31() // TODO
     Exercicio32()
 
-    /* Tabela */
-    Exercicio33() // mapa de troco. 
+    
+    Exercicio33() // Tabela // mapa de troco. 
     Exercicio34() //  código Morse.
     Exercicio35() 
     Exercicio36()  
@@ -52,9 +51,9 @@ Function Main()
     Exercicio38() 
     Exercicio39() // diferença entre a diagonal principal e secundária da matriz 
     Exercicio40()
-    Exercicio41() 
-    Exercicio42() // TODO
-    Exercicio43() // TODO parcial
+    Exercicio41() */
+    // Exercicio42() // TODO    
+    Exercicio43() 
     
 Return nil
 
@@ -486,14 +485,13 @@ Function Exercicio20()
     // d. Pesquisar se existe no vetor um caractere informado pelo
     // usuário e informar qual a posição da primeira ocorrência desse
     // caractere (visto que um mesmo caractere poderá se repetir).
-    local nCar:=""
+    local nLetra := ""
     QOUT("***************")
     QOUT("* Exercicio20 *")    
 
-    ACCEPT("Informe uma letra: ") to nCar
-    ncar:=upper(ncar)
+    nLetra := inp_up_chr( "Informe uma letra: " )
 
-    VetorCaracteres( nCar)
+    vetor_caracteres( nLetra )
     QOUT("***************")
     QOUT("")
     wait
@@ -1326,27 +1324,13 @@ Function Exercicio43()
 
     // h. Exibir na tela a 11ª carta do vetor de 21 posições.
 
-    local aBaralho := { "A"+chr(3) ,  "A"+chr(4) ,  "A"+chr(5) ,  "A"+chr(6) , ;
-                        "2"+chr(3) ,  "2"+chr(4) ,  "2"+chr(5) ,  "2"+chr(6) , ;
-                        "3"+chr(3) ,  "3"+chr(4) ,  "3"+chr(5) ,  "3"+chr(6) , ;
-                        "4"+chr(3) ,  "4"+chr(4) ,  "4"+chr(5) ,  "4"+chr(6) , ;
-                        "5"+chr(3) ,  "5"+chr(4) ,  "5"+chr(5) ,  "5"+chr(6) , ;
-                        "6"+chr(3) ,  "6"+chr(4) ,  "6"+chr(5) ,  "6"+chr(6) , ;
-                        "7"+chr(3) ,  "7"+chr(4) ,  "7"+chr(5) ,  "7"+chr(6) , ;
-                        "8"+chr(3) ,  "8"+chr(4) ,  "8"+chr(5) ,  "8"+chr(6) , ;
-                        "9"+chr(3) ,  "9"+chr(4) ,  "9"+chr(5) ,  "9"+chr(6) , ;
-                       "10"+chr(3) , "10"+chr(4) , "10"+chr(5) , "10"+chr(6) , ;
-                        "J"+chr(3) ,  "J"+chr(4) ,  "J"+chr(5) ,  "J"+chr(6) , ;
-                        "Q"+chr(3) ,  "Q"+chr(4) ,  "Q"+chr(5) ,  "Q"+chr(6) , ;
-                        "K"+chr(3) ,  "K"+chr(4) ,  "K"+chr(5) ,  "K"+chr(6) }
-
+    local aBaralho := E43_baralho_completo()
     local aBaralho21 := array(21)
     local cCarta , nI , nJ , nAux
     local aBaralho7X3 := {}
 
     QOUT("***************")
     QOUT("* Exercicio43 *")
-    //QOUT(chr(3)+chr(4)+chr(5)+chr(6))
 
     QOUT("A) " + allTrim(str(LEN(aBaralho))) + " cartas")
     print_array(aBaralho)
@@ -1371,7 +1355,127 @@ Function Exercicio43()
     // a primeira célula receberá a última carta do vetor 
     // a segunda a penúltima e assim sucessivamente 
 
-    aBaralho7X3 := array(7)
+    aBaralho7X3 := E43_Baralho7X3(aBaralho21)
+
+    QOUT("D) uma matriz de 7 linhas por 3 colunas")
+    QOUT("")
+    for nI := 1 to 7
+        print_array(aBaralho7X3[nI])
+    next
+    QOUT("(1)  (2)  (3) >> colunas")
+    QOUT("")
+
+
+    /* ******************************************** */
+    QOUT("E) escolha 'uma carta' e indique a coluna")
+    nAux := 0
+    while nAux < 1 .OR. nAux > 3
+        nAux := inp_num( "escolha uma coluna (1)(2)(3) " )
+    enddo
+    QOUT("...memorize a carta escolhida...")
+
+    // f. Preencher o vetor de 21 posições a partir das cartas da matriz 7 x 3 
+    // sendo que as cartas da coluna informada pelo usuário 
+    // deverão ocupar as posições de 8 a 14 do vetor 
+    // e as demais colunas as posições de 1 a 7 e 15 a 21 respectivamente.
+
+    aBaralho21 := E43_7X3_para_21(aBaralho7X3 , nAux)
+
+    QOUT("F) a coluna selecionada devera ocupar as posições de 8 a 14 do vetor ")
+    print_array(aBaralho21)
+
+    QOUT("") 
+
+    /* ******************************************** */
+    QOUT("G) Repetir os passos de 'd' a 'f' por mais 2 vezes")
+    QOUT("G) sendo que o usuario nao escolhera uma nova carta")
+    // g. Repetir os passos de “d” a “f” por mais 2 vezes sendo que o
+    // usuário não escolhera uma nova carta, apenas indicará em que
+    // coluna está a carta escolhida inicialmente.
+
+    QOUT("primeira repeticao")
+    // "d"
+    aBaralho7X3 := E43_Baralho7X3(aBaralho21)
+    QOUT("G1-D) uma matriz de 7 linhas por 3 colunas")
+    QOUT("")
+    for nI := 1 to 7
+        print_array(aBaralho7X3[nI])
+    next
+    QOUT("(1)  (2)  (3) >> colunas")
+    QOUT("")
+
+    // "e"    
+    QOUT("G1-E) indique a coluna em que se encontra a carta memorizada")
+    nAux := 0
+    while nAux < 1 .OR. nAux > 3
+        nAux := inp_num( "escolha uma coluna (1)(2)(3) " )
+    enddo
+    //QOUT("...memorize a carta escolhida...")
+
+    // "f"  
+    aBaralho21 := E43_7X3_para_21(aBaralho7X3 , nAux)
+    QOUT("G1-F) a coluna selecionada devera ocupar as posiçoes de 8 a 14 do vetor ")
+    print_array(aBaralho21)
+
+    QOUT("segunda repeticao")
+    // "d"
+    aBaralho7X3 := E43_Baralho7X3(aBaralho21)
+    QOUT("G2-D) uma matriz de 7 linhas por 3 colunas")
+    QOUT("")
+    for nI := 1 to 7
+        print_array(aBaralho7X3[nI])
+    next
+    QOUT("(1)  (2)  (3) >> colunas")
+    QOUT("")
+
+    // "e"    
+    QOUT("G2-E) indique a coluna em que se encontra a carta memorizada")
+    nAux := 0
+    while nAux < 1 .OR. nAux > 3
+        nAux := inp_num( "escolha uma coluna (1)(2)(3) " )
+    enddo
+    //QOUT("...memorize a carta escolhida...")
+
+    // "f"  
+    aBaralho21 := E43_7X3_para_21(aBaralho7X3 , nAux)
+    QOUT("G2-F) a coluna selecionada devera ocupar as posiçoes de 8 a 14 do vetor ")
+    print_array(aBaralho21)
+
+    /* ******************************************** */
+
+    QOUT("")
+    QOUT("")
+
+    QOUT("a carta escolhida foi " + aBaralho21[11])
+
+    QOUT("")
+    QOUT("***************")
+    QOUT("")
+    wait
+Return nil
+
+
+Function E43_baralho_completo()
+    local aBaralho := { "A"+chr(3) ,  "A"+chr(4) ,  "A"+chr(5) ,  "A"+chr(6) , ;
+                        "2"+chr(3) ,  "2"+chr(4) ,  "2"+chr(5) ,  "2"+chr(6) , ;
+                        "3"+chr(3) ,  "3"+chr(4) ,  "3"+chr(5) ,  "3"+chr(6) , ;
+                        "4"+chr(3) ,  "4"+chr(4) ,  "4"+chr(5) ,  "4"+chr(6) , ;
+                        "5"+chr(3) ,  "5"+chr(4) ,  "5"+chr(5) ,  "5"+chr(6) , ;
+                        "6"+chr(3) ,  "6"+chr(4) ,  "6"+chr(5) ,  "6"+chr(6) , ;
+                        "7"+chr(3) ,  "7"+chr(4) ,  "7"+chr(5) ,  "7"+chr(6) , ;
+                        "8"+chr(3) ,  "8"+chr(4) ,  "8"+chr(5) ,  "8"+chr(6) , ;
+                        "9"+chr(3) ,  "9"+chr(4) ,  "9"+chr(5) ,  "9"+chr(6) , ;
+                       "10"+chr(3) , "10"+chr(4) , "10"+chr(5) , "10"+chr(6) , ;
+                        "J"+chr(3) ,  "J"+chr(4) ,  "J"+chr(5) ,  "J"+chr(6) , ;
+                        "Q"+chr(3) ,  "Q"+chr(4) ,  "Q"+chr(5) ,  "Q"+chr(6) , ;
+                        "K"+chr(3) ,  "K"+chr(4) ,  "K"+chr(5) ,  "K"+chr(6) }
+
+return aBaralho
+
+
+Function E43_Baralho7X3(aBaralho21)
+    local nI , nJ , nAux 
+    local aBaralho7X3 := array(7)
     for nI := 1 to 7
         aBaralho7X3[nI] := array(3)
     next
@@ -1383,27 +1487,10 @@ Function Exercicio43()
             nAux--
         next
     next
+return aBaralho7X3
 
-    QOUT("D) uma matriz de 7 linhas por 3 colunas")
-    for nI := 1 to 7
-        print_array(aBaralho7X3[nI])
-    next
-    QOUT("(1)  (2)  (3) >> colunas")
-    QOUT("")
-
-
-    /* ******************************************** */
-    QOUT("E) escolha uma carta e indique a coluna")
-    nAux := 0
-    while nAux < 1 .OR. nAux > 3
-        nAux := inp_num( "escolha uma coluna (1)(2)(3) " )
-    enddo
-
-    // f. Preencher o vetor de 21 posições a partir das cartas da matriz 7 x 3 
-    // sendo que as cartas da coluna informada pelo usuário 
-    // deverão ocupar as posições de 8 a 14 do vetor 
-    // e as demais colunas as posições de 1 a 7 e 15 a 21 respectivamente.
-
+Function E43_7X3_para_21(aBaralho7X3 , nAux)
+    local nI , aBaralho21 := array(21)
     //nAux 1-7  8-14  15-21
     // 1 =  2 -  1  -  3
     // 2 =  1 -  2  -  3 ( nao muda )
@@ -1429,30 +1516,4 @@ Function Exercicio43()
         next
     endif
 
-
-    QOUT("F) a coluna selecionada devera ocupar as posições de 8 a 14 do vetor ")
-    print_array(aBaralho21)
-
-    QOUT("") 
-
-    /* ******************************************** */
-    QOUT("G) ")
-    // g. Repetir os passos de “d” a “f” por mais 2 vezes sendo que o
-    // usuário não escolhera uma nova carta, apenas indicará em que
-    // coluna está a carta escolhida inicialmente.
-
-
-    QOUT("")
-    QOUT("***************")
-    QOUT("")
-    wait
-Return nil
-
-
-
-
-
-
-
-
-
+return aBaralho21
