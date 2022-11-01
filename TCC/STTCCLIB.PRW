@@ -1,0 +1,1 @@
+// Biblioteca com as funções comuns às rotinas.
