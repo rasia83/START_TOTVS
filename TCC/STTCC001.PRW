@@ -1,10 +1,17 @@
 #include "protheus.ch"
           
-// Rotina AxCadastro da tabela ZZ1
+// Rotina AxCadastro da tabela ZZ1 
 
 
 USER FUNCTION STTCC001()
      	
-// AxCadastro()
+	dbSelectArea("ZZ1")
+	dbSetOrder(1)	 
+	 
+	AxCadastro("ZZ1", "Controle de Fornecimento", nil, nil)
+     	                                                                    
+     	
+     	
      	
 Return Nil  
+
