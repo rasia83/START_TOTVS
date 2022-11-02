@@ -15,7 +15,7 @@ USER FUNCTION STTCC003()
 	                        {"Incluir",     "AxInclui"          , 0, 3 },;
 	                        {"Alterar",     "AxAltera"          , 0, 4 },;
 	                        {"Excluir",     "AxDeleta"          , 0, 5 },;					   
-	                        {"Relatorio",	"U_STIPCLIENTE"  	, 0, 8 } }
+	                        {"Relatorio",	"U_STIZZ1"  	, 0, 8 } }
 	                    
 	
 	dbSelectArea('ZZ1')
@@ -28,7 +28,7 @@ Return Nil
                   
 
 
-User Function STIPCLIENTE()
+User Function STIZZ1()
 	
 	//旼컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴커
 	//� Define variaveis padroes para todos os relatorios...                     �
