@@ -76,7 +76,7 @@ User Function STIZZ2()
 	    @ ++nLi, nColuna PSAY "CONTROLE"
 	    @ nLi, 15 PSAY "COD. FORNEC."
 	    @ nLi, 30 PSAY "LOJA FORNEC"
-	    @ nLi, 45 PSAY "NOME FORNEC"
+	    //@ nLi, 45 PSAY "NOME FORNEC"
 	    @ nLi, 80 PSAY "DATA" 
 	    @ nLi, 90 PSAY "HORA"
 	    @ nLi, 100 PSAY "PRODUTO"
@@ -96,9 +96,9 @@ User Function STIZZ2()
 	    //@ nli, 45 PSay ZZ2->ZZ2_NOMEFO
 	    @ nLi, 80 PSAY ZZ2->ZZ2_DATA
 	    @ nLi, 90 PSAY ZZ2->ZZ2_HORA
-	    @ nLi, 100 PSAY ZZ2->ZZ2_CODPROD
-	    @ nLi, 120 PSAY ZZ2->ZZ2_QTDEOK
-	    @ nLi, 140 PSAY ZZ2->ZZ2_QTDENOK
+	    @ nLi, 100 PSAY ZZ2->ZZ2_CODPRO
+	    @ nLi, 120 PSAY ZZ2->ZZ2_QTDOK
+	    @ nLi, 140 PSAY ZZ2->ZZ2_QTDNOK
 	    @ nLi, 160 PSAY ZZ2->ZZ2_VLRUNI
 	    //@ nLi, 180 PSAY ZZ2->ZZ2_TOTOK
 	    //@ nLi, 200 PSAY ZZ2->ZZ2_TOTNOK
