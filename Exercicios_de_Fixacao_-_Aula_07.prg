@@ -4,7 +4,7 @@ SET PROCEDURE TO Exercicios_de_Fixacao_-_Aula_07_lib.prg
 // lib para tratamento de entradas
 SET PROCEDURE TO start_lib.prg
 
-Function Main() /*
+Function Main() 
 
     Exercicio01()
     Exercicio02()
@@ -26,11 +26,11 @@ Function Main() /*
     Exercicio18()
 
     
-    Exercicio19() // Ordenação e pesquisa 
-    Exercicio20() // refatorar 
+    Exercicio19() // Ordenação e pesquisa  
+    Exercicio20()  
     Exercicio21()
-    Exercicio22()
-    // Exercicio23() // TODO
+    Exercicio22()  
+    Exercicio23() // TODO
     // Exercicio24() // DISPENSADO 
     // Exercicio25() // DISPENSADO 
 
@@ -39,7 +39,7 @@ Function Main() /*
     // Exercicio28() // DISPENSADO  binário em decimal e um número decimal em binário.
     Exercicio29() // CPF
     Exercicio30() // - finalidade do trecho de código
-    // Exercicio31() // TODO
+    Exercicio31() // TODO 
     Exercicio32()
 
     
@@ -51,10 +51,10 @@ Function Main() /*
     Exercicio38() 
     Exercicio39() // diferença entre a diagonal principal e secundária da matriz 
     Exercicio40()
-    Exercicio41() */
+    Exercicio41() 
     // Exercicio42() // TODO    
     Exercicio43() 
-    
+ 
 Return nil
 
 
@@ -543,14 +543,249 @@ Function Exercicio23()
 //     i. Embaralhar o conteúdo do vetor.
 //     j. Informar os valores que se repetem e a quantidade de repetições.
 
+    local aVet := {}
+    local nOpc := 0
+    local lRun := .T.
+
     QOUT("***************")
     QOUT("* Exercicio23 *")
     QOUT("")
+
+    WHILE lRun
+
+        IF nOpc < 1 .and. nOpc > 9
+
+            QOUT("Invalido")
+
+        ELSE
+            
+            QOUT("")
+            QOUT("Opcao 1 - Carregar array")
+            QOUT("Opcao 2 - Exibir array")
+            QOUT("Opcao 3 - Ordenar crescente")
+            QOUT("Opcao 4 - Ordenar decrescente")
+            QOUT("Opcao 5 - Pesquisar valor")
+            QOUT("Opcao 6 - Somatoria dos valores")
+            QOUT("Opcao 7 - Media dos valores")
+            QOUT("Opcao 8 - Embaralhar array")
+            QOUT("Opcao 9 - Pesquisar elementos repetidos")
+            nOpc := inp_num("Digite uma opcao: ")
+            QOUT("")
+            
+        endif
+
+        IF nOpc = 1
+            QOUT("")
+            aVet := fillArray()
+
+        ELSEIF nOpc = 2
+            QOUT("")
+            print_array(aVet)
+
+        ELSEIF nOpc = 3
+            QOUT("")
+            print_array(aVet , .F. , .T. )
+            lRun := .F.
+
+        ELSEIF nOpc = 4
+            QOUT("")
+            print_array(aVet , .T. , .T. )
+            lRun := .F.
+
+        ELSEIF nOpc = 5
+            QOUT("")
+            findArray(aVet)
+            lRun := .F.
+
+        ELSEIF nOpc = 6
+            QOUT("")
+            sumArray(aVet)
+            lRun := .F.
+
+        ELSEIF nOpc = 7
+            QOUT("")
+            medArray(aVet)
+            lRun := .F.
+
+        ELSEIF nOpc = 8
+            scrambleArray(aVet)
+            lRun := .F.
+
+        ELSEIF nOpc = 9
+            QOUT("")
+            repeatArray(aVet)
+            lRun := .F.
+
+        ELSE
+            QOUT("Opcao invalida")
+
+        ENDIF
+    ENDDO
+
     QOUT("")
     QOUT("***************")
     QOUT("")
     wait
 Return nil
+
+
+static Function fillArray()
+
+    local aVet   := {}
+    local nNum   := 0
+    local nCount := 0
+
+    FOR nCount := 1 TO 8
+        nNum := inp_num("Digite um numero: ")
+        Aadd(aVet, nNum)
+    NEXT nCount
+
+Return aVet
+
+
+
+static Function findArray(aVet)
+
+    local nFind := 0
+    local nScan := 0
+
+    INPUT "Digite o numero a ser pesquisado: " TO nFind
+
+    IF EMPTY(aVet)
+        QOUT("Vazio")
+
+    ELSE
+        nScan := ASCAN(aVet, nFind)
+
+        IF nScan = 0
+            QOUT("Elemento nao encontrado")
+        
+        ELSE
+            QOUT("Elemento encontrado na posicao " + AllTrim(str(nScan)))
+
+        ENDIF
+
+    ENDIF
+
+Return NIL
+
+static Function sumArray(aVet)
+
+    local nCount := 1
+    local nSum := 0
+
+    FOR nCount := 1 TO 8
+        nSum += aVet[nCount]
+
+    NEXT nCount
+
+    QOUT("Somatoria: " + AllTrim(str(nSum)))
+
+Return NIL
+
+
+static Function medArray(aVet)
+
+    local nCount := 1
+    local nSum := 0
+
+    FOR nCount := 1 to 8
+        nSum += aVet[nCount]
+
+    NEXT nCount
+
+    nSum /= 8
+
+    QOUT("Media: " + AllTrim(str(nSum)))
+
+
+Return NIL
+
+static Function rlArray(aVet)
+
+    local nNuml, nNumr := 0
+
+    ASORT(aVet)
+
+    nNuml := aVet[1]
+    nNumr := aVet[8]
+
+    QOUT("Maior valor: " + AllTrim(str(nNumr)))
+    QOUT("Menor valor: " + AllTrim(str(nNuml)))
+
+Return NIL
+
+Function scrambleArray(aVet)
+
+    local aAux  := {}
+    local nAux  := 0
+    local nAux2 := 0
+
+
+    WHILE LEN(aAux) != LEN(aVet)
+
+        nAux := HB_RandomInt(LEN(aVet))
+
+        nAux2 := ASCAN(aAux, aVet[nAux]) 
+
+        IF nAux2 = 0 
+
+            AADD(aAux, aVet[nAux])
+
+        ENDIF
+
+    ENDDO
+    
+    QOUT(hb_ValToExp(aAux))
+    QOUT("")
+
+Return NIL
+
+
+static Function repeatArray(aVet)
+
+    local nCount    := 0
+    local nRep      := 0
+    local nI        := 0
+    local nII       := 0
+    local nComp     := 0
+    local nRun      := 1
+    local nCheck    := 1
+
+    FOR nCount := 1 TO 8
+
+        nRep := aVet[nCount]
+        nI := 0
+        nCheck := 0
+
+        WHILE nCheck <= 8
+
+            nComp := ASCAN(aVet, nRep, nRun)
+
+            IF nComp <> 0
+                nI++
+                nRun := nComp + 1
+
+            ENDIF
+            nCheck++
+
+        ENDDO
+
+        IF nI > 1
+            QOUT("Elemento " + AllTrim(str(nRep)) + " se repete " + AllTrim(str(nI)) + " vezes.")
+            nII++
+
+        ENDIF
+    
+    NEXT nCount
+    
+    IF nII = 0
+        QOUT("Nenhum elemento se repete")
+
+    ENDIF
+       
+Return NIL
+
 
 
 Function Exercicio24()
@@ -1491,6 +1726,7 @@ return aBaralho7X3
 
 Function E43_7X3_para_21(aBaralho7X3 , nAux)
     local nI , aBaralho21 := array(21)
+
     //nAux 1-7  8-14  15-21
     // 1 =  2 -  1  -  3
     // 2 =  1 -  2  -  3 ( nao muda )
