@@ -32,8 +32,8 @@ Function Main()
     WAIT
     Exercicio61()
     WAIT
-    Exercicio62() 
-    WAIT
+    // Exercicio62() 
+    // WAIT
     Exercicio63()
     WAIT
     Exercicio64()
