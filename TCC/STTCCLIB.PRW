@@ -5,11 +5,12 @@
 
 
 /* ************************************************************************************ */
-// n) Criar uma rotina para exportar um arquivo TXT com o cabeçalho e todas as colunas para tabela ZZ1;
+// n) Criar uma rotina para exportar um arquivo TXT com o cabeçalho e todas as colunas para tabela ZZ1
 User Function TXTZZ1()
     local nHandle
-    local cFile := 'STTCC-ZZ1.txt'
     local cNomeFor  := ""
+    local cFile := 'D:\START_TOTVS\TCC\'
+    cFile += 'STTCC-ZZ1.txt'
 
     dbselectarea("ZZ1")
     ZZ1->(dbGOTOP())
@@ -56,8 +57,9 @@ Return Nil
                                                     
 User Function CSVZZ1()
     local nHandle
-    local cFile := 'STTCC-ZZ1.CSV'
     local cNomeFor  := ""
+    local cFile := 'D:\START_TOTVS\TCC\'
+    cFile += 'STTCC-ZZ1.CSV'
 
     dbselectarea("ZZ1")
     ZZ1->(dbGOTOP())
@@ -98,11 +100,12 @@ Return Nil
 
 
 /* ************************************************************************************ */
-// o) Criar uma rotina para exportar um arquivo TXT com o cabeçalho e todas as colunas para tabela ZZ2;
+// o) Criar uma rotina para exportar um arquivo TXT com o cabeçalho e todas as colunas para tabela ZZ2
 User Function TXTZZ2()
     local nHandle
-    local cFile := 'STTCC-ZZ2.txt'
     local cNomeFor  := ""
+    local cFile := 'D:\START_TOTVS\TCC\'
+    cFile += 'STTCC-ZZ2.txt'
 
     dbselectarea("ZZ2")
     ZZ2->(dbGOTOP())
@@ -155,8 +158,9 @@ Return Nil
                                                              
 User Function CSVZZ2()
     local nHandle
-    local cFile := 'STTCC-ZZ2.CSV'
     local cNomeFor  := ""
+    local cFile := 'D:\START_TOTVS\TCC\'
+    cFile += 'STTCC-ZZ2.CSV'
 
     dbselectarea("ZZ2")
     ZZ2->(dbGOTOP())
@@ -196,6 +200,7 @@ User Function CSVZZ2()
     FClose(nHandle)
     ALERT("Arquivo gerado com sucesso")
     
-Return Nil       
+Return Nil     
 
+/* ************************************************************************************ */
 

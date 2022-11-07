@@ -1,7 +1,6 @@
 #include "protheus.ch"
           
-// Rotina AxCadastro da tabela ZZ2 
-
+// b) Rotina AxCadastro da tabela ZZ2 
 
 USER FUNCTION STTCC002()
      	
